@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -9,18 +10,24 @@ import { workAreas } from "@/data/workAreas";
 export default function Home() {
   return (
     <>
-      <section className="bg-gradient-to-br from-tufts-blue via-[#2c6bb0] to-tufts-brown">
-        <div className="mx-auto max-w-6xl px-6 py-28 text-center sm:py-36">
-          <p className="text-sm font-semibold tracking-wide text-white/80">
-            Tufts University
-          </p>
-          <h1 className="font-heading mx-auto mt-3 max-w-3xl text-4xl font-extrabold text-white sm:text-6xl">
-            Tufts <span className="italic font-medium">Venture</span> Partners
+      <section className="relative overflow-hidden bg-tufts-blue">
+        <Image
+          src="/images/jumbo_banner.jpg"
+          alt=""
+          fill
+          priority
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-tufts-blue/85 via-[#2c6bb0]/75 to-tufts-brown/85" />
+        <div className="relative z-10 mx-auto max-w-6xl px-6 py-28 text-center sm:py-36">
+          <h1
+            className="mx-auto mt-3 max-w-3xl text-4xl font-black text-white sm:text-6xl"
+            style={{ fontFamily: "var(--font-archivo)" }}
+          >
+            Tufts Venture Partners
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-lg text-white/90">
-            {site.tagline} We train students in real venture capital work —
-            deal sourcing, diligence, and market research — while building a
-            community around startups and investing.
+            Tufts Venture Partners (TVP) is the first and only student-run organization that offers venture capital firms deal sourcing, diligence, and market research from student analysts.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Button
