@@ -18,10 +18,7 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-gradient-to-br from-tufts-blue/85 via-[#2c6bb0]/75 to-tufts-brown/85" />
         <div className="relative z-10 mx-auto max-w-6xl px-6 py-28 text-center sm:py-36">
-          <h1
-            className="mx-auto mt-3 max-w-3xl text-4xl font-black text-white sm:text-6xl"
-            style={{ fontFamily: "var(--font-archivo)" }}
-          >
+          <h1 className="font-heading mx-auto mt-3 max-w-3xl text-4xl font-black text-white sm:text-6xl">
             Tufts Venture Partners
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-lg text-white/90">
