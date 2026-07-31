@@ -1,66 +1,52 @@
 export type BoardMember = {
   name: string;
   role: string;
-  group: "Executive Board" | "Directors" | "Senior Analysts";
-  bio?: string;
+  group: "Executive Board";
   image?: string;
 };
 
 export const boardMembers: BoardMember[] = [
   {
-    name: "Jane Doe",
-    role: "President",
+    name: "Matt Kuo",
+    role: "President & VP of Academy",
     group: "Executive Board",
-    bio: "Senior studying Economics and Computer Science.",
+    image: "/images/matt_kuo.jpg",
   },
   {
-    name: "John Smith",
-    role: "Vice President",
+    name: "Cooper Kolehmainen",
+    role: "Senior VP of Investment Strategy",
     group: "Executive Board",
-    bio: "Senior studying International Relations and Finance.",
+    image: "/images/cooper_kolehmainen.jpeg",
   },
   {
-    name: "Alex Chen",
-    role: "Head of Diligence",
+    name: "Alex",
+    role: "Senior VP of Investment Strategy",
     group: "Executive Board",
-    bio: "Junior studying Economics.",
   },
   {
-    name: "Priya Patel",
-    role: "Head of Deal Sourcing",
+    name: "Josh Espinoza",
+    role: "VP of Client Relations",
     group: "Executive Board",
-    bio: "Junior studying Computer Science.",
+    image: "/images/josh_espinoza_cropped.jpeg",
   },
   {
-    name: "Sam Rivera",
-    role: "Head of Marketing & Events",
+    name: "Sofia Alvazzi",
+    role: "VP of Client Relations",
     group: "Executive Board",
-    bio: "Sophomore studying Entrepreneurship.",
+    image: "/images/sofia_alvazzi.jpg",
   },
   {
-    name: "Morgan Lee",
-    role: "Treasurer",
+    name: "Riley Schmidt",
+    role: "VP of Marketing",
     group: "Executive Board",
-    bio: "Junior studying Quantitative Economics.",
+    image: "/images/riley_schmidt.JPG",
   },
   {
-    name: "Taylor Kim",
-    role: "Director, Diligence",
-    group: "Directors",
-  },
-  {
-    name: "Jordan Park",
-    role: "Director, Deal Sourcing",
-    group: "Directors",
-  },
-  {
-    name: "Casey Nguyen",
-    role: "Director, Market Research",
-    group: "Directors",
+    name: "Michael Williamson",
+    role: "VP of Operations",
+    group: "Executive Board",
+    image: "/images/michael_williamson.jpg",
   },
 ];
 
-export const boardGroups: BoardMember["group"][] = [
-  "Executive Board",
-  "Directors",
-];
+export const boardGroups: BoardMember["group"][] = ["Executive Board"];

@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Card, CardContent } from "@/components/ui/card";
+import Image from "next/image";
 import { ImagePlaceholder } from "@/components/sections/image-placeholder";
 import { boardGroups, boardMembers } from "@/data/team";
 
 export const metadata: Metadata = {
-  title: "About & Team",
+  title: "About",
   description:
     "Meet the board and analysts behind Tufts Venture Partners.",
 };
@@ -12,63 +12,58 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <section className="border-b border-border/60 bg-secondary/40">
-        <div className="mx-auto max-w-6xl px-6 py-20">
+      <section className="mx-auto max-w-6xl px-6 py-16">
+        <div className="flex items-center gap-4">
+          <span className="h-px w-10 bg-tufts-blue" />
           <h1 className="font-heading text-4xl font-extrabold tracking-tight sm:text-5xl">
-            About & Team
+            Our Team
           </h1>
-          <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-            The students behind Tufts Venture Partners — and the analyst
-            class that keeps our deal work running.
-          </p>
         </div>
-      </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <h2 className="text-sm font-semibold uppercase tracking-wide text-tufts-blue">
-          Board Structure
-        </h2>
-
-        {boardGroups.map((group, groupIndex) => (
-          <div key={group} className="mt-10 first:mt-6">
-            <h3 className="font-heading text-xl font-bold">{group}</h3>
-            <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {boardGroups.map((group) => (
+          <div key={group} className="mt-10">
+            <h3 className="font-heading text-2xl font-bold text-foreground">
+              {group}
+            </h3>
+            <div className="mt-6 grid gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-4">
               {boardMembers
                 .filter((m) => m.group === group)
-                .map((member) => (
-                  <Card key={member.name}>
-                    <CardContent className="flex items-start gap-4">
-                      <div
-                        className={
-                          "flex size-12 shrink-0 items-center justify-center rounded-full text-sm font-semibold text-white " +
-                          (groupIndex % 2 === 0 ? "bg-tufts-blue" : "bg-tufts-brown")
-                        }
-                      >
-                        {member.name
-                          .split(" ")
-                          .map((n) => n[0])
-                          .join("")}
-                      </div>
-                      <div>
-                        <p className="font-heading font-semibold leading-tight">
-                          {member.name}
-                        </p>
-                        <p
+                .map((member, i) => (
+                  <div
+                    key={member.name}
+                    className="animate-in fade-in-0 slide-in-from-bottom-4 fill-mode-both duration-700"
+                    style={{ animationDelay: `${i * 90}ms` }}
+                  >
+                    <div className="relative aspect-[4/5] w-full overflow-hidden bg-secondary">
+                      {member.image ? (
+                        <Image
+                          src={member.image}
+                          alt={member.name}
+                          fill
+                          sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
+                          className="object-cover object-[50%_20%]"
+                        />
+                      ) : (
+                        <div
                           className={
-                            "text-sm " +
-                            (groupIndex % 2 === 0 ? "text-tufts-blue" : "text-tufts-brown")
+                            "flex size-full items-center justify-center text-2xl font-semibold text-white " +
+                            (i % 2 === 0 ? "bg-tufts-blue" : "bg-tufts-brown")
                           }
                         >
-                          {member.role}
-                        </p>
-                        {member.bio && (
-                          <p className="mt-2 text-sm text-muted-foreground">
-                            {member.bio}
-                          </p>
-                        )}
-                      </div>
-                    </CardContent>
-                  </Card>
+                          {member.name
+                            .split(" ")
+                            .map((n) => n[0])
+                            .join("")}
+                        </div>
+                      )}
+                    </div>
+                    <p className="mt-3 font-heading font-bold leading-tight">
+                      {member.name}
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      {member.role}
+                    </p>
+                  </div>
                 ))}
             </div>
           </div>
@@ -77,13 +72,9 @@ export default function AboutPage() {
 
       <section className="border-t border-border/60 bg-secondary/40">
         <div className="mx-auto max-w-6xl px-6 py-20">
-          <h2 className="text-sm font-semibold uppercase tracking-wide text-tufts-brown">
-            Analyst Class
+          <h2 className="font-heading text-center text-3xl font-extrabold tracking-tight sm:text-4xl">
+            Fall 2026 Analyst Class
           </h2>
-          <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-            Every semester&apos;s incoming analyst class trains together in
-            diligence, sourcing, and market research.
-          </p>
           <ImagePlaceholder
             label="Add analyst class photo at /public/images/analyst-class.jpg"
             className="mt-8 aspect-video w-full"
