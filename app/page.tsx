@@ -2,8 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { DividerQuote } from "@/components/sections/divider-quote";
-import { StatPhoto } from "@/components/sections/stat-photo";
 import { site } from "@/data/site";
 import { workAreas } from "@/data/workAreas";
 
@@ -34,36 +32,38 @@ export default function Home() {
               size="lg"
               className="bg-white text-tufts-blue hover:bg-white/90"
               nativeButton={false}
-              render={<Link href="/apply" />}
-            >
-              Apply to Join <ArrowRight className="size-4" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-white/60 bg-transparent text-white hover:bg-white/10 hover:text-white"
-              nativeButton={false}
               render={<Link href="/partner" />}
             >
-              Partner With Us
+              Work With Us <ArrowRight className="size-4" />
             </Button>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <StatPhoto />
-      </section>
-
-      <section className="bg-secondary/40 py-20">
-        <div className="mx-auto max-w-6xl px-6">
-          <DividerQuote accent="brown">{site.whoWeAre}</DividerQuote>
-        </div>
-      </section>
-
       <section className="py-20">
-        <div className="mx-auto max-w-6xl px-6">
-          <DividerQuote accent="blue">{site.mission}</DividerQuote>
+        <div className="mx-auto max-w-4xl divide-y divide-border px-6">
+          <div className="grid gap-4 py-10 first:pt-0 last:pb-0 sm:grid-cols-[160px_1fr] sm:gap-10">
+            <div className="flex items-center gap-3 sm:block">
+              <span className="h-px w-8 shrink-0 bg-tufts-blue sm:mb-3 sm:block sm:w-10" />
+              <h2 className="text-sm font-semibold uppercase tracking-wide text-tufts-blue">
+                Who We Are
+              </h2>
+            </div>
+            <p className="text-lg leading-relaxed text-foreground">
+              {site.whoWeAre}
+            </p>
+          </div>
+          <div className="grid gap-4 py-10 first:pt-0 last:pb-0 sm:grid-cols-[160px_1fr] sm:gap-10">
+            <div className="flex items-center gap-3 sm:block">
+              <span className="h-px w-8 shrink-0 bg-tufts-brown sm:mb-3 sm:block sm:w-10" />
+              <h2 className="text-sm font-semibold uppercase tracking-wide text-tufts-brown">
+                Mission
+              </h2>
+            </div>
+            <p className="text-lg leading-relaxed text-foreground">
+              {site.mission}
+            </p>
+          </div>
         </div>
       </section>
 
