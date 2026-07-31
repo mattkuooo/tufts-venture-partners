@@ -1,15 +1,20 @@
+import Image from "next/image";
 import Link from "next/link";
 import { navLinks, site } from "@/data/site";
 
 export function Footer() {
   return (
-    <footer className="bg-neutral-900 text-neutral-300">
+    <footer className="bg-tufts-blue text-white/85">
       <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <p className="font-heading font-bold tracking-tight text-white">
-            {site.name}
-          </p>
-          <p className="mt-1 max-w-sm text-sm text-neutral-400">
+          <Image
+            src="/images/tvp_logo_with_text_resized_transparentBG.png"
+            alt={site.name}
+            width={318}
+            height={102}
+            className="h-9 w-auto brightness-0 invert"
+          />
+          <p className="mt-2 max-w-sm text-sm text-white/60">
             {site.tagline}
           </p>
         </div>
@@ -19,7 +24,7 @@ export function Footer() {
             <Link
               key={link.href}
               href={link.href}
-              className="underline decoration-neutral-600 underline-offset-4 transition-colors hover:text-white hover:decoration-tufts-blue"
+              className="underline decoration-white/30 underline-offset-4 transition-colors hover:text-white hover:decoration-tufts-brown"
             >
               {link.label}
             </Link>
@@ -34,7 +39,7 @@ export function Footer() {
             href={site.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="underline decoration-neutral-600 underline-offset-4 hover:text-white hover:decoration-tufts-blue"
+            className="underline decoration-white/30 underline-offset-4 hover:text-white hover:decoration-tufts-brown"
           >
             LinkedIn
           </a>
@@ -42,14 +47,14 @@ export function Footer() {
             href={site.instagram}
             target="_blank"
             rel="noopener noreferrer"
-            className="underline decoration-neutral-600 underline-offset-4 hover:text-white hover:decoration-tufts-blue"
+            className="underline decoration-white/30 underline-offset-4 hover:text-white hover:decoration-tufts-brown"
           >
             Instagram
           </a>
         </div>
       </div>
 
-      <div className="border-t border-neutral-800 px-6 py-4 text-center text-xs text-neutral-500">
+      <div className="border-t border-white/10 px-6 py-4 text-center text-xs text-white/50">
         © {new Date().getFullYear()} {site.name}. Not an SEC-registered
         investment adviser.
       </div>
