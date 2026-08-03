@@ -7,9 +7,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: "Aptos", var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-montserrat);
+  --font-heading: "Aptos", var(--font-montserrat);
   --color-tufts-blue: var(--tufts-blue);
   --color-tufts-brown: var(--tufts-brown);
   --color-tufts-jumbo-blue: var(--tufts-jumbo-blue);
