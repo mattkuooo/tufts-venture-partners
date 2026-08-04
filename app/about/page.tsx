@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { ImagePlaceholder } from "@/components/sections/image-placeholder";
 import { boardGroups, boardMembers } from "@/data/team";
 
@@ -20,54 +21,65 @@ export default function AboutPage() {
           </h1>
         </div>
 
-        {boardGroups.map((group) => (
-          <div key={group} className="mt-10">
-            <h3 className="font-heading text-2xl font-bold text-foreground">
-              {group}
-            </h3>
-            <div className="mt-6 grid gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-4">
-              {boardMembers
-                .filter((m) => m.group === group)
-                .map((member, i) => (
-                  <div
-                    key={member.name}
-                    className="animate-in fade-in-0 slide-in-from-bottom-4 fill-mode-both duration-700"
-                    style={{ animationDelay: `${i * 90}ms` }}
-                  >
-                    <div className="relative aspect-[4/5] w-full overflow-hidden bg-secondary">
-                      {member.image ? (
-                        <Image
-                          src={member.image}
-                          alt={member.name}
-                          fill
-                          sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
-                          className="object-cover object-[50%_20%]"
-                        />
-                      ) : (
-                        <div
-                          className={
-                            "flex size-full items-center justify-center text-2xl font-semibold text-white " +
-                            (i % 2 === 0 ? "bg-tufts-blue" : "bg-tufts-brown")
-                          }
-                        >
-                          {member.name
-                            .split(" ")
-                            .map((n) => n[0])
-                            .join("")}
-                        </div>
-                      )}
-                    </div>
-                    <p className="mt-3 font-heading font-bold leading-tight">
-                      {member.name}
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      {member.role}
-                    </p>
-                  </div>
-                ))}
+        {boardGroups.map((group) => {
+          const members = boardMembers.filter((m) => m.group === group);
+          return (
+            <div key={group} className="mt-10">
+              <h3 className="font-heading text-2xl font-bold text-foreground">
+                {group}
+              </h3>
+              {members.length === 0 ? (
+                <div className="mt-6 rounded-lg border border-dashed border-border p-8 text-center text-sm text-muted-foreground">
+                  Add {group.toLowerCase()} members in data/team.ts
+                </div>
+              ) : (
+                <div className="mt-6 grid gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-4">
+                  {members.map((member, i) => (
+                    <Link
+                      key={member.name}
+                      href={member.href ?? "#"}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="animate-in fade-in-0 slide-in-from-bottom-4 fill-mode-both block duration-700"
+                      style={{ animationDelay: `${i * 90}ms` }}
+                    >
+                      <div className="relative aspect-[4/5] w-full overflow-hidden bg-secondary">
+                        {member.image ? (
+                          <Image
+                            src={member.image}
+                            alt={member.name}
+                            fill
+                            sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
+                            className="object-cover"
+                            style={{ objectPosition: member.imagePosition ?? "50% 20%" }}
+                          />
+                        ) : (
+                          <div
+                            className={
+                              "flex size-full items-center justify-center text-2xl font-semibold text-white " +
+                              (i % 2 === 0 ? "bg-tufts-blue" : "bg-tufts-brown")
+                            }
+                          >
+                            {member.name
+                              .split(" ")
+                              .map((n) => n[0])
+                              .join("")}
+                          </div>
+                        )}
+                      </div>
+                      <p className="mt-3 font-heading font-bold leading-tight hover:underline">
+                        {member.name}
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        {member.role}
+                      </p>
+                    </Link>
+                  ))}
+                </div>
+              )}
             </div>
-          </div>
-        ))}
+          );
+        })}
       </section>
 
       <section className="border-t border-border/60 bg-secondary/40">

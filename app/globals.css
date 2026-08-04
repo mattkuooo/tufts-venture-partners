@@ -52,7 +52,7 @@
 }
 
 :root {
-  --tufts-blue: #3e8ede;
+  --tufts-blue: #002e6d;
   --tufts-brown: #63493a;
   --tufts-jumbo-blue: #002e6d;
   --background: oklch(1 0 0);
@@ -90,7 +90,7 @@
 }
 
 .dark {
-  --tufts-blue: #6facea;
+  --tufts-blue: #5c8ad9;
   --tufts-brown: #a9826a;
   --tufts-jumbo-blue: #002e6d;
   --background: #191410;
