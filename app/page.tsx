@@ -8,7 +8,7 @@ import { workAreas } from "@/data/workAreas";
 export default function Home() {
   return (
     <>
-      <section className="relative overflow-hidden bg-tufts-blue">
+      <section className="relative flex min-h-[calc(100vh-4rem)] items-center overflow-hidden bg-tufts-blue">
         <Image
           src="/images/jumbo_banner.jpg"
           alt=""
@@ -17,7 +17,7 @@ export default function Home() {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-tufts-blue/85 via-[#2c6bb0]/75 to-tufts-brown/85" />
-        <div className="relative z-10 mx-auto max-w-6xl px-6 py-28 text-center sm:py-36">
+        <div className="relative z-10 mx-auto w-full max-w-6xl px-6 py-20 text-center">
           <h1 className="font-heading mx-auto mt-3 max-w-3xl text-4xl font-black text-white sm:text-6xl">
             Tufts Venture Partners
           </h1>

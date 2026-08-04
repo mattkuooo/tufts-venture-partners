@@ -18,12 +18,12 @@ export function Nav() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
         <Link href="/" onClick={() => setOpen(false)}>
           <Image
-            src="/images/tvp_logo_with_text_resized_transparentBG.png"
+            src="/images/tvp_logo_text_resized_transparentBG.png"
             alt={site.name}
-            width={318}
-            height={102}
+            width={866}
+            height={288}
             priority
-            className="h-10 w-auto"
+            className="h-14 w-auto"
           />
         </Link>
 

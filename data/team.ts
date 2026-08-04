@@ -8,7 +8,7 @@ export type BoardMember = {
 export const boardMembers: BoardMember[] = [
   {
     name: "Matt Kuo",
-    role: "President & VP of Academy",
+    role: "President",
     group: "Executive Board",
     image: "/images/matt_kuo.jpg",
   },
@@ -19,9 +19,10 @@ export const boardMembers: BoardMember[] = [
     image: "/images/cooper_kolehmainen.jpeg",
   },
   {
-    name: "Alex",
+    name: "Alex Robbins",
     role: "Senior VP of Investment Strategy",
     group: "Executive Board",
+    image: "/images/alex_robbins.png",
   },
   {
     name: "Josh Espinoza",
@@ -43,9 +44,21 @@ export const boardMembers: BoardMember[] = [
   },
   {
     name: "Michael Williamson",
-    role: "VP of Operations",
+    role: "VP of Recruitment",
     group: "Executive Board",
     image: "/images/michael_williamson.jpg",
+  },
+  {
+    name: "Harry Lynch",
+    role: "VP of Academy",
+    group: "Executive Board",
+    image: "/images/harry_lynch.jpg",
+  },
+  {
+    name: "Catie Samaan",
+    role: "VP of Operations",
+    group: "Executive Board",
+    image: "/images/catie_samaan.png",
   },
 ];
 

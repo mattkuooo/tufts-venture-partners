@@ -8,11 +8,11 @@ export function Footer() {
       <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <Image
-            src="/images/tvp_logo_with_text_resized_transparentBG.png"
+            src="/images/tvp_logo_text_resized_transparentBG.png"
             alt={site.name}
-            width={318}
-            height={102}
-            className="h-9 w-auto brightness-0 invert"
+            width={866}
+            height={288}
+            className="h-12 w-auto brightness-0 invert"
           />
           <p className="mt-2 max-w-sm text-sm text-white/60">
             {site.tagline}
