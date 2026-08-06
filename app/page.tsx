@@ -67,7 +67,7 @@ export default function Home() {
       <section className="bg-secondary/40 py-20">
         <div className="mx-auto max-w-6xl px-6">
           <div className="flex items-end justify-between gap-4">
-            <h2 className="font-heading text-2xl font-bold tracking-tight">
+            <h2 className="font-heading text-2xl font-bold text-foreground">
               What We Do
             </h2>
             <Link

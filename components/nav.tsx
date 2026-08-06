@@ -5,7 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { navLinks, site } from "@/data/site";
 import { cn } from "@/lib/utils";
 
@@ -43,9 +42,6 @@ export function Nav() {
               </Link>
             );
           })}
-          <Button size="sm" nativeButton={false} render={<Link href="/apply" />}>
-            Apply
-          </Button>
         </nav>
 
         <button

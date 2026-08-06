@@ -84,7 +84,7 @@ export default function AboutPage() {
 
       <section className="border-t border-border/60 bg-secondary/40">
         <div className="mx-auto max-w-6xl px-6 py-20">
-          <h2 className="font-heading text-center text-3xl font-extrabold tracking-tight sm:text-4xl">
+          <h2 className="font-heading text-center text-2xl font-bold text-foreground">
             Fall 2026 Analyst Class
           </h2>
           <ImagePlaceholder
