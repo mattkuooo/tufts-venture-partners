@@ -31,6 +31,20 @@ export const boardMembers: BoardMember[] = [
     href: "https://www.linkedin.com/in/alexander-h-robbins/",
   },
   {
+    name: "Harry Lynch",
+    role: "VP of Academy",
+    group: "Executive Board",
+    image: "/images/harry_lynch.png",
+    href: "https://www.linkedin.com/in/harry-lynch/",
+  },
+  {
+    name: "Catie Samaan",
+    role: "VP of Operations",
+    group: "Executive Board",
+    image: "/images/catie_samaan.png",
+    href: "https://www.linkedin.com/in/catherine-samaan-07264b221/",
+  },
+  {
     name: "Josh Espinoza",
     role: "VP of Client Relations",
     group: "Executive Board",
@@ -57,20 +71,6 @@ export const boardMembers: BoardMember[] = [
     group: "Executive Board",
     image: "/images/michael_williamson.jpg",
     href: "https://www.linkedin.com/in/michael-williamson-473267321/",
-  },
-  {
-    name: "Harry Lynch",
-    role: "VP of Academy",
-    group: "Executive Board",
-    image: "/images/harry_lynch.jpg",
-    href: "https://www.linkedin.com/in/harry-lynch/",
-  },
-  {
-    name: "Catie Samaan",
-    role: "VP of Operations",
-    group: "Executive Board",
-    image: "/images/catie_samaan.png",
-    href: "https://www.linkedin.com/in/catherine-samaan-07264b221/",
   },
 ];
 
