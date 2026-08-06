@@ -34,7 +34,7 @@ export function Nav() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "border-b-2 border-transparent pb-0.5 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground",
+                  "border-b-2 border-transparent pb-0.5 text-sm font-medium text-muted-foreground transition-colors hover:border-tufts-blue hover:text-foreground",
                   isActive && "border-tufts-blue text-foreground"
                 )}
               >

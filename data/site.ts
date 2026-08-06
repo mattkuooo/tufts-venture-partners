@@ -9,6 +9,7 @@ export const site = {
   email: "matt@tuftsventurepartners.org",
   linkedin: "https://www.linkedin.com/company/tufts-venture-partners",
   instagram: "https://www.instagram.com/tuftsventurepartners",
+  elist: "#",
 } as const;
 
 export const navLinks = [
