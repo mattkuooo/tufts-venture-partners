@@ -13,7 +13,7 @@ export function Nav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/90 backdrop-blur supports-backdrop-filter:bg-background/60">
+    <header className="relative z-50 border-b border-border/60 bg-background">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
         <Link href="/" onClick={() => setOpen(false)}>
           <Image
