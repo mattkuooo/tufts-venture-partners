@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ImagePlaceholder } from "@/components/sections/image-placeholder";
 import { boardGroups, boardMembers } from "@/data/team";
 
 export const metadata: Metadata = {
@@ -85,12 +84,16 @@ export default function AboutPage() {
       <section className="border-t border-border/60 bg-secondary/40">
         <div className="mx-auto max-w-6xl px-6 py-20">
           <h2 className="font-heading text-center text-2xl font-bold text-foreground">
-            Fall 2026 Analyst Class
+            Spring 2027 Analyst Class
           </h2>
-          <ImagePlaceholder
-            label="Add analyst class photo at /public/images/analyst-class.jpg"
-            className="mt-8 aspect-video w-full"
-          />
+          <div className="relative mx-auto mt-8 flex aspect-video w-full max-w-3xl items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-tufts-blue via-[#2c6bb0] to-tufts-brown">
+            <div className="text-center">
+              <p className="font-heading text-4xl font-black tracking-tight text-white sm:text-6xl">
+                Coming Soon
+              </p>
+              <span className="mx-auto mt-5 block h-px w-12 bg-white/50" />
+            </div>
+          </div>
         </div>
       </section>
     </>
