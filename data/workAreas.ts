@@ -18,6 +18,7 @@ export const workAreas: WorkArea[] = [
       "Financial and cap table review",
       "Investment memo writing and presentation",
     ],
+    image: "/images/diligence.png",
   },
   {
     title: "Deal Sourcing",
@@ -29,6 +30,7 @@ export const workAreas: WorkArea[] = [
       "Pipeline tracking and screening",
       "Warm introductions from our investor network",
     ],
+    image: "/images/deal-sourcing.png",
   },
   {
     title: "Market Research",
@@ -39,5 +41,6 @@ export const workAreas: WorkArea[] = [
       "Thesis development for priority spaces",
       "Internal knowledge base for the analyst class",
     ],
+    image: "/images/market-research.png",
   },
 ];

@@ -81,7 +81,7 @@ export default function WorkPage() {
                   </ul>
 
                   {area.image ? (
-                    <div className="relative mt-8 aspect-[16/9] w-full overflow-hidden rounded-lg bg-secondary">
+                    <div className="relative mt-8 aspect-[16/9] w-full overflow-hidden bg-secondary">
                       <Image
                         src={area.image}
                         alt={area.title}
