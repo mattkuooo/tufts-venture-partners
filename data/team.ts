@@ -19,7 +19,7 @@ export const boardMembers: BoardMember[] = [
     name: "Cooper Kolehmainen",
     role: "Senior VP of Investment Strategy",
     group: "Executive Board",
-    image: "/images/cooper_kolehmainen_headshot.jpg",
+    image: "/images/cooper_kolehmainen_portrait.jpg",
     imagePosition: "50% 50%",
     href: "https://www.linkedin.com/in/cooper-kolehmainen/",
   },
@@ -41,7 +41,8 @@ export const boardMembers: BoardMember[] = [
     name: "Catie Samaan",
     role: "VP of Operations",
     group: "Executive Board",
-    image: "/images/catie_samaan.png",
+    image: "/images/catie_samaan_portrait.jpg",
+    imagePosition: "50% 50%",
     href: "https://www.linkedin.com/in/catherine-samaan-07264b221/",
   },
   {
@@ -69,7 +70,8 @@ export const boardMembers: BoardMember[] = [
     name: "Michael Williamson",
     role: "VP of Recruitment",
     group: "Executive Board",
-    image: "/images/michael_williamson.jpg",
+    image: "/images/michael_williamson_portrait.jpg",
+    imagePosition: "50% 50%",
     href: "https://www.linkedin.com/in/michael-williamson-473267321/",
   },
   {
