@@ -16,6 +16,14 @@ export const boardMembers: BoardMember[] = [
     href: "https://www.linkedin.com/in/mattmkuo/",
   },
   {
+    name: "Catherine Samaan",
+    role: "Senior VP of Operations",
+    group: "Executive Board",
+    image: "/images/catie_samaan_portrait.jpg",
+    imagePosition: "50% 50%",
+    href: "https://www.linkedin.com/in/catherine-samaan-07264b221/",
+  },
+  {
     name: "Cooper Kolehmainen",
     role: "Senior VP of Investment Strategy",
     group: "Executive Board",
@@ -38,12 +46,11 @@ export const boardMembers: BoardMember[] = [
     href: "https://www.linkedin.com/in/harry-lynch/",
   },
   {
-    name: "Catie Samaan",
-    role: "VP of Operations",
+    name: "Sofia Alvazzi",
+    role: "VP of Client Relations",
     group: "Executive Board",
-    image: "/images/catie_samaan_portrait.jpg",
-    imagePosition: "50% 50%",
-    href: "https://www.linkedin.com/in/catherine-samaan-07264b221/",
+    image: "/images/sofia_alvazzi.jpg",
+    href: "https://www.linkedin.com/in/sofia-alvazzi/",
   },
   {
     name: "Josh Espinoza",
@@ -51,13 +58,6 @@ export const boardMembers: BoardMember[] = [
     group: "Executive Board",
     image: "/images/josh_espinoza_cropped.jpeg",
     href: "https://www.linkedin.com/in/joshespinozahernandez/",
-  },
-  {
-    name: "Sofia Alvazzi",
-    role: "VP of Client Relations",
-    group: "Executive Board",
-    image: "/images/sofia_alvazzi.jpg",
-    href: "https://www.linkedin.com/in/sofia-alvazzi/",
   },
   {
     name: "Riley Schmidt",
