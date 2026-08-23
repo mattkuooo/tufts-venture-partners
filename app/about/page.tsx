@@ -133,12 +133,15 @@ export default function AboutPage() {
       <section className="border-t border-border/60 bg-secondary/40">
         <div className="mx-auto max-w-6xl px-6 py-20">
           <h2 className="font-heading text-center text-2xl font-bold text-foreground">
-            Fall 2026 Analyst Class
+            Spring 2027 Analyst Class
           </h2>
-          <div className="mt-8 flex w-full items-center justify-center rounded-lg border border-dashed border-border bg-background/60 px-6 py-20">
-            <p className="font-heading text-lg font-semibold tracking-wide text-muted-foreground">
-              Coming Soon
-            </p>
+          <div className="relative mx-auto mt-8 flex aspect-video w-full max-w-3xl items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-tufts-blue via-[#2c6bb0] to-tufts-brown">
+            <div className="text-center">
+              <p className="font-heading text-4xl font-black tracking-tight text-white sm:text-6xl">
+                Coming Soon
+              </p>
+              <span className="mx-auto mt-5 block h-px w-12 bg-white/50" />
+            </div>
           </div>
         </div>
       </section>
