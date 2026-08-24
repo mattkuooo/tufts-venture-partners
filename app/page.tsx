@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CalendarDays } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { site } from "@/data/site";
 import { academy } from "@/data/schedule";
@@ -47,53 +47,10 @@ export default function Home() {
               The first VC community at Tufts
             </h1>
 
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/90">
-              A student-run analyst program built on real diligence work —
-              sourcing, market research, and investment memos — with advisors
-              from funds across Boston.
+            <p className="mt-6 max-w-2xl text-xl font-light leading-relaxed text-white/85 sm:text-2xl">
+              A student-run analyst program built on real diligence work, with
+              advisors from venture funds across Boston.
             </p>
-
-            <Link
-              href="/apply"
-              className="group mt-8 inline-flex items-start gap-3 border-l-2 border-white/50 bg-white/10 px-4 py-3 backdrop-blur-sm transition-colors hover:bg-white/20"
-            >
-              <CalendarDays className="mt-0.5 size-5 shrink-0 text-white/80" />
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-wide text-white/80">
-                  {academy.title} · {academy.term}
-                </p>
-                <p className="font-heading text-lg font-bold text-white">
-                  {academy.slot}
-                  <ArrowRight className="ml-2 inline size-4 transition-transform group-hover:translate-x-0.5" />
-                </p>
-              </div>
-            </Link>
-
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button
-                size="lg"
-                className="bg-white text-tufts-blue hover:bg-white/90"
-                nativeButton={false}
-                render={
-                  <a
-                    href={site.elist}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  />
-                }
-              >
-                Join the e-list <ArrowRight className="size-4" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white/40 bg-transparent text-white hover:bg-white/10 hover:text-white"
-                nativeButton={false}
-                render={<Link href="/partner" />}
-              >
-                Partner with us
-              </Button>
-            </div>
           </div>
         </div>
       </section>
