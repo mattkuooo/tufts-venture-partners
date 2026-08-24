@@ -14,9 +14,9 @@ export type OrgLogo = {
 /** Logos for the advisory-board credibility band on the home page.
  *
  *  The band derives its organisation names from the Advisory Board roles in
- *  data/team.ts, then looks each one up here. An org with no entry renders as
- *  type in a matching weight, so a partial set still reads as one system and
- *  this can be filled in as files arrive.
+ *  data/team.ts, then looks each one up here. All seven currently have a mark.
+ *  An org with no entry falls back to type in a matching weight, so adding an
+ *  advisor without a logo to hand degrades gracefully rather than breaking.
  *
  *  Keys must match the organisation exactly as it appears after the last comma
  *  in that person's `role`. Files live in /public/images/logos/.
@@ -27,8 +27,8 @@ export type OrgLogo = {
 export const orgLogos: Record<string, OrgLogo> = {
   "Argon Ventures": {
     src: "/images/logos/argon-ventures.png",
-    width: 600,
-    height: 260,
+    width: 500,
+    height: 217,
     // Box includes the orb above the wordmark, so it needs to run larger.
     scale: 1.7,
   },
@@ -49,11 +49,10 @@ export const orgLogos: Record<string, OrgLogo> = {
     // Wordmark sits above a "LIFE SCIENCES" tagline, so the box runs tall.
     scale: 1.6,
   },
-
   "Presidio Ventures": {
     src: "/images/logos/presidio-ventures.png",
-    width: 1674,
-    height: 521,
+    width: 600,
+    height: 187,
     // Wordmark is stacked over two lines beside an icon, so each line of type
     // is only about a third of the box height.
     scale: 1.9,
@@ -65,9 +64,12 @@ export const orgLogos: Record<string, OrgLogo> = {
     // Also stacked, over a "VENTURE TOGETHER" tagline.
     scale: 1.9,
   },
-
-  // Still needed — renders as type until a file lands here:
-  // "1441 Collective": { src: "...", width: 0, height: 0 },
-  //   NB: 1441's public file is cream-on-transparent, a dark-background
-  //   variant that would be invisible here. Ask them for the dark one.
+  "1441 Collective": {
+    src: "/images/logos/1441-collective.png",
+    width: 500,
+    height: 306,
+    // Compact, heavy display numerals that nearly fill the box — so unlike the
+    // stacked marks this needs only a small nudge, or it dominates the row.
+    scale: 1.4,
+  },
 };
