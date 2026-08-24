@@ -4,6 +4,7 @@ import { ArrowRight, CalendarDays } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { site } from "@/data/site";
 import { academy } from "@/data/schedule";
+import { orgLogos } from "@/data/orgLogos";
 import { workAreas } from "@/data/workAreas";
 import { boardMembers } from "@/data/team";
 
@@ -36,18 +37,15 @@ export default function Home() {
 
         <div className="relative z-10 mx-auto w-full max-w-6xl px-6 py-20">
           <div>
-            <div className="flex items-center gap-3">
-              <span className="h-px w-10 bg-white/60" />
-              <p className="text-sm font-semibold uppercase tracking-wide text-white/80">
-                Tufts University
-              </p>
-            </div>
+            <p className="text-sm font-semibold uppercase tracking-wide text-white/80">
+              Tufts University
+            </p>
 
             {/* One line from sm up: nowrap plus a clamped size that always
-                fits the container. Wraps on phones, where 32 characters
+                fits the container. Wraps on phones, where the headline
                 cannot fit one line at a readable size. */}
             <h1 className="font-heading mt-5 text-4xl font-black leading-[1.05] text-white sm:whitespace-nowrap sm:text-[clamp(1.9rem,4.6vw,3.75rem)]">
-              The first VC community at Tufts.
+              The first VC community at Tufts
             </h1>
 
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/90">
@@ -101,7 +99,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20">
+      <section className="bg-secondary/40 py-20">
         <div className="mx-auto grid max-w-4xl gap-4 px-6 sm:grid-cols-[160px_1fr] sm:gap-10">
           <div className="flex items-center gap-3 sm:block">
             <span className="h-px w-8 shrink-0 bg-tufts-blue sm:mb-3 sm:block sm:w-10" />
@@ -115,7 +113,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-tufts-blue py-20 text-white">
+      {/* The brand gradient rather than a flat slab, so the band reads as the
+          hero's colour returning instead of an unrelated blue block. */}
+      <section className="bg-gradient-to-br from-tufts-blue via-[#2c6bb0] to-tufts-brown py-20 text-white">
         <div className="mx-auto max-w-4xl px-6">
           <div className="flex items-center gap-3">
             <span className="h-px w-10 bg-white/60" />
@@ -165,15 +165,32 @@ export default function Home() {
           <p className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
             Our advisory board invests and operates at
           </p>
-          <ul className="mt-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
-            {advisoryOrgs.map((org) => (
-              <li
-                key={org}
-                className="font-heading text-lg font-bold text-tufts-blue sm:text-xl"
-              >
-                {org}
-              </li>
-            ))}
+          <ul className="mt-8 flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
+            {advisoryOrgs.map((org) => {
+              const logo = orgLogos[org];
+              return (
+                <li key={org} className="flex items-center">
+                  {logo ? (
+                    // Uniform height with object-contain, so logos of
+                    // different aspect ratios sit on one optical line.
+                    // Grayscale keeps a mismatched set looking deliberate.
+                    <span className="relative block h-8 w-28 opacity-70 grayscale sm:h-10 sm:w-32">
+                      <Image
+                        src={logo}
+                        alt={org}
+                        fill
+                        sizes="128px"
+                        className="object-contain"
+                      />
+                    </span>
+                  ) : (
+                    <span className="font-heading text-lg font-bold text-tufts-blue sm:text-xl">
+                      {org}
+                    </span>
+                  )}
+                </li>
+              );
+            })}
           </ul>
           <Link
             href="/about"
