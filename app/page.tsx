@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { site } from "@/data/site";
 import { academy } from "@/data/schedule";
 import { orgLogos } from "@/data/orgLogos";
-import { workAreas } from "@/data/workAreas";
 import { boardMembers } from "@/data/team";
 
 /** Advisory roles read "Title, Organization" — take the part after the last
@@ -197,59 +196,6 @@ export default function Home() {
             className="mt-8 inline-flex items-center gap-1 text-sm font-medium text-tufts-blue hover:underline"
           >
             Meet the board <ArrowRight className="size-4" />
-          </Link>
-        </div>
-      </section>
-
-      <section className="bg-secondary/40 py-20">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="flex items-end justify-between gap-4">
-            <h2 className="font-heading text-2xl font-bold text-foreground">
-              What We Do
-            </h2>
-            <Link
-              href="/work"
-              className="hidden text-sm font-medium text-tufts-blue hover:underline sm:inline-flex sm:items-center sm:gap-1"
-            >
-              See our work <ArrowRight className="size-4" />
-            </Link>
-          </div>
-
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {workAreas.map((area) => (
-              <Link
-                key={area.title}
-                href="/work"
-                className="group block bg-background"
-              >
-                {area.image && (
-                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-secondary">
-                    <Image
-                      src={area.image}
-                      alt={area.title}
-                      fill
-                      sizes="(min-width: 1024px) 360px, (min-width: 640px) 50vw, 100vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </div>
-                )}
-                <div className="p-5">
-                  <h3 className="font-heading font-bold group-hover:underline">
-                    {area.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    {area.description}
-                  </p>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          <Link
-            href="/work"
-            className="mt-8 inline-flex items-center gap-1 text-sm font-medium text-tufts-blue hover:underline sm:hidden"
-          >
-            See our work <ArrowRight className="size-4" />
           </Link>
         </div>
       </section>
