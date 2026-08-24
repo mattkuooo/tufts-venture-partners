@@ -42,11 +42,17 @@ export const orgLogos: Record<string, OrgLogo> = {
     width: 292,
     height: 31,
   },
+  "Wave Life Sciences": {
+    src: "/images/logos/wave-life-sciences.webp",
+    width: 872,
+    height: 350,
+    // Wordmark sits above a "LIFE SCIENCES" tagline, so the box runs tall.
+    scale: 1.6,
+  },
 
   // Still needed — these render as type until a file lands here:
   // "Presidio Ventures": { src: "...", width: 0, height: 0 },
   // "Superior Studios": { src: "...", width: 0, height: 0 },
-  // "Wave Life Sciences": { src: "...", width: 0, height: 0 },
   // "1441 Collective": { src: "...", width: 0, height: 0 },
   //   NB: 1441's public file is cream-on-transparent, a dark-background
   //   variant that would be invisible here. Ask them for the dark one.
