@@ -118,7 +118,7 @@ export const boardMembers: BoardMember[] = [
   },
   {
     name: "Jerry Huang",
-    role: "Associate, Bain",
+    role: "Associate, Bain & Company",
     group: "Advisory Board",
     image: "/images/jerry_huang.jpg",
     imagePosition: "50% 50%",

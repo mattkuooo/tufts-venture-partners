@@ -13,9 +13,10 @@
 export const orgLogos: Record<string, string> = {
   // "Presidio Ventures": "/images/logos/presidio-ventures.svg",
   // "Argon Ventures": "/images/logos/argon-ventures.svg",
-  // "1441 Collective": "/images/logos/1441-collective.svg",
+  // "1441 Collective": "/images/logos/1441-collective.svg", // NB: their public
+  //   file is cream-on-transparent, for dark backgrounds. Ask for a dark variant.
   // "Boston Seed Capital": "/images/logos/boston-seed-capital.svg",
   // "Superior Studios": "/images/logos/superior-studios.svg",
   // "Wave Life Sciences": "/images/logos/wave-life-sciences.svg",
-  // "Bain": "/images/logos/bain.svg",
+  // "Bain & Company": "/images/logos/bain-and-company.svg",
 };
