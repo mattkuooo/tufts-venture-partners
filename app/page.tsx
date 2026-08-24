@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowRight, CalendarDays } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { site } from "@/data/site";
-import { gim, academy } from "@/data/schedule";
+import { academy } from "@/data/schedule";
 import { workAreas } from "@/data/workAreas";
 import { boardMembers } from "@/data/team";
 
@@ -35,7 +35,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-t from-tufts-blue/80 via-transparent to-transparent" />
 
         <div className="relative z-10 mx-auto w-full max-w-6xl px-6 py-20">
-          <div className="max-w-3xl">
+          <div>
             <div className="flex items-center gap-3">
               <span className="h-px w-10 bg-white/60" />
               <p className="text-sm font-semibold uppercase tracking-wide text-white/80">
@@ -43,7 +43,10 @@ export default function Home() {
               </p>
             </div>
 
-            <h1 className="font-heading mt-5 text-4xl font-black leading-[1.05] text-white sm:text-6xl">
+            {/* One line from sm up: nowrap plus a clamped size that always
+                fits the container. Wraps on phones, where 32 characters
+                cannot fit one line at a readable size. */}
+            <h1 className="font-heading mt-5 text-4xl font-black leading-[1.05] text-white sm:whitespace-nowrap sm:text-[clamp(1.9rem,4.6vw,3.75rem)]">
               The first VC community at Tufts.
             </h1>
 
@@ -53,17 +56,21 @@ export default function Home() {
               from funds across Boston.
             </p>
 
-            <div className="mt-8 inline-flex items-start gap-3 border-l-2 border-white/50 bg-white/10 px-4 py-3 backdrop-blur-sm">
+            <Link
+              href="/apply"
+              className="group mt-8 inline-flex items-start gap-3 border-l-2 border-white/50 bg-white/10 px-4 py-3 backdrop-blur-sm transition-colors hover:bg-white/20"
+            >
               <CalendarDays className="mt-0.5 size-5 shrink-0 text-white/80" />
               <div>
                 <p className="text-sm font-semibold uppercase tracking-wide text-white/80">
-                  {gim.title}
+                  {academy.title} · {academy.term}
                 </p>
                 <p className="font-heading text-lg font-bold text-white">
-                  {gim.date} · {gim.time}
+                  {academy.slot}
+                  <ArrowRight className="ml-2 inline size-4 transition-transform group-hover:translate-x-0.5" />
                 </p>
               </div>
-            </div>
+            </Link>
 
             <div className="mt-8 flex flex-wrap gap-3">
               <Button
@@ -127,9 +134,6 @@ export default function Home() {
 
           <p className="mt-6 font-heading text-lg font-bold text-white">
             {academy.slot}
-          </p>
-          <p className="mt-1 text-sm text-white/70">
-            Starting after the {gim.title} on {gim.date}.
           </p>
 
           <ol className="mt-10 grid gap-x-10 gap-y-5 sm:grid-cols-2">
