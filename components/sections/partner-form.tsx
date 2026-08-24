@@ -10,31 +10,57 @@ import { cn } from "@/lib/utils";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
+const ERROR_MESSAGE =
+  "Something went wrong sending your message. Please try again.";
+
+// Inlined at build time, so changing it in Vercel needs a rebuild to take
+// effect. See "Configuration" in the README.
+const ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? "";
+
+const LIVE_MESSAGE: Record<Status, string> = {
+  idle: "",
+  sending: "Sending your message.",
+  sent: "Message sent. We'll be in touch soon.",
+  error: ERROR_MESSAGE,
+};
+
 export function PartnerForm() {
   const [status, setStatus] = useState<Status>("idle");
 
   const onSubmit = async (event: SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.currentTarget;
+
+    if (!ACCESS_KEY) {
+      console.error(
+        "NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY is not set — submissions cannot be delivered. See the README."
+      );
+      setStatus("error");
+      return;
+    }
+
     setStatus("sending");
 
     const formData = new FormData(form);
-    formData.append(
-      "access_key",
-      process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? ""
-    );
+    formData.append("access_key", ACCESS_KEY);
 
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData,
-    });
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
 
-    const data = await response.json();
-    if (data.success) {
+      // A non-JSON body (a 5xx HTML error page) throws here, which is why the
+      // whole exchange is wrapped — otherwise the button sticks on "Sending...".
+      const data = await response.json();
+      if (!data.success) {
+        throw new Error(data.message ?? "Web3Forms rejected the submission");
+      }
+
       setStatus("sent");
       form.reset();
-    } else {
-      console.error("Web3Forms error:", data);
+    } catch (error) {
+      console.error("Web3Forms submit failed:", error);
       setStatus("error");
     }
   };
@@ -42,13 +68,21 @@ export function PartnerForm() {
   return (
     <form onSubmit={onSubmit} className="space-y-5">
       {status === "error" && (
-        <div
-          className="rounded-lg border border-destructive/40 bg-destructive/10 px-4 py-3 text-sm text-destructive"
-          aria-live="polite"
-        >
-          Something went wrong sending your message. Please try again.
+        <div className="rounded-lg border border-destructive/40 bg-destructive/10 px-4 py-3 text-sm text-destructive">
+          {ERROR_MESSAGE}
         </div>
       )}
+
+      <input type="hidden" name="subject" value="New Partner With Us enquiry" />
+      <input type="hidden" name="from_name" value="tuftsventurepartners.org" />
+      {/* Web3Forms honeypot — bots fill it in, humans never see it. */}
+      <input
+        type="checkbox"
+        name="botcheck"
+        tabIndex={-1}
+        aria-hidden="true"
+        className="hidden"
+      />
 
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="space-y-1.5">
@@ -92,8 +126,13 @@ export function PartnerForm() {
           )}
         </Button>
 
+        {/* Always mounted so screen readers announce the status change. */}
+        <p role="status" aria-live="polite" className="sr-only">
+          {LIVE_MESSAGE[status]}
+        </p>
+
         {status === "sent" && (
-          <p className="mt-3 text-sm text-muted-foreground" aria-live="polite">
+          <p className="mt-3 text-sm text-muted-foreground">
             Thanks — we&apos;ll be in touch soon.
           </p>
         )}

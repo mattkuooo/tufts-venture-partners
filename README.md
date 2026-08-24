@@ -16,6 +16,19 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Configuration
+
+Copy `.env.example` to `.env.local` and fill in the values:
+
+| Variable | Required for | Notes |
+| --- | --- | --- |
+| `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` | The "Partner With Us" form | Access key from [web3forms.com](https://web3forms.com). Without it the form shows an error on submit. |
+
+The same values must be set in the Vercel project settings for preview and
+production. `NEXT_PUBLIC_*` variables are inlined into the client bundle at
+**build** time, so changing one in Vercel requires a redeploy before it takes
+effect.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
