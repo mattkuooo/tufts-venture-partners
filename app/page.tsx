@@ -125,7 +125,7 @@ export default function Home() {
             {advisoryOrgs.map((org) => {
               const logo = orgLogos[org];
               return (
-                <li key={org} className="flex h-12 items-center">
+                <li key={org} className="flex h-16 items-center">
                   {logo ? (
                     // Matched on height rather than boxed, so wordmarks of
                     // very different aspect ratios sit on one optical line.

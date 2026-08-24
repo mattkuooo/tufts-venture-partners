@@ -50,9 +50,23 @@ export const orgLogos: Record<string, OrgLogo> = {
     scale: 1.6,
   },
 
-  // Still needed — these render as type until a file lands here:
-  // "Presidio Ventures": { src: "...", width: 0, height: 0 },
-  // "Superior Studios": { src: "...", width: 0, height: 0 },
+  "Presidio Ventures": {
+    src: "/images/logos/presidio-ventures.png",
+    width: 1674,
+    height: 521,
+    // Wordmark is stacked over two lines beside an icon, so each line of type
+    // is only about a third of the box height.
+    scale: 1.9,
+  },
+  "Superior Studios": {
+    src: "/images/logos/superior-studios.png",
+    width: 181,
+    height: 77,
+    // Also stacked, over a "VENTURE TOGETHER" tagline.
+    scale: 1.9,
+  },
+
+  // Still needed — renders as type until a file lands here:
   // "1441 Collective": { src: "...", width: 0, height: 0 },
   //   NB: 1441's public file is cream-on-transparent, a dark-background
   //   variant that would be invisible here. Ask them for the dark one.
