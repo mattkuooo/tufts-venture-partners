@@ -13,9 +13,14 @@ type Status = "idle" | "sending" | "sent" | "error";
 const ERROR_MESSAGE =
   "Something went wrong sending your message. Please try again.";
 
-// Inlined at build time, so changing it in Vercel needs a rebuild to take
-// effect. See "Configuration" in the README.
-const ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? "";
+// Access key for the "Partnership Form" on Web3Forms. Public by design — it
+// ships in the client bundle either way, and Web3Forms documents it as safe in
+// client-side code. Hardcoded so the form cannot break on a deploy that forgot
+// the env var; set NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY to point at a different
+// form. `||`, not `??`, so an env var present-but-empty still falls back.
+const ACCESS_KEY =
+  process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ||
+  "8a944d54-ef81-4f46-9fb1-581c0df91461";
 
 const LIVE_MESSAGE: Record<Status, string> = {
   idle: "",
@@ -30,15 +35,6 @@ export function PartnerForm() {
   const onSubmit = async (event: SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.currentTarget;
-
-    if (!ACCESS_KEY) {
-      console.error(
-        "NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY is not set — submissions cannot be delivered. See the README."
-      );
-      setStatus("error");
-      return;
-    }
-
     setStatus("sending");
 
     const formData = new FormData(form);
