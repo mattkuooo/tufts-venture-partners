@@ -168,22 +168,27 @@ export default function Home() {
             {advisoryOrgs.map((org) => {
               const logo = orgLogos[org];
               return (
-                <li key={org} className="flex items-center">
+                <li key={org} className="flex h-12 items-center">
                   {logo ? (
-                    // Uniform height with object-contain, so logos of
-                    // different aspect ratios sit on one optical line.
-                    // Grayscale keeps a mismatched set looking deliberate.
-                    <span className="relative block h-8 w-28 opacity-70 grayscale sm:h-10 sm:w-32">
-                      <Image
-                        src={logo}
-                        alt={org}
-                        fill
-                        sizes="128px"
-                        className="object-contain"
-                      />
-                    </span>
+                    // Matched on height rather than boxed, so wordmarks of
+                    // very different aspect ratios sit on one optical line.
+                    // Grayscale unifies a set of mismatched third-party marks.
+                    <Image
+                      src={logo.src}
+                      alt={org}
+                      width={logo.width}
+                      height={logo.height}
+                      className="w-auto opacity-60 grayscale"
+                      style={{
+                        height: `calc(clamp(1.15rem, 2.6vw, 1.6rem) * ${
+                          logo.scale ?? 1
+                        })`,
+                      }}
+                    />
                   ) : (
-                    <span className="font-heading text-lg font-bold text-tufts-blue sm:text-xl">
+                    // Same optical weight as the logos, so a partial set still
+                    // reads as one band rather than logos plus leftovers.
+                    <span className="text-base font-semibold uppercase tracking-wide text-foreground/60 sm:text-lg">
                       {org}
                     </span>
                   )}
