@@ -3,7 +3,20 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { site } from "@/data/site";
-import { workAreas } from "@/data/workAreas";
+import { academy } from "@/data/schedule";
+import { orgLogos } from "@/data/orgLogos";
+import { boardMembers } from "@/data/team";
+
+/** Advisory roles read "Title, Organization" — take the part after the last
+ *  comma so the credibility band stays in sync with the roster. */
+const advisoryOrgs = Array.from(
+  new Set(
+    boardMembers
+      .filter((m) => m.group === "Advisory Board")
+      .map((m) => m.role.split(",").pop()?.trim())
+      .filter((org): org is string => Boolean(org))
+  )
+);
 
 export default function Home() {
   return (
@@ -16,86 +29,166 @@ export default function Home() {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-tufts-blue/85 via-[#2c6bb0]/75 to-tufts-brown/85" />
-        <div className="relative z-10 mx-auto w-full max-w-6xl px-6 py-20 text-center">
-          <h1 className="font-heading mx-auto mt-3 max-w-3xl text-4xl font-black text-white sm:text-6xl">
-            Tufts Venture Partners
-          </h1>
-          <p className="mx-auto mt-6 max-w-xl text-lg text-white/90">
-            The first-ever designated VC community at Tufts. Launched with a mission to give students the opportunity to conduct VC due diligence, build a network of investors, and share this passion with peer schools around Boston through networking events and pitch competitions.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Button
-              size="lg"
-              className="bg-white text-tufts-blue hover:bg-white/90"
-              nativeButton={false}
-              render={<Link href="/partner" />}
-            >
-              Work With Us <ArrowRight className="size-4" />
-            </Button>
-          </div>
-        </div>
-      </section>
+        {/* Lighter than a flat wash so the campus photo actually reads, with
+            the weight kept at the bottom where the text sits. */}
+        <div className="absolute inset-0 bg-gradient-to-br from-tufts-blue/70 via-tufts-blue/50 to-tufts-brown/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-tufts-blue/80 via-transparent to-transparent" />
 
-      <section className="py-20">
-        <div className="mx-auto max-w-4xl divide-y divide-border px-6">
-          <div className="grid gap-4 py-10 first:pt-0 last:pb-0 sm:grid-cols-[160px_1fr] sm:gap-10">
-            <div className="flex items-center gap-3 sm:block">
-              <span className="h-px w-8 shrink-0 bg-tufts-blue sm:mb-3 sm:block sm:w-10" />
-              <h2 className="text-sm font-semibold uppercase tracking-wide text-tufts-blue">
-                Who We Are
-              </h2>
-            </div>
-            <p className="text-lg leading-relaxed text-foreground">
-              {site.whoWeAre}
+        <div className="relative z-10 mx-auto w-full max-w-6xl px-6 py-20">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-wide text-white/80">
+              Tufts University
             </p>
-          </div>
-          <div className="grid gap-4 py-10 first:pt-0 last:pb-0 sm:grid-cols-[160px_1fr] sm:gap-10">
-            <div className="flex items-center gap-3 sm:block">
-              <span className="h-px w-8 shrink-0 bg-tufts-brown sm:mb-3 sm:block sm:w-10" />
-              <h2 className="text-sm font-semibold uppercase tracking-wide text-tufts-brown">
-                Mission
-              </h2>
-            </div>
-            <p className="text-lg leading-relaxed text-foreground">
-              {site.mission}
+
+            {/* One line from sm up: nowrap plus a clamped size that always
+                fits the container. Wraps on phones, where the headline
+                cannot fit one line at a readable size. */}
+            <h1 className="font-heading mt-5 text-4xl font-black leading-[1.05] text-white sm:whitespace-nowrap sm:text-[clamp(1.9rem,4.6vw,3.75rem)]">
+              The first VC community at Tufts
+            </h1>
+
+            <p className="mt-6 max-w-2xl text-xl font-light leading-relaxed text-white/85 sm:text-2xl">
+              A student-run analyst program built on real diligence work, with
+              advisors from venture funds across Boston.
             </p>
           </div>
         </div>
       </section>
 
       <section className="bg-secondary/40 py-20">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="flex items-end justify-between gap-4">
-            <h2 className="font-heading text-2xl font-bold text-foreground">
-              What We Do
+        <div className="mx-auto grid max-w-4xl gap-4 px-6 sm:grid-cols-[160px_1fr] sm:gap-10">
+          <div className="flex items-center gap-3 sm:block">
+            <span className="h-px w-8 shrink-0 bg-tufts-blue sm:mb-3 sm:block sm:w-10" />
+            <h2 className="text-sm font-semibold uppercase tracking-wide text-tufts-blue">
+              Our Mission
             </h2>
-            <Link
-              href="/work"
-              className="hidden text-sm font-medium text-tufts-blue hover:underline sm:inline-flex sm:items-center sm:gap-1"
-            >
-              See our work <ArrowRight className="size-4" />
-            </Link>
           </div>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {workAreas.map((area) => (
-              <div
-                key={area.title}
-                className="rounded-lg border border-border/60 bg-background p-5"
-              >
-                <h3 className="font-heading font-bold">{area.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  {area.description}
-                </p>
-              </div>
+          <p className="text-lg leading-relaxed text-foreground">
+            {site.mission}
+          </p>
+        </div>
+      </section>
+
+      {/* The brand gradient rather than a flat slab, so the band reads as the
+          hero's colour returning instead of an unrelated blue block. */}
+      <section className="bg-gradient-to-br from-tufts-blue via-[#2c6bb0] to-tufts-brown py-20 text-white">
+        <div className="mx-auto max-w-4xl px-6">
+          <div className="flex items-center gap-3">
+            <span className="h-px w-10 bg-white/60" />
+            <p className="text-sm font-semibold uppercase tracking-wide text-white/80">
+              {academy.term}
+            </p>
+          </div>
+
+          <h2 className="font-heading mt-5 text-3xl font-black sm:text-4xl">
+            {academy.title}
+          </h2>
+
+          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/90">
+            {academy.description}
+          </p>
+
+          <p className="mt-6 font-heading text-lg font-bold text-white">
+            {academy.slot}
+          </p>
+
+          <ol className="mt-10 grid gap-x-10 gap-y-5 sm:grid-cols-2">
+            {academy.stages.map((stage, i) => (
+              <li key={stage} className="flex items-baseline gap-4">
+                <span className="font-heading text-sm font-black text-white/40">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="border-l-2 border-white/30 pl-4 leading-snug text-white/90">
+                  {stage}
+                </span>
+              </li>
             ))}
-          </div>
-          <Link
-            href="/work"
-            className="mt-8 inline-flex items-center gap-1 text-sm font-medium text-tufts-blue hover:underline sm:hidden"
+          </ol>
+
+          <Button
+            size="lg"
+            className="mt-10 bg-white text-tufts-blue hover:bg-white/90"
+            nativeButton={false}
+            render={<Link href="/apply" />}
           >
-            See our work <ArrowRight className="size-4" />
+            How to join <ArrowRight className="size-4" />
+          </Button>
+        </div>
+      </section>
+
+      <section className="py-20">
+        <div className="mx-auto max-w-4xl px-6 text-center">
+          <p className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+            Our advisory board invests and operates at
+          </p>
+          <ul className="mt-8 flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
+            {advisoryOrgs.map((org) => {
+              const logo = orgLogos[org];
+              return (
+                <li key={org} className="flex h-16 items-center">
+                  {logo ? (
+                    // Matched on height rather than boxed, so wordmarks of
+                    // very different aspect ratios sit on one optical line.
+                    // Grayscale unifies a set of mismatched third-party marks.
+                    <Image
+                      src={logo.src}
+                      alt={org}
+                      width={logo.width}
+                      height={logo.height}
+                      className="w-auto opacity-60 grayscale"
+                      style={{
+                        height: `calc(clamp(1.15rem, 2.6vw, 1.6rem) * ${
+                          logo.scale ?? 1
+                        })`,
+                      }}
+                    />
+                  ) : (
+                    // Same optical weight as the logos, so a partial set still
+                    // reads as one band rather than logos plus leftovers.
+                    <span className="text-base font-semibold uppercase tracking-wide text-foreground/60 sm:text-lg">
+                      {org}
+                    </span>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+          <Link
+            href="/about"
+            className="mt-8 inline-flex items-center gap-1 text-sm font-medium text-tufts-blue hover:underline"
+          >
+            Meet the board <ArrowRight className="size-4" />
           </Link>
+        </div>
+      </section>
+
+      <section className="border-t border-border/60">
+        <div className="mx-auto max-w-4xl px-6 py-20 text-center">
+          <h2 className="font-heading text-2xl font-bold text-foreground sm:text-3xl">
+            Two ways in.
+          </h2>
+          <p className="mx-auto mt-3 max-w-xl leading-relaxed text-muted-foreground">
+            Students join through the Academy. Firms and founders work with our
+            analysts directly.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <Button
+              size="lg"
+              className="bg-tufts-blue text-white hover:bg-tufts-blue/90"
+              nativeButton={false}
+              render={<Link href="/apply" />}
+            >
+              Apply to join <ArrowRight className="size-4" />
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              nativeButton={false}
+              render={<Link href="/partner" />}
+            >
+              Partner with us
+            </Button>
+          </div>
         </div>
       </section>
     </>

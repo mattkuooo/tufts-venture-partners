@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/accordion";
 import { faqItems } from "@/data/faq";
 import { recruitmentSteps, whyJoin } from "@/data/recruitment";
+import { gim } from "@/data/schedule";
 import { site } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -24,9 +25,8 @@ export default function ApplyPage() {
             Apply
           </h1>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            Fall 2026 applications will open right after our General Interest
-            Meeting (GIM), which will be held on Wednesday, September 9th at
-            8:00pm. In the meantime, follow us on{" "}
+            Fall 2026 applications open right after our {gim.title} (GIM),
+            held {gim.date} at {gim.time} — in the meantime, follow us on{" "}
             <a
               href={site.instagram}
               target="_blank"

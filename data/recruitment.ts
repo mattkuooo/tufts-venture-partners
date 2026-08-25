@@ -7,9 +7,9 @@ export type RecruitmentStep = {
 export const recruitmentSteps: RecruitmentStep[] = [
   {
     step: "01",
-    title: "Info Session",
+    title: "General Interest Meeting",
     description:
-      "Attend an info session at the start of the semester to learn what the club does and what the analyst program involves.",
+      "Come to the GIM at the start of the semester to learn what the club does and what the Academy involves.",
   },
   {
     step: "02",
