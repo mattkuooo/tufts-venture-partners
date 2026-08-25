@@ -22,7 +22,7 @@ export default function Home() {
             Tufts Venture Partners
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-lg text-white/90">
-            Tufts Venture Partners (TVP) is the first and only student-run organization that offers venture capital firms deal sourcing, diligence, and market research from student analysts.
+            The first-ever designated VC community at Tufts. Launched with a mission to give students the opportunity to conduct VC due diligence, build a network of investors, and share this passion with peer schools around Boston through networking events and pitch competitions.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Button
@@ -77,7 +77,7 @@ export default function Home() {
               See our work <ArrowRight className="size-4" />
             </Link>
           </div>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {workAreas.map((area) => (
               <div
                 key={area.title}

@@ -2,6 +2,9 @@ export type WorkArea = {
   title: string;
   description: string;
   points: string[];
+  /** Optional photo. Drop a file in /public/images and set the path here to
+   *  replace the dashed placeholder on the Work page. */
+  image?: string;
 };
 
 export const workAreas: WorkArea[] = [
@@ -35,16 +38,6 @@ export const workAreas: WorkArea[] = [
       "Sector deep-dives and trend reports",
       "Thesis development for priority spaces",
       "Internal knowledge base for the analyst class",
-    ],
-  },
-  {
-    title: "Speaker Events",
-    description:
-      "We bring in VCs, founders, and operators for talks, workshops, and Q&As so members learn directly from people building and investing in the industry.",
-    points: [
-      "Investor and founder speaker series",
-      "Skills workshops (modeling, pitching, diligence)",
-      "Networking events with alumni in venture",
     ],
   },
 ];
