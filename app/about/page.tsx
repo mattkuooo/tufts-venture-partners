@@ -13,9 +13,11 @@ export const metadata: Metadata = {
 function MemberCard({
   member,
   index,
+  sizes,
 }: {
   member: BoardMember;
   index: number;
+  sizes: string;
 }) {
   const card = (
     <>
@@ -25,7 +27,7 @@ function MemberCard({
             src={member.image}
             alt={member.name}
             fill
-            sizes="(min-width: 640px) 290px, 100vw"
+            sizes={sizes}
             className="object-cover"
             style={{ objectPosition: member.imagePosition ?? "50% 20%" }}
           />
@@ -90,6 +92,7 @@ export default function AboutPage() {
 
         {boardGroups.map((group) => {
           const members = boardMembers.filter((m) => m.group === group);
+          if (members.length === 0) return null;
           const isScroller = group === "Advisory Board";
 
           return (
@@ -98,11 +101,7 @@ export default function AboutPage() {
                 {group}
               </h3>
 
-              {members.length === 0 ? (
-                <div className="mt-6 rounded-lg border border-dashed border-border p-8 text-center text-sm text-muted-foreground">
-                  Add {group.toLowerCase()} members in data/team.ts
-                </div>
-              ) : isScroller ? (
+              {isScroller ? (
                 <div className="mx-auto mt-6 max-w-4xl">
                   <div className="flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4">
                     {members.map((member, i) => (
@@ -110,7 +109,11 @@ export default function AboutPage() {
                         key={member.name}
                         className="w-[200px] shrink-0 snap-start sm:w-[220px]"
                       >
-                        <MemberCard member={member} index={i} />
+                        <MemberCard
+                          member={member}
+                          index={i}
+                          sizes="(min-width: 640px) 220px, 200px"
+                        />
                       </div>
                     ))}
                   </div>
@@ -121,7 +124,12 @@ export default function AboutPage() {
               ) : (
                 <div className="mx-auto mt-6 grid max-w-4xl gap-x-6 gap-y-10 sm:grid-cols-3">
                   {members.map((member, i) => (
-                    <MemberCard key={member.name} member={member} index={i} />
+                    <MemberCard
+                      key={member.name}
+                      member={member}
+                      index={i}
+                      sizes="(min-width: 640px) 280px, 100vw"
+                    />
                   ))}
                 </div>
               )}
@@ -135,7 +143,7 @@ export default function AboutPage() {
           <h2 className="font-heading text-center text-2xl font-bold text-foreground">
             Spring 2027 Analyst Class
           </h2>
-          <div className="relative mx-auto mt-8 flex aspect-video w-full max-w-3xl items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-tufts-blue via-[#2c6bb0] to-tufts-brown">
+          <div className="relative mx-auto mt-8 flex aspect-video w-full max-w-3xl items-center justify-center overflow-hidden bg-gradient-to-br from-tufts-blue via-[#2c6bb0] to-tufts-brown">
             <div className="text-center">
               <p className="font-heading text-4xl font-black tracking-tight text-white sm:text-6xl">
                 Coming Soon

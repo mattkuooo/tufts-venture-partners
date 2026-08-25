@@ -16,6 +16,26 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Configuration
+
+No environment variables are required — the site builds and runs with no
+`.env.local`. See `.env.example` for the optional overrides.
+
+The "Partner With Us" form posts to [Web3Forms](https://web3forms.com), and its
+access key is hardcoded in `components/sections/partner-form.tsx`. That key is
+public by design: it ships in the client bundle regardless, and Web3Forms
+documents it as safe in client-side code. It is committed rather than kept in
+an env var so a deploy that forgot to set one cannot silently break the form.
+
+To point the form at a different Web3Forms form, set
+`NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY`. `NEXT_PUBLIC_*` values are inlined at
+**build** time, so setting it in Vercel requires a redeploy to take effect.
+
+Form submissions are delivered to whichever addresses are listed under
+**Linked Emails** in the Web3Forms dashboard — that is configured there, not in
+this repo, and is unrelated to `site.email` in `data/site.ts` (which only backs
+the `mailto:` links).
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
