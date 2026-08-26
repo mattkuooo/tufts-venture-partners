@@ -57,13 +57,13 @@ export default function WorkPage() {
       </section>
 
       <section className="py-20">
-        <div className="mx-auto max-w-4xl px-6">
+        <div className="mx-auto max-w-6xl px-6">
           <h2 className="font-heading text-2xl font-bold text-foreground">
             What We Deliver
           </h2>
         </div>
         <div className="mt-10">
-          <DetailSections sections={workAreas} />
+          <DetailSections sections={workAreas} className="max-w-6xl" />
         </div>
       </section>
 
@@ -103,9 +103,9 @@ export default function WorkPage() {
       </section>
 
       <section className="py-20">
-        <div className="mx-auto max-w-4xl px-6">
+        <div className="mx-auto max-w-6xl px-6">
           <SectionHeading title="How The Partnership Runs" isBlue />
-          <dl className="mt-8 divide-y divide-border">
+          <dl className="mt-8 max-w-3xl divide-y divide-border">
             {partnershipTerms.map((term, i) => {
               const isBlue = i % 2 === 0;
               return (
@@ -132,7 +132,7 @@ export default function WorkPage() {
       </section>
 
       <section className="bg-gradient-to-br from-tufts-blue via-[#2c6bb0] to-tufts-brown py-20 text-white">
-        <div className="mx-auto max-w-4xl px-6">
+        <div className="mx-auto max-w-6xl px-6">
           <div className="flex items-center gap-3">
             <span className="h-px w-10 bg-white/60" />
             <p className="text-sm font-semibold uppercase tracking-wide text-white/80">
