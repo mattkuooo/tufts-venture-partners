@@ -9,38 +9,36 @@ export type WorkArea = {
 
 export const workAreas: WorkArea[] = [
   {
-    title: "Diligence",
+    title: "Market Research",
     description:
-      "When a company reaches our later evaluation stage, analyst teams run full investment diligence — market sizing, competitive landscape, unit economics, and founder reference calls — and present findings to the board.",
+      "Thesis-driven research on the verticals you name, mapping the landscape before you take a meeting. Each cycle returns a segmented view of the space with stage, last round, and a view on where value accrues.",
     points: [
-      "Market and competitive analysis",
-      "Founder and customer reference calls",
-      "Financial and cap table review",
-      "Investment memo writing and presentation",
+      "Segmented company landscape, 10–20 per vertical",
+      "Stage, last round, and competitive positioning",
+      "Thesis development for the verticals you define",
     ],
-    image: "/images/diligence.jpg",
+    image: "/images/market-research.jpg",
   },
   {
     title: "Deal Sourcing",
     description:
-      "Analysts build and maintain a pipeline of early-stage companies by scouting accelerators, founder networks, and campus startups, then screening them against our investment thesis.",
+      "We source and screen founders nationwide against the criteria you set, with the Boston campus pipeline — Tufts, MIT, Harvard, Northeastern, WPI, BC, and BU — as a primary focus, plus founder and investor events across the city.",
     points: [
-      "Outbound founder outreach",
-      "Accelerator and demo day coverage",
-      "Pipeline tracking and screening",
-      "Warm introductions from our investor network",
+      "Nationwide sourcing screened against your criteria",
+      "Boston campus pipeline: Tufts, MIT, Harvard, Northeastern, WPI, BC, BU",
+      "Coverage of founder and investor events across the city",
     ],
     image: "/images/deal-sourcing.jpg",
   },
   {
-    title: "Market Research",
+    title: "Technical Validation",
     description:
-      "Sector teams track emerging technology trends and produce research on spaces we're actively watching, building the club's point of view ahead of deal flow.",
+      "Every recommendation arrives written up and pressure-tested internally before it reaches you — at least two rounds of screening behind a 5–8 page investment memo, with technical claims checked against Tufts faculty and practitioners working in that field.",
     points: [
-      "Sector deep-dives and trend reports",
-      "Thesis development for priority spaces",
-      "Internal knowledge base for the analyst class",
+      "Two rounds of internal screening before anything reaches you",
+      "5–8 page investment memo, verified against a primary source",
+      "Technical claims checked against Tufts faculty in that field",
     ],
-    image: "/images/market-research.jpg",
+    image: "/images/diligence.jpg",
   },
 ];
