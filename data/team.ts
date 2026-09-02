@@ -85,6 +85,7 @@ export const boardMembers: BoardMember[] = [
     name: "Shun Hagiwara",
     role: "Senior Associate, M12",
     group: "Advisory Board",
+    image: "/images/shun_hagiwara.webp",
     imagePosition: "50% 50%",
   },
   {
