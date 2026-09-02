@@ -12,11 +12,18 @@ export type DetailSection = {
  *  Events pages. Sections without an image simply omit the photo. */
 export function DetailSections({
   sections,
+  className,
 }: {
   sections: readonly DetailSection[];
+  className?: string;
 }) {
   return (
-    <div className="mx-auto max-w-4xl divide-y divide-border px-6">
+    <div
+      className={cn(
+        "mx-auto max-w-4xl divide-y divide-border px-6",
+        className
+      )}
+    >
       {sections.map((section, i) => {
         const isBlue = i % 2 === 0;
         return (
@@ -66,7 +73,7 @@ export function DetailSections({
               </ul>
 
               {section.image && (
-                <div className="relative mt-8 aspect-[16/9] w-full overflow-hidden bg-secondary">
+                <div className="relative mt-8 aspect-[16/9] w-full max-w-xl overflow-hidden bg-secondary">
                   <Image
                     src={section.image}
                     alt={section.title}
