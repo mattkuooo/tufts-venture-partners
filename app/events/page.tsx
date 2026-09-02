@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { PageHero } from "@/components/page-hero";
+import { SectionHeading } from "@/components/section-heading";
 import { DetailSections } from "@/components/sections/detail-sections";
 import { eventAreas } from "@/data/events";
 import { site } from "@/data/site";
@@ -15,41 +17,50 @@ export const metadata: Metadata = {
 export default function EventsPage() {
   return (
     <>
-      <section className="border-b border-border/60 bg-secondary/40">
-        <div className="mx-auto max-w-6xl px-6 py-20">
-          <h1 className="font-heading text-4xl font-extrabold tracking-tight sm:text-5xl">
-            Events
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-            How we train new members, who we bring to campus, and how we
-            connect Tufts to the wider Boston venture community.
-          </p>
+      {/* Campus stands in until there is a photo from an actual event worth
+          leading with — swap the image here when one exists. */}
+      <PageHero
+        eyebrow="Academy · Speaker Series · Pitch Competitions"
+        title="Events"
+        image="/images/jumbo_banner.jpg"
+      >
+        How we train new members, who we bring to campus, and how we connect
+        Tufts to the wider Boston venture community.
+      </PageHero>
+
+      <section className="py-20">
+        <div className="mx-auto max-w-4xl px-6">
+          <SectionHeading title="What We Host" />
+        </div>
+        <div className="mt-10">
+          <DetailSections sections={eventAreas} />
         </div>
       </section>
 
-      <section className="py-20">
-        <DetailSections sections={eventAreas} />
-      </section>
-
-      <section className="border-t border-border/60 bg-secondary/40">
-        <div className="mx-auto max-w-4xl px-6 py-16 text-center">
-          <h2 className="font-heading text-2xl font-bold text-foreground">
+      {/* The page's one full-colour block, and its closing ask. Events has no
+          navy mid-page section of its own, so the CTA carries the weight. */}
+      <section className="bg-gradient-to-br from-tufts-blue via-[#2c6bb0] to-tufts-brown py-20 text-white">
+        <div className="mx-auto max-w-4xl px-6 text-center">
+          <h2 className="font-heading text-3xl font-black sm:text-4xl">
             Want to speak or co-host?
           </h2>
-          <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
+          <p className="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-white/90">
             We&apos;re always looking for investors, founders, and peer clubs to
             partner with on events.
           </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-3">
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Button
+              size="lg"
+              className="bg-white text-tufts-blue hover:bg-white/90"
               nativeButton={false}
               render={<Link href="/partner" />}
-              className="bg-tufts-blue text-white hover:bg-tufts-blue/90"
             >
               Partner With Us <ArrowRight className="size-4" />
             </Button>
             <Button
+              size="lg"
               variant="outline"
+              className="border-white/40 bg-transparent text-white hover:bg-white/15 hover:text-white"
               nativeButton={false}
               render={<a href={`mailto:${site.email}`} />}
             >

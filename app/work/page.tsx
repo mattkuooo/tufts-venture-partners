@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { PageHero } from "@/components/page-hero";
+import { SectionHeading } from "@/components/section-heading";
 import { DetailSections } from "@/components/sections/detail-sections";
 import { workAreas } from "@/data/workAreas";
 import { whyNotAI, partnershipTerms } from "@/data/partnership";
@@ -13,63 +15,33 @@ export const metadata: Metadata = {
     "How Tufts Venture Partners runs market research, deal sourcing, and technical validation for the funds we partner with.",
 };
 
-function SectionHeading({
-  title,
-  isBlue = true,
-}: {
-  title: string;
-  isBlue?: boolean;
-}) {
-  return (
-    <div className="flex items-center gap-4">
-      <span
-        className={cn(
-          "h-px w-10 shrink-0",
-          isBlue ? "bg-tufts-blue" : "bg-tufts-brown"
-        )}
-      />
-      <h2 className="font-heading text-2xl font-bold text-foreground">
-        {title}
-      </h2>
-    </div>
-  );
-}
-
 export default function WorkPage() {
   return (
     <>
-      <section className="relative overflow-hidden border-b border-border/60">
-        <div className="absolute inset-0 bg-gradient-to-br from-tufts-blue/10 via-secondary/40 to-tufts-brown/10" />
-        <div className="relative mx-auto max-w-6xl px-6 py-20">
-          <p className="text-sm font-semibold uppercase tracking-wide text-tufts-blue">
-            Market Research · Deal Sourcing · Technical Validation
-          </p>
-          <h1 className="font-heading mt-3 text-4xl font-extrabold tracking-tight sm:text-5xl">
-            Our Work
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            We run sourcing, research, and diligence for the funds we partner
-            with — surfacing the teams taking shape inside a Boston lab or
-            classroom, months before they reach institutional investors. That
-            window is where we work.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Market Research · Deal Sourcing · Technical Validation"
+        title="Our Work"
+        image="/images/deal-sourcing.jpg"
+        focus="50% 14%"
+      >
+        We run sourcing, research, and diligence for the funds we partner with
+        — surfacing the teams taking shape inside a Boston lab or classroom,
+        months before they reach institutional investors. That window is where
+        we work.
+      </PageHero>
 
       <section className="py-20">
         <div className="mx-auto max-w-6xl px-6">
-          <h2 className="font-heading text-2xl font-bold text-foreground">
-            What We Deliver
-          </h2>
+          <SectionHeading title="What We Deliver" />
         </div>
         <div className="mt-10">
           <DetailSections sections={workAreas} className="max-w-6xl" />
         </div>
       </section>
 
-      <section className="border-t border-border/60 bg-secondary/40 py-20">
+      <section className="border-y border-border/60 bg-surface py-20">
         <div className="mx-auto max-w-6xl px-6">
-          <SectionHeading title="Why Not Just Run It Through AI" isBlue={false} />
+          <SectionHeading title="Why Not Just Run It Through AI" tone="brown" />
           <div className="mt-8 grid gap-6 sm:grid-cols-3">
             {whyNotAI.map((item, i) => {
               const isBlue = i % 2 === 0;
@@ -77,7 +49,7 @@ export default function WorkPage() {
               return (
                 <div
                   key={item.title}
-                  className="rounded-lg border border-border/60 bg-background p-5"
+                  className="rounded-lg border border-border/60 bg-card p-5"
                 >
                   <div
                     className={cn(
@@ -89,9 +61,7 @@ export default function WorkPage() {
                   >
                     <Icon className="size-5" />
                   </div>
-                  <h3 className="font-heading mt-4 font-bold">
-                    {item.title}
-                  </h3>
+                  <h3 className="font-heading mt-4 font-bold">{item.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                     {item.description}
                   </p>
@@ -104,7 +74,7 @@ export default function WorkPage() {
 
       <section className="py-20">
         <div className="mx-auto max-w-6xl px-6">
-          <SectionHeading title="How The Partnership Runs" isBlue />
+          <SectionHeading title="How The Partnership Runs" />
           <dl className="mt-8 max-w-3xl divide-y divide-border">
             {partnershipTerms.map((term, i) => {
               const isBlue = i % 2 === 0;
@@ -146,10 +116,10 @@ export default function WorkPage() {
             Tufts has no business school, and that&apos;s the point. Our
             analysts come out of a liberal arts system where every student
             takes classes across the arts, sciences, math, and humanities —
-            often in fields they never set out to study. That produces
-            analysts who think in more than one frame: reading a technical
-            founder, writing a clear argument, and questioning a market
-            assumption a purely finance-trained cohort would accept.
+            often in fields they never set out to study. That produces analysts
+            who think in more than one frame: reading a technical founder,
+            writing a clear argument, and questioning a market assumption a
+            purely finance-trained cohort would accept.
           </p>
         </div>
       </section>
