@@ -7,7 +7,7 @@ export const faqItems: FaqItem[] = [
   {
     question: "Do I need prior finance or VC experience to apply?",
     answer:
-      "No. We look for curiosity about startups and technology, and a willingness to learn — not a finance background. Our training program teaches the fundamentals from scratch.",
+      "No. We look for curiosity about startups and technology, and a willingness to learn, not a finance background. Our training program teaches the fundamentals from scratch.",
   },
   {
     question: "What year should I be to apply?",
@@ -22,7 +22,7 @@ export const faqItems: FaqItem[] = [
   {
     question: "Is this a paid position or do we invest real money?",
     answer:
-      "TVP is a student organization, not a licensed investment fund — membership is unpaid and we do not deploy personal or club capital. The focus is experiential: sourcing, evaluating, and presenting on real companies.",
+      "TVP is a student organization, not a licensed investment fund. Membership is unpaid and we do not deploy personal or club capital. The focus is experiential: sourcing, evaluating, and presenting on real companies.",
   },
   {
     question: "When do you recruit?",

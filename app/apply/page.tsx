@@ -27,9 +27,8 @@ export default function ApplyPage() {
   return (
     <>
       <PageHero eyebrow={`${academy.term} Recruitment`} title="Apply">
-        Applications open right after our {gim.title} (GIM), held {gim.date} at{" "}
-        <span className="whitespace-nowrap">{gim.time}</span> — in the meantime,
-        follow us on{" "}
+        Applications open right after our {gim.title}. In the meantime, follow
+        us on{" "}
         <a
           href={site.instagram}
           target="_blank"
@@ -53,6 +52,47 @@ export default function ApplyPage() {
         </a>
         .
       </PageHero>
+
+      {/* The one thing people come to this page for, so it gets display type
+          rather than a line of body copy. */}
+      <section className="border-b border-border/60 py-16 sm:py-20">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="flex items-center gap-3">
+            <span className="h-px w-10 shrink-0 bg-tufts-blue" />
+            <p className="text-sm font-semibold uppercase tracking-wide text-tufts-blue">
+              {gim.title}
+            </p>
+          </div>
+
+          <p className="font-heading mt-6 text-4xl font-black leading-[1.05] tracking-tight text-foreground sm:text-6xl">
+            {gim.date}
+          </p>
+
+          {/* Time, place, and who can come, at a size that reads from across
+              a room rather than as fine print. */}
+          <dl className="mt-10 grid gap-x-10 gap-y-8 border-t border-border/60 pt-8 sm:grid-cols-3">
+            {[
+              ["Time", gim.time],
+              ["Location", gim.location],
+              ["Open to", academy.openTo],
+            ].map(([label, value]) => (
+              <div key={label}>
+                <dt className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                  {label}
+                </dt>
+                <dd className="font-heading mt-2 text-2xl font-bold leading-snug text-foreground sm:text-3xl">
+                  <span className="whitespace-nowrap">{value}</span>
+                </dd>
+              </div>
+            ))}
+          </dl>
+
+          <p className="mt-10 max-w-xl text-base leading-relaxed text-muted-foreground">
+            {gim.followUp} No application and nothing to sign up for. Just show
+            up.
+          </p>
+        </div>
+      </section>
 
       <section className="py-20">
         <div className="mx-auto max-w-6xl px-6">

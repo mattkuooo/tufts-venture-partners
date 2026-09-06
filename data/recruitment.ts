@@ -41,7 +41,7 @@ export const whyJoin = [
   {
     title: "Real deal experience",
     description:
-      "Work on live diligence and sourcing for actual investment decisions — not simulations.",
+      "Work on live diligence and sourcing for actual investment decisions, not simulations.",
   },
   {
     title: "Mentorship & network",

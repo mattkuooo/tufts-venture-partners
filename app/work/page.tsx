@@ -6,33 +6,31 @@ import { PageHero } from "@/components/page-hero";
 import { SectionHeading } from "@/components/section-heading";
 import { DetailSections } from "@/components/sections/detail-sections";
 import { workAreas } from "@/data/workAreas";
-import { whyNotAI, partnershipTerms } from "@/data/partnership";
+import { whyNotAI } from "@/data/partnership";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Our Work",
   description:
-    "How Tufts Venture Partners runs market research, deal sourcing, and technical validation for the funds we partner with.",
+    "Tufts Venture Partners covers the Boston startup ecosystem for the funds we partner with, running sourcing, technical diligence, and market research on the ground.",
 };
 
 export default function WorkPage() {
   return (
     <>
       <PageHero
-        eyebrow="Market Research · Deal Sourcing · Technical Validation"
+        eyebrow="Boston Coverage · Technical Diligence · Market Research"
         title="Our Work"
-        image="/images/deal-sourcing.jpg"
-        focus="50% 14%"
       >
-        We run sourcing, research, and diligence for the funds we partner with
-        — surfacing the teams taking shape inside a Boston lab or classroom,
-        months before they reach institutional investors. That window is where
-        we work.
+        Boston is where a great deal of robotics, physical AI, and biotech gets
+        started, and most of the funds backing those companies are somewhere
+        else. We are a team of analysts here on the ground, reaching teams
+        while they are still taking shape inside a lab or a classroom.
       </PageHero>
 
       <section className="py-20">
         <div className="mx-auto max-w-6xl px-6">
-          <SectionHeading title="What We Deliver" />
+          <SectionHeading title="What We Do" />
         </div>
         <div className="mt-10">
           <DetailSections sections={workAreas} className="max-w-6xl" />
@@ -72,65 +70,13 @@ export default function WorkPage() {
         </div>
       </section>
 
-      <section className="py-20">
-        <div className="mx-auto max-w-6xl px-6">
-          <SectionHeading title="How The Partnership Runs" />
-          <dl className="mt-8 max-w-3xl divide-y divide-border">
-            {partnershipTerms.map((term, i) => {
-              const isBlue = i % 2 === 0;
-              return (
-                <div
-                  key={term.label}
-                  className="grid gap-2 py-6 first:pt-0 last:pb-0 sm:grid-cols-[140px_1fr] sm:gap-10"
-                >
-                  <dt
-                    className={cn(
-                      "text-sm font-semibold uppercase tracking-wide",
-                      isBlue ? "text-tufts-blue" : "text-tufts-brown"
-                    )}
-                  >
-                    {term.label}
-                  </dt>
-                  <dd className="text-base leading-relaxed text-foreground">
-                    {term.description}
-                  </dd>
-                </div>
-              );
-            })}
-          </dl>
-        </div>
-      </section>
-
-      <section className="bg-gradient-to-br from-tufts-blue via-[#2c6bb0] to-tufts-brown py-20 text-white">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="flex items-center gap-3">
-            <span className="h-px w-10 bg-white/60" />
-            <p className="text-sm font-semibold uppercase tracking-wide text-white/80">
-              Why Tufts
-            </p>
-          </div>
-          <h2 className="font-heading mt-5 text-3xl font-black sm:text-4xl">
-            Talent.
-          </h2>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/90">
-            Tufts has no business school, and that&apos;s the point. Our
-            analysts come out of a liberal arts system where every student
-            takes classes across the arts, sciences, math, and humanities —
-            often in fields they never set out to study. That produces analysts
-            who think in more than one frame: reading a technical founder,
-            writing a clear argument, and questioning a market assumption a
-            purely finance-trained cohort would accept.
-          </p>
-        </div>
-      </section>
-
       <section className="border-t border-border/60">
         <div className="mx-auto max-w-4xl px-6 py-20 text-center">
           <h2 className="font-heading text-2xl font-bold text-foreground sm:text-3xl">
             Ready to talk?
           </h2>
           <p className="mx-auto mt-3 max-w-xl leading-relaxed text-muted-foreground">
-            Tell us about your fund and the verticals you want covered —
+            Tell us about your fund and the verticals you want covered, and
             we&apos;ll walk you through how an engagement would run.
           </p>
           <Button

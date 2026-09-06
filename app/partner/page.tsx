@@ -3,6 +3,7 @@ import { PageHero } from "@/components/page-hero";
 import { SectionHeading } from "@/components/section-heading";
 import { PartnerForm } from "@/components/sections/partner-form";
 import { site } from "@/data/site";
+import { partnershipTerms } from "@/data/partnership";
 
 export const metadata: Metadata = {
   title: "Partner With Us",
@@ -14,12 +15,32 @@ export default function PartnerPage() {
   return (
     <>
       <PageHero eyebrow="VCs · Founders · Operators" title="Partner With Us">
-        We work closely with VCs, founders, and operators — as guest speakers,
+        We work closely with VCs, founders, and operators as guest speakers,
         mentors, and sources of deal flow for our diligence teams. If
         you&apos;re interested in engaging with {site.name}, we&apos;d love to
         hear from you.
       </PageHero>
 
+      {/* The case for the analysts, first. One ground for the whole page
+          below the hero: sections are separated by hairline rules and
+          spacing, not by colour. */}
+      <section className="border-b border-border/60 py-20">
+        <div className="mx-auto max-w-6xl px-6">
+          <SectionHeading title="Talent." />
+          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+            Tufts has no business school, and that&apos;s the point. We recruit
+            across every major, so our analysts come out of engineering,
+            computer science, biology, economics, and the humanities, and most
+            of them are studying more than one of those at once. We staff a
+            project with the mix the work calls for rather than a room of
+            people trained to think the same way, which is how a technical read
+            and a clearly written argument end up in the same memo.
+          </p>
+        </div>
+      </section>
+
+      {/* The ask, in the middle, on the lighter page ground so the form card
+          still lifts off it. */}
       <section className="mx-auto max-w-6xl px-6 py-20">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
           <div>
@@ -28,21 +49,21 @@ export default function PartnerPage() {
             <div className="mt-8 space-y-4 text-sm leading-relaxed text-muted-foreground">
               <p>
                 <span className="font-semibold text-foreground">
-                  For VCs &amp; investors —
+                  For VCs &amp; investors:
                 </span>{" "}
                 share deal flow, speak at a member event, or host analysts for a
                 case study.
               </p>
               <p>
                 <span className="font-semibold text-foreground">
-                  For founders —
+                  For founders:
                 </span>{" "}
                 get feedback from our diligence teams or connect with our
                 investor network.
               </p>
               <p>
                 <span className="font-semibold text-foreground">
-                  For alumni &amp; operators —
+                  For alumni &amp; operators:
                 </span>{" "}
                 mentor current members or lead a workshop.
               </p>
@@ -65,6 +86,31 @@ export default function PartnerPage() {
           <div className="rounded-2xl border border-border/60 bg-card p-6 sm:p-8">
             <PartnerForm />
           </div>
+        </div>
+      </section>
+
+      {/* The mechanics last, for anyone who read the form and wants the terms
+          before they fill it in. */}
+      <section className="border-t border-border/60 py-20">
+        <div className="mx-auto max-w-6xl px-6">
+          <SectionHeading title="How The Partnership Runs" />
+          <dl className="mt-8 max-w-3xl divide-y divide-border">
+            {partnershipTerms.map((term) => (
+              <div
+                key={term.label}
+                className="grid gap-2 py-6 first:pt-0 last:pb-0 sm:grid-cols-[140px_1fr] sm:gap-10"
+              >
+                {/* One label colour throughout: these terms are a single set,
+                    not alternating categories. */}
+                <dt className="text-sm font-semibold uppercase tracking-wide text-tufts-blue">
+                  {term.label}
+                </dt>
+                <dd className="text-base leading-relaxed text-foreground">
+                  {term.description}
+                </dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
     </>

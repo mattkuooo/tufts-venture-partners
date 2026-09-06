@@ -10,14 +10,14 @@ export type BoardMember = {
 export const boardMembers: BoardMember[] = [
   {
     name: "Matt Kuo",
-    role: "President",
+    role: "Founder & President",
     group: "Executive Board",
     image: "/images/matt_kuo.jpg",
     href: "https://www.linkedin.com/in/mattmkuo/",
   },
   {
     name: "Catherine Samaan",
-    role: "Senior VP, Operations",
+    role: "SVP, Operations",
     group: "Executive Board",
     image: "/images/catie_samaan_portrait.jpg",
     imagePosition: "50% 50%",
@@ -25,7 +25,7 @@ export const boardMembers: BoardMember[] = [
   },
   {
     name: "Cooper Kolehmainen",
-    role: "Senior VP, Investment Strategy",
+    role: "SVP, Investment Strategy",
     group: "Executive Board",
     image: "/images/cooper_kolehmainen_portrait.jpg",
     imagePosition: "50% 50%",
@@ -33,7 +33,7 @@ export const boardMembers: BoardMember[] = [
   },
   {
     name: "Alex Robbins",
-    role: "Senior VP, Investment Strategy",
+    role: "SVP, Investment Strategy",
     group: "Executive Board",
     image: "/images/alex_robbins.png",
     href: "https://www.linkedin.com/in/alexander-h-robbins/",

@@ -4,7 +4,13 @@
 export const gim = {
   title: "General Interest Meeting",
   date: "Wednesday, September 9",
+  /** Split out so the Apply page can set the day and the date at different
+   *  type sizes. Keep in step with `date`. */
+  day: "Wednesday",
+  dayOfMonth: "September 9",
   time: "7:30 p.m.",
+  location: "Cabot 206",
+  followUp: "Headshots and networking to follow.",
 } as const;
 
 export const academy = {
@@ -16,7 +22,7 @@ export const academy = {
   /** There is no application and no prerequisite: anyone can walk in. */
   openTo: "Every Tufts student",
   description:
-    "Our training program, and the front door to the club. A short sequence of high-density sessions takes you from what venture capital actually is through to a live case and a pitch — taught by the board, with guest speakers from the industry.",
+    "A guest speaker series where investors and founders walk you through how venture capital actually works, followed by real case studies and a closing Pitch Night: the same preparation our analysts get. No application and nothing to sign up for. Just show up.",
   /** The term in order, matching the working schedule. Week numbers for the
    *  speaker block are implied by the sheet rather than locked — adjust here
    *  and the home page follows. */

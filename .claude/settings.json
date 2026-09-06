@@ -1,0 +1,39 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cat <<'EOF'\n{\"hookSpecificOutput\":{\"hookEventName\":\"SessionStart\",\"additionalContext\":\"One dev server policy (AGENTS.md): all agents in this repo share the single dev server on localhost:3000. Check 'curl -sf -o /dev/null http://localhost:3000' before running the app — if it answers, use it (it hot-reloads from disk). Never pass -p/--port or use any port but 3000, never run 'npm start', never kill a listener you did not start, and never start a second dev server. These rules are enforced by a PreToolUse hook.\"}}\nEOF",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "SubagentStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cat <<'EOF'\n{\"hookSpecificOutput\":{\"hookEventName\":\"SubagentStart\",\"additionalContext\":\"One dev server policy (AGENTS.md): all agents in this repo share the single dev server on localhost:3000. Check 'curl -sf -o /dev/null http://localhost:3000' before running the app — if it answers, use it (it hot-reloads from disk). Never pass -p/--port or use any port but 3000, never run 'npm start', never kill a listener you did not start, and never start a second dev server. These rules are enforced by a PreToolUse hook.\"}}\nEOF",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/dev-server-guard.sh",
+            "timeout": 10,
+            "statusMessage": "Checking one-dev-server policy"
+          }
+        ]
+      }
+    ]
+  }
+}

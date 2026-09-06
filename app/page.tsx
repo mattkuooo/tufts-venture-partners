@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CalendarDays } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { site } from "@/data/site";
-import { academy, gim } from "@/data/schedule";
+import { academy } from "@/data/schedule";
 import { orgLogos } from "@/data/orgLogos";
 import { boardMembers } from "@/data/team";
 import { cn } from "@/lib/utils";
@@ -46,12 +46,13 @@ export default function Home() {
             </h1>
 
             <p className="font-heading mt-4 text-xl font-bold leading-snug text-white sm:mt-5 sm:text-3xl">
-              The first VC community at Tufts
+              The first-ever VC community at Tufts
             </p>
 
             <p className="mt-6 max-w-2xl text-lg font-light leading-relaxed text-white/85 sm:text-xl">
-              A student-run analyst program built on real diligence work, with
-              advisors from venture funds across Boston.
+              A student investment team working alongside venture capital
+              firms, building relationships with funders and investors,
+              advised by industry professionals.
             </p>
           </div>
         </div>
@@ -81,7 +82,7 @@ export default function Home() {
             <div className="flex items-center gap-3">
               <span className="h-px w-10 shrink-0 bg-tufts-blue" />
               <p className="text-sm font-semibold uppercase tracking-wide text-tufts-blue">
-                {academy.term} · Where everyone starts
+                {academy.term}
               </p>
             </div>
 
@@ -112,21 +113,6 @@ export default function Home() {
               ))}
             </dl>
 
-            {/* How to turn up, kept in the copy column so the left side reads
-                to the same depth as the schedule beside it. */}
-            <div className="mt-9 flex items-start gap-3 rounded-xl border border-border/60 px-4 py-3.5">
-              <CalendarDays className="mt-0.5 size-4 shrink-0 text-tufts-blue" />
-              <p className="text-sm leading-relaxed text-muted-foreground">
-                <span className="font-semibold text-foreground">
-                  It starts at the {gim.title}
-                </span>{" "}
-                — {gim.date} at{" "}
-                {/* Keeps "7:30 p.m." from breaking across lines. */}
-                <span className="whitespace-nowrap">{gim.time}</span> No
-                application and nothing to sign up for — just show up.
-              </p>
-            </div>
-
             <div className="mt-8 flex flex-wrap gap-3">
               <Button
                 size="lg"
@@ -138,14 +124,6 @@ export default function Home() {
               >
                 Get session reminders <ArrowRight className="size-4" />
               </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                nativeButton={false}
-                render={<Link href="/events" />}
-              >
-                See our events
-              </Button>
             </div>
           </div>
 
@@ -154,11 +132,7 @@ export default function Home() {
               a word of it. Jumbo blue rather than tufts-blue so the card stays
               dark if a dark theme is ever switched on. */}
           <div className="self-start rounded-2xl bg-tufts-jumbo-blue p-6 text-white sm:p-7">
-            <p className="text-xs font-semibold uppercase tracking-wide text-white/60">
-              How the term runs
-            </p>
-
-            <ol className="mt-5">
+            <ol>
               {academy.stages.map((stage, i) => {
                 // Pitch Night is the payoff, so it gets the filled marker.
                 const isLast = i === academy.stages.length - 1;
@@ -215,13 +189,14 @@ export default function Home() {
                   {logo ? (
                     // Matched on height rather than boxed, so wordmarks of
                     // very different aspect ratios sit on one optical line.
-                    // Grayscale unifies a set of mismatched third-party marks.
+                    // Full colour — the marks are official brand assets, and
+                    // colour lets each fund's identity read at this size.
                     <Image
                       src={logo.src}
                       alt={org}
                       width={logo.width}
                       height={logo.height}
-                      className="w-auto opacity-60 grayscale"
+                      className="w-auto"
                       style={{
                         height: `calc(clamp(1.15rem, 2.6vw, 1.6rem) * ${
                           logo.scale ?? 1
@@ -248,31 +223,36 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Closing CTA: the two ways to stay connected, so the page doesn't
+          dead-end after the logo band. */}
       <section className="border-t border-border/60">
         <div className="mx-auto max-w-4xl px-6 py-20 text-center">
           <h2 className="font-heading text-2xl font-bold text-foreground sm:text-3xl">
-            Two ways in.
+            Stay in the loop.
           </h2>
           <p className="mx-auto mt-3 max-w-xl leading-relaxed text-muted-foreground">
-            Students join through the Academy. Firms and founders work with our
-            analysts directly.
+            Session reminders by email, day-to-day conversation on Slack.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Button
               size="lg"
               className="bg-tufts-blue text-white hover:bg-tufts-blue/90"
               nativeButton={false}
-              render={<Link href="/apply" />}
+              render={
+                <a href={site.elist} target="_blank" rel="noopener noreferrer" />
+              }
             >
-              Apply to join <ArrowRight className="size-4" />
+              Join the e-list <ArrowRight className="size-4" />
             </Button>
             <Button
               size="lg"
               variant="outline"
               nativeButton={false}
-              render={<Link href="/partner" />}
+              render={
+                <a href={site.slack} target="_blank" rel="noopener noreferrer" />
+              }
             >
-              Partner with us
+              Join our Slack
             </Button>
           </div>
         </div>

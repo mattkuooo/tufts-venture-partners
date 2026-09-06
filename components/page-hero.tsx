@@ -14,18 +14,25 @@ import { cn } from "@/lib/utils";
 export function PageHero({
   eyebrow,
   title,
-  image,
-  focus = "50% 30%",
+  image = "/images/boston-aerial.jpg",
+  focus = "50% 35%",
   children,
 }: {
   eyebrow?: string;
   title: string;
-  /** Optional photo behind the wash. Omit for a flat navy header. */
-  image?: string;
-  /** CSS object-position for the photo. The band is roughly 4:1 while our
-   *  photos are 3:2, so object-cover shows only a ~37% horizontal slice — left
-   *  centred, that lands on torsos and cuts faces off above the frame. Bias it
-   *  up until the subject is inside the band. */
+  /** Photo behind the wash. Defaults to the Boston aerial so every page below
+   *  the home page shares one band — that repetition is the point. Pass a
+   *  different path to override, or `null` for a flat navy header.
+   *
+   *  The default is a panorama (2400x1082, ~2.2:1) rather than a 3:2 frame:
+   *  the band crops to roughly 4:1, so a standard photo loses ~60% of its
+   *  height and any subject with it. Aerials also survive the 75-90% wash,
+   *  which turns faces and small type to mush but leaves a skyline readable.
+   *  Source: Arun Antony via Unsplash (unsplash.com/photos/t8uNfvhFUyQ). */
+  image?: string | null;
+  /** CSS object-position for the photo. The default keeps the skyline inside
+   *  the band; bias it up or down if you override `image` with a frame whose
+   *  subject sits elsewhere. */
   focus?: string;
   /** The lede. Passed as children so pages can include inline links. */
   children?: ReactNode;

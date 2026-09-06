@@ -9,36 +9,36 @@ export type WorkArea = {
 
 export const workAreas: WorkArea[] = [
   {
-    title: "Market Research",
+    title: "On The Ground In Boston",
     description:
-      "Thesis-driven research on the verticals you name, mapping the landscape before you take a meeting. Each cycle returns a segmented view of the space with stage, last round, and a view on where value accrues.",
+      "Boston is one of a few places in the world where robotics and physical AI companies cluster, and it has been the center of biotech for decades. Most of the funds investing in those companies are somewhere else. We are here: a team of analysts at the pitch competitions, demo days, and lab showcases across the city, meeting teams well before they raise.",
     points: [
-      "Segmented company landscape, 10–20 per vertical",
-      "Stage, last round, and competitive positioning",
-      "Thesis development for the verticals you define",
-    ],
-    image: "/images/market-research.jpg",
-  },
-  {
-    title: "Deal Sourcing",
-    description:
-      "We source and screen founders nationwide against the criteria you set, with the Boston campus pipeline — Tufts, MIT, Harvard, Northeastern, WPI, BC, and BU — as a primary focus, plus founder and investor events across the city.",
-    points: [
-      "Nationwide sourcing screened against your criteria",
-      "Boston campus pipeline: Tufts, MIT, Harvard, Northeastern, WPI, BC, BU",
-      "Coverage of founder and investor events across the city",
+      "Coverage of pitch nights, demo days, and lab showcases across Tufts, MIT, Harvard, Northeastern, WPI, BC, and BU",
+      "Teams reached at formation, before there is a site or a deck to find",
+      "Screened against the criteria you set, with what we passed on written down",
     ],
     image: "/images/deal-sourcing.jpg",
   },
   {
-    title: "Technical Validation",
+    title: "Technical Diligence",
     description:
-      "Every recommendation arrives written up and pressure-tested internally before it reaches you — at least two rounds of screening behind a 5–8 page investment memo, with technical claims checked against Tufts faculty and practitioners working in that field.",
+      "You run the deal. We take the part of it that turns on how the thing actually works. Analysts are matched to the field a question sits in, work under your direction, and bring the claims they cannot settle themselves to Tufts faculty and practitioners who can.",
     points: [
-      "Two rounds of internal screening before anything reaches you",
-      "5–8 page investment memo, verified against a primary source",
-      "Technical claims checked against Tufts faculty in that field",
+      "Analysts matched to the domain a deal turns on, staffed once the scope is set",
+      "Technical claims checked with Tufts faculty and practitioners in that field",
+      "Written findings, reviewed internally before they reach your team",
     ],
     image: "/images/diligence.jpg",
+  },
+  {
+    title: "Market Research",
+    description:
+      "Thesis-driven research on the verticals you name, so a first meeting starts from a map of the space instead of a blank page. Each cycle returns a segmented view with stage, last round, and a position on where value is accruing.",
+    points: [
+      "Segmented company landscape, 10 to 20 per vertical",
+      "Stage, last round, and competitive positioning",
+      "Thesis development for the verticals you define",
+    ],
+    image: "/images/market-research.jpg",
   },
 ];

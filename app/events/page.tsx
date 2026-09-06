@@ -22,7 +22,6 @@ export default function EventsPage() {
       <PageHero
         eyebrow="Academy · Speaker Series · Pitch Competitions"
         title="Events"
-        image="/images/jumbo_banner.jpg"
       >
         How we train new members, who we bring to campus, and how we connect
         Tufts to the wider Boston venture community.
