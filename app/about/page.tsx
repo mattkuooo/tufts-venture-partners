@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { PageHero } from "@/components/page-hero";
+import { SectionHeading } from "@/components/section-heading";
+import { site } from "@/data/site";
 import { boardGroups, boardMembers, type BoardMember } from "@/data/team";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Meet the board and analysts behind Tufts Venture Partners.",
+    "Meet the executive and advisory boards behind Tufts Venture Partners.",
 };
 
 function MemberCard({
@@ -82,27 +85,25 @@ function MemberCard({
 export default function AboutPage() {
   return (
     <>
-      <section className="mx-auto max-w-6xl px-6 py-16">
-        <div className="flex items-center gap-4">
-          <span className="h-px w-10 bg-tufts-blue" />
-          <h1 className="font-heading text-4xl font-extrabold tracking-tight sm:text-5xl">
-            Our Team
-          </h1>
-        </div>
+      <PageHero eyebrow="Executive & Advisory Boards" title="Our Team">
+        {site.whoWeAre}
+      </PageHero>
 
-        {boardGroups.map((group) => {
+      <section className="mx-auto max-w-6xl px-6 py-20">
+        {boardGroups.map((group, groupIndex) => {
           const members = boardMembers.filter((m) => m.group === group);
           if (members.length === 0) return null;
           const isScroller = group === "Advisory Board";
 
           return (
-            <div key={group} className="mt-10">
-              <h3 className="font-heading text-2xl font-bold text-foreground">
-                {group}
-              </h3>
+            <div key={group} className="mt-14 first:mt-0">
+              <SectionHeading
+                title={group}
+                tone={groupIndex % 2 === 0 ? "blue" : "brown"}
+              />
 
               {isScroller ? (
-                <div className="mx-auto mt-6 max-w-4xl">
+                <div className="mt-6">
                   <div className="flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4">
                     {members.map((member, i) => (
                       <div
@@ -122,13 +123,13 @@ export default function AboutPage() {
                   </p>
                 </div>
               ) : (
-                <div className="mx-auto mt-6 grid max-w-4xl gap-x-6 gap-y-10 sm:grid-cols-3">
+                <div className="mt-6 grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4">
                   {members.map((member, i) => (
                     <MemberCard
                       key={member.name}
                       member={member}
                       index={i}
-                      sizes="(min-width: 640px) 280px, 100vw"
+                      sizes="(min-width: 1024px) 260px, 50vw"
                     />
                   ))}
                 </div>
@@ -136,22 +137,6 @@ export default function AboutPage() {
             </div>
           );
         })}
-      </section>
-
-      <section className="border-t border-border/60 bg-secondary/40">
-        <div className="mx-auto max-w-6xl px-6 py-20">
-          <h2 className="font-heading text-center text-2xl font-bold text-foreground">
-            Spring 2027 Analyst Class
-          </h2>
-          <div className="relative mx-auto mt-8 flex aspect-video w-full max-w-3xl items-center justify-center overflow-hidden bg-gradient-to-br from-tufts-blue via-[#2c6bb0] to-tufts-brown">
-            <div className="text-center">
-              <p className="font-heading text-4xl font-black tracking-tight text-white sm:text-6xl">
-                Coming Soon
-              </p>
-              <span className="mx-auto mt-5 block h-px w-12 bg-white/50" />
-            </div>
-          </div>
-        </div>
       </section>
     </>
   );

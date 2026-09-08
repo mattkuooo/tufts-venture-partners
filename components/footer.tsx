@@ -63,16 +63,30 @@ export function Footer() {
               {site.email}
             </a>
 
-            <Button
-              size="sm"
-              className="bg-white text-tufts-blue hover:bg-white/90"
-              nativeButton={false}
-              render={
-                <a href={site.elist} target="_blank" rel="noopener noreferrer" />
-              }
-            >
-              Join the E-list
-            </Button>
+            {/* Both ways to join, side by side. The e-list stays the primary
+                action; Slack sits beside it in the outline treatment. */}
+            <div className="flex flex-wrap items-center justify-center gap-2 md:justify-end">
+              <Button
+                size="sm"
+                className="bg-white text-tufts-blue hover:bg-white/90"
+                nativeButton={false}
+                render={
+                  <a href={site.elist} target="_blank" rel="noopener noreferrer" />
+                }
+              >
+                Join the E-list
+              </Button>
+              <Button
+                size="sm"
+                className="border border-white/40 bg-transparent text-white hover:bg-white/10"
+                nativeButton={false}
+                render={
+                  <a href={site.slack} target="_blank" rel="noopener noreferrer" />
+                }
+              >
+                Join our Slack
+              </Button>
+            </div>
           </div>
         </div>
       </div>

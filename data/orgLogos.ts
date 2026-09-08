@@ -37,6 +37,11 @@ export const orgLogos: Record<string, OrgLogo> = {
     width: 279,
     height: 31,
   },
+  M12: {
+    src: "/images/logos/m12.svg",
+    width: 100,
+    height: 41,
+  },
   "Boston Seed Capital": {
     src: "/images/logos/boston-seed-capital.svg",
     width: 292,

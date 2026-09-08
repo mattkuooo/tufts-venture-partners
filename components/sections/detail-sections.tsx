@@ -9,7 +9,8 @@ export type DetailSection = {
 };
 
 /** Numbered, alternating blue/brown section list shared by the Work and
- *  Events pages. Sections without an image simply omit the photo. */
+ *  Events pages. Copy sits on the left with the photo beside it on the right;
+ *  sections without an image let the copy run the full width. */
 export function DetailSections({
   sections,
   className,
@@ -29,13 +30,18 @@ export function DetailSections({
         return (
           <div
             key={section.title}
-            className="grid gap-6 py-14 first:pt-0 last:pb-0 sm:grid-cols-[180px_1fr] sm:gap-12"
+            className={cn(
+              "grid gap-8 py-14 first:pt-0 last:pb-0",
+              // Two columns only when there is a photo to sit beside the copy.
+              section.image &&
+                "lg:grid-cols-[1fr_minmax(0,24rem)] lg:items-start lg:gap-12"
+            )}
           >
             <div>
-              <div className="flex items-center gap-3 sm:block">
+              <div className="flex items-center gap-3">
                 <span
                   className={cn(
-                    "h-px w-8 shrink-0 sm:mb-3 sm:block sm:w-10",
+                    "h-px w-8 shrink-0 sm:w-10",
                     isBlue ? "bg-tufts-blue" : "bg-tufts-brown"
                   )}
                 />
@@ -47,14 +53,12 @@ export function DetailSections({
                 >
                   {section.title}
                 </h2>
+                <span className="font-heading ml-auto text-3xl font-black leading-none text-muted-foreground/20">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
               </div>
-              <p className="mt-4 hidden font-heading text-5xl font-black leading-none text-muted-foreground/20 sm:block">
-                {String(i + 1).padStart(2, "0")}
-              </p>
-            </div>
 
-            <div>
-              <p className="text-lg leading-relaxed text-foreground">
+              <p className="mt-5 text-lg leading-relaxed text-foreground">
                 {section.description}
               </p>
 
@@ -71,19 +75,19 @@ export function DetailSections({
                   </li>
                 ))}
               </ul>
-
-              {section.image && (
-                <div className="relative mt-8 aspect-[16/9] w-full max-w-xl overflow-hidden bg-secondary">
-                  <Image
-                    src={section.image}
-                    alt={section.title}
-                    fill
-                    sizes="(min-width: 640px) 640px, 100vw"
-                    className="object-cover"
-                  />
-                </div>
-              )}
             </div>
+
+            {section.image && (
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-secondary lg:aspect-[5/4]">
+                <Image
+                  src={section.image}
+                  alt={section.title}
+                  fill
+                  sizes="(min-width: 1024px) 24rem, 100vw"
+                  className="object-cover"
+                />
+              </div>
+            )}
           </div>
         );
       })}
