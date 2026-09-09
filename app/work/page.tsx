@@ -22,10 +22,14 @@ export default function WorkPage() {
         eyebrow="Boston Coverage · Technical Diligence · Market Research"
         title="Our Work"
       >
-        Boston is where a great deal of robotics, physical AI, and biotech gets
-        started, and most of the funds backing those companies are somewhere
-        else. We are a team of analysts here on the ground, reaching teams
-        while they are still taking shape inside a lab or a classroom.
+        Boston&apos;s universities are how we find founders at the
+        super-early stage. Campus events at Tufts, Harvard, MIT, BC, BU, and
+        Northeastern put us in the room while a team is still taking shape.
+        Boston is also the hub for biotech, robotics, physical AI, and more,
+        so we do more than increase deal flow for VCs: we are the bridge that
+        introduces these investment opportunities to firms not based in
+        Boston, and we fill the technical expertise those firms need to
+        evaluate them.
       </PageHero>
 
       <section className="py-20">

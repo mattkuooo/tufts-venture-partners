@@ -10,7 +10,11 @@ export const gim = {
   dayOfMonth: "September 9",
   time: "7:30 p.m.",
   location: "Cabot 206",
-  followUp: "Headshots and networking to follow.",
+  /** The GIM's own draw, and the reason it gets a callout of its own on the
+   *  Apply page: a free headshot is a concrete reason to turn up. */
+  perk: "Free professional headshots",
+  perkDetail:
+    "Taken on the night, with networking to follow. No application and nothing to sign up for. Just show up.",
 } as const;
 
 export const academy = {

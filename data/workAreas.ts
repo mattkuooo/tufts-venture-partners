@@ -11,33 +11,36 @@ export const workAreas: WorkArea[] = [
   {
     title: "On The Ground In Boston",
     description:
-      "Boston is one of a few places in the world where robotics and physical AI companies cluster, and it has been the center of biotech for decades. Most of the funds investing in those companies are somewhere else. We are here: a team of analysts at the pitch competitions, demo days, and lab showcases across the city, meeting teams well before they raise.",
+      "As college students, we can get into the rooms investors cannot. We hold tickets and open access to events across Massachusetts, from funder meetups to campus competitions, including the inclusive early-stage ones that firms rarely reach. Founders are more open with us too: talking to a fellow student carries none of the pressure of pitching to an investor, so conversations start earlier and run deeper. And unlike a fund's deal team, we have the time to be in all of these rooms at once.",
     points: [
-      "Coverage of pitch nights, demo days, and lab showcases across Tufts, MIT, Harvard, Northeastern, WPI, BC, and BU",
-      "Teams reached at formation, before there is a site or a deck to find",
-      "Screened against the criteria you set, with what we passed on written down",
+      "Pitch nights, demo days, showcases",
+      "Reached before a deck exists",
+      "Screened to your criteria",
+      "Passes logged with reasons",
     ],
     image: "/images/deal-sourcing.jpg",
   },
   {
     title: "Technical Diligence",
     description:
-      "You run the deal. We take the part of it that turns on how the thing actually works. Analysts are matched to the field a question sits in, work under your direction, and bring the claims they cannot settle themselves to Tufts faculty and practitioners who can.",
+      "Take semiconductors. A chip passes through roughly twenty distinct steps before it ships, from EDA tooling and silicon IP to front-end equipment and advanced packaging, and a startup can sit anywhere in that chain. No VC deal team holds the technical expertise to evaluate every one of them. Rather than hire engineers or bring in outside consultants, our analysts conduct the primary research: validating the idea, questioning the claims, and contributing to your filtering process.",
     points: [
-      "Analysts matched to the domain a deal turns on, staffed once the scope is set",
-      "Technical claims checked with Tufts faculty and practitioners in that field",
-      "Written findings, reviewed internally before they reach your team",
+      "Analysts matched to the field",
+      "Staffed once scope is set",
+      "Verified with Tufts faculty",
+      "Reviewed before it reaches you",
     ],
     image: "/images/diligence.jpg",
   },
   {
     title: "Market Research",
     description:
-      "Thesis-driven research on the verticals you name, so a first meeting starts from a map of the space instead of a blank page. Each cycle returns a segmented view with stage, last round, and a position on where value is accruing.",
+      "Project teams produce a thesis by researching the verticals you care about. Each cycle returns a segmented landscape of 10 to 20 companies, with stage, positioning, and a point of view on where value accrues, alongside an evaluation of the market itself.",
     points: [
-      "Segmented company landscape, 10 to 20 per vertical",
-      "Stage, last round, and competitive positioning",
-      "Thesis development for the verticals you define",
+      "Total addressable market",
+      "Emerging players in the space",
+      "What the competitive moat is",
+      "Which VCs are investing",
     ],
     image: "/images/market-research.jpg",
   },

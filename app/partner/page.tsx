@@ -27,14 +27,17 @@ export default function PartnerPage() {
       <section className="border-b border-border/60 py-20">
         <div className="mx-auto max-w-6xl px-6">
           <SectionHeading title="Talent" rule={false} />
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            Tufts has no business school, and that&apos;s the point. We recruit
-            across every major, so our analysts come out of engineering,
-            computer science, biology, economics, and the humanities, and most
-            of them are studying more than one of those at once. We staff a
-            project with the mix the work calls for rather than a room of
-            people trained to think the same way, which is how a technical read
-            and a clearly written argument end up in the same memo.
+          <p className="mt-5 max-w-4xl text-lg leading-relaxed text-muted-foreground">
+            Our board and its cohort go beyond the traditional finance
+            background you would expect from a finance club. We recruit
+            engineers, chemists, and even political scientists to cover
+            different industries, and the liberal arts curriculum does the
+            rest: students here take classes beyond their intended majors and
+            build interdisciplinary skills across fields. Every analyst ends
+            up with a different skill set, so each is tailored to a different
+            kind of technical diligence. That breadth is one of the biggest
+            advantages of working with Tufts students: our bandwidth goes above
+            and beyond the typical finance-heavy talent pool.
           </p>
         </div>
       </section>
@@ -51,21 +54,20 @@ export default function PartnerPage() {
                 <span className="font-semibold text-foreground">
                   For VCs &amp; investors:
                 </span>{" "}
-                share deal flow, speak at a member event, or host analysts for a
-                case study.
+                additional deal flow, technical validation, due diligence, and
+                market research.
               </p>
               <p>
                 <span className="font-semibold text-foreground">
                   For founders:
                 </span>{" "}
-                get feedback from our diligence teams or connect with our
-                investor network.
+                a connection to investors that opens the door for funding.
               </p>
               <p>
                 <span className="font-semibold text-foreground">
                   For alumni &amp; operators:
                 </span>{" "}
-                mentor current members or lead a workshop.
+                mentorship, workshop speaker events, and advisory seats.
               </p>
             </div>
 

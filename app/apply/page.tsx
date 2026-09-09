@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Camera } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -87,9 +88,20 @@ export default function ApplyPage() {
             ))}
           </dl>
 
-          <p className="mt-10 max-w-xl text-base leading-relaxed text-muted-foreground">
-            {gim.followUp} No applications required.
-          </p>
+          {/* Pulled out of the body copy into a callout: the free headshot is
+              the strongest reason a student who has never heard of us turns
+              up, so it should not read as a trailing detail. */}
+          <div className="mt-10 flex max-w-xl items-start gap-4 rounded-xl border border-tufts-blue/25 bg-tufts-blue/[0.04] p-5">
+            <Camera className="mt-0.5 size-5 shrink-0 text-tufts-blue" />
+            <div>
+              <p className="font-heading text-lg font-bold leading-snug text-foreground">
+                {gim.perk}
+              </p>
+              <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                {gim.perkDetail}
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
