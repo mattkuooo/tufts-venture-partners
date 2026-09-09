@@ -5,7 +5,7 @@ export const site = {
   mission:
     "Tufts Venture Partners exists to give students hands-on experience in venture capital: sourcing deals, running diligence, and building relationships with founders and investors, all while building a community of students passionate about startups and technology.",
   whoWeAre:
-    "Our founding team blends finance and engineering backgrounds. Venture capital isn't just a world of finance people anymore; it's founders, engineers, and people from all kinds of backgrounds, and we felt that mix was essential as we built our founding team. Feel free to reach out to any of us for coffee, whether you have questions, need help with recruitment, or want to get involved.",
+    "Our founding team brings together students from majors across finance and engineering. Feel free to reach out to any of us for coffee if you have any questions about venture capital or the recruitment process.",
   email: "info@tuftsventurepartners.org",
   linkedin: "https://www.linkedin.com/company/tufts-venture-partners",
   instagram: "https://www.instagram.com/tuftsventurepartners",
