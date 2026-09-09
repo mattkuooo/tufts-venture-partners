@@ -17,12 +17,13 @@ export const academy = {
   title: "The Academy",
   term: "Fall 2026",
   slot: "Wednesdays at 7:30 p.m.",
+  location: "TBD",
   /** Deliberately short sessions — quoted on the home page. */
   sessionLength: "30–45 minutes",
   /** There is no application and no prerequisite: anyone can walk in. */
-  openTo: "Every Tufts student",
+  openTo: "All Tufts students",
   description:
-    "A guest speaker series where investors and founders walk you through how venture capital actually works, followed by real case studies and a closing Pitch Night: the same preparation our analysts get. No application and nothing to sign up for. Just show up.",
+    "A guest speaker series where investors and founders walk you through how venture capital actually works, followed by real case studies and a closing Pitch Night. Open to all Tufts students.",
   /** The term in order, matching the working schedule. Week numbers for the
    *  speaker block are implied by the sheet rather than locked — adjust here
    *  and the home page follows. */
@@ -30,19 +31,17 @@ export const academy = {
     {
       when: "Week 1",
       title: "GIM",
-      detail: "What TVP does, and who's in the room.",
+      detail: "Learn about TVP",
     },
     {
       when: "Week 2",
       title: "VC intro",
-      detail:
-        "What venture capital is, where it came from, and what to expect.",
+      detail: "Learn about the basics of venture capital",
     },
     {
       when: "Weeks 3–6",
       title: "Guest speakers",
-      detail:
-        "Careers, sourcing and memos, a startup founder, and diligence.",
+      detail: "A career fireside chat, sourcing and memos, diligence, and a startup founder.",
     },
     {
       when: "Weeks 7–10",
@@ -52,7 +51,7 @@ export const academy = {
     {
       when: "Finale",
       title: "Pitch Night",
-      detail: "Teams pitch; the board judges.",
+      detail: "Teams pitch and the board gives feedback.",
     },
   ],
 } as const;

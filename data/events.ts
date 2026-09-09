@@ -11,29 +11,29 @@ export const eventAreas: EventArea[] = [
   {
     title: "Academy",
     description:
-      "Our training program, and the front door to the club. A short sequence of high-density sessions takes students from what venture capital actually is through sourcing, market mapping, thesis work, and diligence — ending in a mock pitch on a live client sector. Taught by the board with guest speakers from the industry.",
+      "Our training program for all Tufts students - no experience needed. We'll have guest speakers walk you through how venture capital works, go through several case studies, and close it off with a Pitch Night. ",
     points: [
-      "Sessions run 30–45 minutes — built to be potent, not long",
-      "Sourcing, market mapping, thesis development, and diligence",
-      "Memo writing and pitching, the two hard skills we drill",
-      "Closes with a mock pitch judged by the board",
+      "Wednesdays at 7:30 p.m",
+      "Guest speakers on careers, sourcing, and diligence",
+      "Case studies on real companies",
+      "Pitch Night where the board judges and gives feedback"
     ],
   },
   {
     title: "Fireside Chats / Speaker Series",
     description:
-      "We bring VCs, founders, and operators to campus for candid, conversational sessions — how a fund actually decides what to back, what a founder's first eighteen months really look like, and how students break into the industry.",
+      "We bring VCs and founders to campus for candid fireside chats on how a fund decides what pitches to back, what a founder's first eighteen months really look like, and how students can break into the industry.",
     points: [
       "Investor and founder fireside chats",
       "Skills workshops (modeling, pitching, diligence)",
-      "Alumni-in-venture networking nights",
-      "Open to the wider Tufts community, not just members",
+      "Alumni networking nights",
+      "Open to the wider Tufts community",
     ],
   },
   {
     title: "Pitch Competitions",
     description:
-      "We host and judge pitch competitions that bring student founders together with VC clubs from across Boston — giving Tufts entrepreneurs a real audience and giving our analysts practice evaluating companies under time pressure.",
+      "We host and judge pitch competitions that bring student founders together with VC clubs from across Boston, giving Tufts entrepreneurs the chance to pitch to a real audience and giving our analysts practice evaluating companies under time pressure.",
     points: [
       "Inter-collegiate competitions with Boston-area VC clubs",
       "Campus startup showcases",

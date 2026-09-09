@@ -13,9 +13,11 @@ export type DetailSection = {
  *  sections without an image let the copy run the full width. */
 export function DetailSections({
   sections,
+  rule = true,
   className,
 }: {
   sections: readonly DetailSection[];
+  rule?: boolean;
   className?: string;
 }) {
   return (
@@ -39,12 +41,14 @@ export function DetailSections({
           >
             <div>
               <div className="flex items-center gap-3">
-                <span
-                  className={cn(
-                    "h-px w-8 shrink-0 sm:w-10",
-                    isBlue ? "bg-tufts-blue" : "bg-tufts-brown"
-                  )}
-                />
+                {rule && (
+                  <span
+                    className={cn(
+                      "h-px w-8 shrink-0 sm:w-10",
+                      isBlue ? "bg-tufts-blue" : "bg-tufts-brown"
+                    )}
+                  />
+                )}
                 <h2
                   className={cn(
                     "text-sm font-semibold uppercase tracking-wide",
@@ -67,7 +71,7 @@ export function DetailSections({
                   <li
                     key={point}
                     className={cn(
-                      "border-l-2 pl-3 text-sm leading-snug text-muted-foreground",
+                      "flex items-center border-l-2 pl-3 text-sm leading-snug text-muted-foreground",
                       isBlue ? "border-tufts-blue/40" : "border-tufts-brown/40"
                     )}
                   >

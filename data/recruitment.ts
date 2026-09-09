@@ -41,7 +41,7 @@ export const whyJoin = [
   {
     title: "Real deal experience",
     description:
-      "Work on live diligence and sourcing for actual investment decisions, not simulations.",
+      "Work on live diligence and sourcing for actual investment decisions, not just simulations.",
   },
   {
     title: "Mentorship & network",
@@ -51,10 +51,10 @@ export const whyJoin = [
   {
     title: "Structured training",
     description:
-      "A hands-on curriculum covering financial modeling, market analysis, and diligence frameworks.",
+      "Follow a hands-on curriculum covering financial modeling, market analysis, and diligence frameworks.",
   },
   {
-    title: "A community of builders",
+    title: "A community of learners",
     description:
       "Join a tight-knit group of students who care about startups, technology, and investing.",
   },
