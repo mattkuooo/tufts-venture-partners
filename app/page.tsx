@@ -98,9 +98,8 @@ export default function Home() {
                 line, so a narrow column can never orphan "p.m." */}
             <dl className="mt-9 flex flex-wrap gap-x-10 gap-y-6 border-t border-border/60 pt-7">
               {[
-                ["Open to", academy.openTo],
-                ["Each session", academy.sessionLength],
                 ["Meets", academy.slot],
+                ["Location", academy.location],
               ].map(([label, value]) => (
                 <div key={label}>
                   <dt className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
@@ -228,10 +227,10 @@ export default function Home() {
       <section className="border-t border-border/60">
         <div className="mx-auto max-w-4xl px-6 py-20 text-center">
           <h2 className="font-heading text-2xl font-bold text-foreground sm:text-3xl">
-            Stay in the loop.
+            Stay in the loop
           </h2>
           <p className="mx-auto mt-3 max-w-xl leading-relaxed text-muted-foreground">
-            Session reminders by email, day-to-day conversation on Slack.
+            Get session reminders by email, and important announcements on Slack.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Button
