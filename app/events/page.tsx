@@ -28,11 +28,11 @@ export default function EventsPage() {
       </PageHero>
 
       <section className="py-20">
-        <div className="mx-auto max-w-4xl px-6">
+        <div className="mx-auto max-w-6xl px-6">
           <SectionHeading title="What We Host" rule={false} />
         </div>
         <div className="mt-10">
-          <DetailSections sections={eventAreas} rule={false} />
+          <DetailSections sections={eventAreas} rule={false} className="max-w-6xl" />
         </div>
       </section>
 

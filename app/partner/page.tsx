@@ -26,7 +26,7 @@ export default function PartnerPage() {
           spacing, not by colour. */}
       <section className="border-b border-border/60 py-20">
         <div className="mx-auto max-w-6xl px-6">
-          <SectionHeading title="Talent." />
+          <SectionHeading title="Talent" rule={false} />
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
             Tufts has no business school, and that&apos;s the point. We recruit
             across every major, so our analysts come out of engineering,

@@ -21,7 +21,7 @@ export const academy = {
   /** Deliberately short sessions — quoted on the home page. */
   sessionLength: "30–45 minutes",
   /** There is no application and no prerequisite: anyone can walk in. */
-  openTo: "Every Tufts student",
+  openTo: "All Tufts students",
   description:
     "A guest speaker series where investors and founders walk you through how venture capital actually works, followed by real case studies and a closing Pitch Night. Open to all Tufts students.",
   /** The term in order, matching the working schedule. Week numbers for the

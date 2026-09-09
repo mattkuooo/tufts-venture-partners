@@ -88,8 +88,7 @@ export default function ApplyPage() {
           </dl>
 
           <p className="mt-10 max-w-xl text-base leading-relaxed text-muted-foreground">
-            {gim.followUp} No application and nothing to sign up for. Just show
-            up.
+            {gim.followUp} No applications required.
           </p>
         </div>
       </section>
