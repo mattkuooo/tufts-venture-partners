@@ -15,23 +15,25 @@ export const eventAreas: EventArea[] = [
     points: [
       "Wednesdays at 7:30 p.m",
       "Guest speakers on careers, sourcing, and diligence",
+      "Case studies on real companies",
+      "Pitch Night where the board judges and gives feedback"
     ],
   },
   {
     title: "Fireside Chats / Speaker Series",
     description:
-      "We bring VCs, founders, and operators to campus for candid, conversational sessions on how a fund actually decides what to back, what a founder's first eighteen months really look like, and how students break into the industry.",
+      "We bring VCs and founders to campus for candid fireside chats on how a fund decides what pitches to back, what a founder's first eighteen months really look like, and how students can break into the industry.",
     points: [
       "Investor and founder fireside chats",
       "Skills workshops (modeling, pitching, diligence)",
-      "Alumni-in-venture networking nights",
-      "Open to the wider Tufts community, not just members",
+      "Alumni networking nights",
+      "Open to the wider Tufts community",
     ],
   },
   {
     title: "Pitch Competitions",
     description:
-      "We host and judge pitch competitions that bring student founders together with VC clubs from across Boston, giving Tufts entrepreneurs a real audience and giving our analysts practice evaluating companies under time pressure.",
+      "We host and judge pitch competitions that bring student founders together with VC clubs from across Boston, giving Tufts entrepreneurs the chance to pitch to a real audience and giving our analysts practice evaluating companies under time pressure.",
     points: [
       "Inter-collegiate competitions with Boston-area VC clubs",
       "Campus startup showcases",

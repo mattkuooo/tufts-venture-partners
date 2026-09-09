@@ -32,7 +32,7 @@ export default function EventsPage() {
           <SectionHeading title="What We Host" rule={false} />
         </div>
         <div className="mt-10">
-          <DetailSections sections={eventAreas} />
+          <DetailSections sections={eventAreas} rule={false} />
         </div>
       </section>
 
