@@ -11,12 +11,10 @@ export const eventAreas: EventArea[] = [
   {
     title: "Academy",
     description:
-      "Our training program, and the front door to the club. A short sequence of high-density sessions takes students from what venture capital actually is through sourcing, market mapping, thesis work, and diligence, ending in a mock pitch on a live client sector. Taught by the board with guest speakers from the industry.",
+      "Our training program for all Tufts students - no experience needed. We'll have guest speakers walk you through how venture capital works, go through several case studies, and close it off with a Pitch Night. ",
     points: [
-      "Sessions run 30–45 minutes, built to be potent, not long",
-      "Sourcing, market mapping, thesis development, and diligence",
-      "Memo writing and pitching, the two hard skills we drill",
-      "Closes with a mock pitch judged by the board",
+      "Wednesdays at 7:30 p.m",
+      "Guest speakers on careers, sourcing, and diligence",
     ],
   },
   {

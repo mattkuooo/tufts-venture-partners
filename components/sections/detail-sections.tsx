@@ -67,7 +67,7 @@ export function DetailSections({
                   <li
                     key={point}
                     className={cn(
-                      "border-l-2 pl-3 text-sm leading-snug text-muted-foreground",
+                      "flex items-center border-l-2 pl-3 text-sm leading-snug text-muted-foreground",
                       isBlue ? "border-tufts-blue/40" : "border-tufts-brown/40"
                     )}
                   >

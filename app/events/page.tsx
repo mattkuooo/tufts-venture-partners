@@ -24,12 +24,12 @@ export default function EventsPage() {
         title="Events"
       >
         How we train new members, who we bring to campus, and how we connect
-        Tufts to the wider Boston venture community.
+        Tufts to the wider Boston venture capital community.
       </PageHero>
 
       <section className="py-20">
         <div className="mx-auto max-w-4xl px-6">
-          <SectionHeading title="What We Host" />
+          <SectionHeading title="What We Host" rule={false} />
         </div>
         <div className="mt-10">
           <DetailSections sections={eventAreas} />
