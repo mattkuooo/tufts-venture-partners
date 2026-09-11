@@ -59,3 +59,36 @@ export const academy = {
     },
   ],
 } as const;
+
+/** Milestones for the "Fall 2026 Timeline" band on the Apply page.
+ *
+ *  The kickoff/GIM milestone is deliberately absent: September 9 has passed,
+ *  and someone landing here now cannot attend it. Add it back only if a second
+ *  entry point gets scheduled.
+ *
+ *  `when` is the only thing here that needs touching as the calendar firms up.
+ *  These are week labels until the real dates land — replace each string with
+ *  its date (e.g. "Oct 21") and nothing else has to change.
+ *
+ *  `major` fills the marker, for the milestones that are the payoff rather
+ *  than a run of weeks.
+ */
+export type TimelineMilestone = {
+  /** Timing label above the marker. Week labels until the dates land. */
+  when: string;
+  title: string;
+  /** Fills the marker: a payoff, rather than a run of weeks. */
+  major?: boolean;
+};
+
+export const fallTimeline: TimelineMilestone[] = [
+  { when: "Weeks 3–6", title: "Guest speaker series" },
+  { when: "Weeks 7–10", title: "Case studies" },
+  { when: "Final week", title: "Pitch night", major: true },
+  { when: "After", title: "Spring analyst cohort", major: true },
+];
+
+/** Sits under the timeline: the answer to "so when exactly?", which the soft
+ *  labels above deliberately do not give. */
+export const timelineNote =
+  "Every date and every speaker goes out on the e-list.";
