@@ -82,6 +82,13 @@ export const boardMembers: BoardMember[] = [
     imagePosition: "50% 50%",
   },
   {
+    name: "Jenna Abelli",
+    role: "Principal, Anzu Partners",
+    group: "Advisory Board",
+    image: "/images/jenna_abelli.jpg",
+    imagePosition: "50% 50%",
+  },
+  {
     name: "Shun Hagiwara",
     role: "Senior Associate, M12",
     group: "Advisory Board",
