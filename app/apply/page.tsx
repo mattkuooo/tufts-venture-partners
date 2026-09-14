@@ -10,12 +10,12 @@ import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { faqItems } from "@/data/faq";
 import { whyJoin } from "@/data/recruitment";
-import { academy, fallTimeline, gim } from "@/data/schedule";
+import { academy, fallTimeline } from "@/data/schedule";
 import { site } from "@/data/site";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Apply",
+  title: "Get Involved",
   description:
     "How to join Tufts Venture Partners: recruitment timeline, why members join, and FAQ.",
 };
@@ -27,9 +27,8 @@ const heroLink =
 export default function ApplyPage() {
   return (
     <>
-      <PageHero eyebrow={`${academy.term} Recruitment`} title="Apply">
-        Applications open right after our {gim.title}. In the meantime, follow
-        us on{" "}
+      <PageHero eyebrow={`${academy.term} Recruitment`} title="Get Involved">
+        Follow us on{" "}
         <a
           href={site.instagram}
           target="_blank"

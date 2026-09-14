@@ -32,7 +32,7 @@ export default function WorkPage() {
 
       <section className="py-20">
         <div className="mx-auto max-w-6xl px-6">
-          <SectionHeading title="What We Do" />
+          <SectionHeading title="What We Do" rule={false} />
         </div>
         <div className="mt-10">
           <DetailSections sections={workAreas} className="max-w-6xl" />

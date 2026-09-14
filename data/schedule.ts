@@ -82,8 +82,8 @@ export type TimelineMilestone = {
 };
 
 export const fallTimeline: TimelineMilestone[] = [
-  { when: "Weeks 3–6", title: "Guest speaker series" },
+  { when: "Weeks 3–6", title: "Guest speaker series", major: true },
   { when: "Weeks 7–10", title: "Case studies" },
-  { when: "Final week", title: "Pitch night", major: true },
-  { when: "After", title: "Spring analyst cohort", major: true },
+  { when: "Final week", title: "Pitch night" },
+  { when: "After", title: "Spring analyst cohort" },
 ];

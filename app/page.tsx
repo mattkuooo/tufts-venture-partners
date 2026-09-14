@@ -152,12 +152,10 @@ export default function Home() {
           {/* The one deep-colour block below the fold: the term as a run of
               steps, so the shape of the program is legible before anyone reads
               a word of it. Jumbo blue rather than tufts-blue so the card stays
-              dark if a dark theme is ever switched on. Lifts slightly on
-              hover — a card that responds reads as interactive even when its
-              content is a list. */}
+              dark if a dark theme is ever switched on. */}
           <Reveal
             delay={0.15}
-            className="self-start rounded-2xl bg-tufts-jumbo-blue p-6 text-white transition-transform duration-300 hover:-translate-y-1 sm:p-7"
+            className="self-start rounded-2xl bg-tufts-jumbo-blue p-6 text-white sm:p-7"
           >
             <ol>
               {academy.stages.map((stage, i) => {
