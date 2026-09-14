@@ -27,7 +27,7 @@ export const academy = {
   /** There is no application and no prerequisite: anyone can walk in. */
   openTo: "All Tufts students",
   description:
-    "A guest speaker series where investors and founders walk you through how venture capital actually works, followed by real case studies and a closing Pitch Night. Open to all Tufts students.",
+    "A guest speaker series on how venture capital works, with case studies and a Pitch Night. Open to all Tufts students.",
   /** The term in order, matching the working schedule. Week numbers for the
    *  speaker block are implied by the sheet rather than locked — adjust here
    *  and the home page follows. */
@@ -87,8 +87,3 @@ export const fallTimeline: TimelineMilestone[] = [
   { when: "Final week", title: "Pitch night", major: true },
   { when: "After", title: "Spring analyst cohort", major: true },
 ];
-
-/** Sits under the timeline: the answer to "so when exactly?", which the soft
- *  labels above deliberately do not give. */
-export const timelineNote =
-  "Every date and every speaker goes out on the e-list.";

@@ -34,8 +34,13 @@ export function Nav() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "border-b-2 border-transparent pb-0.5 text-sm font-medium text-muted-foreground transition-colors hover:border-tufts-blue hover:text-foreground",
-                  isActive && "border-tufts-blue text-foreground"
+                  // The underline grows from the left rather than appearing:
+                  // scaleX on an ::after (via the arbitrary property) keeps
+                  // the text from reflowing, unlike animating the border.
+                  "relative pb-0.5 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 after:origin-left after:bg-tufts-blue after:transition-transform after:duration-300 hover:after:scale-x-100",
+                  isActive
+                    ? "text-foreground after:scale-x-100"
+                    : "after:scale-x-0"
                 )}
               >
                 {link.label}

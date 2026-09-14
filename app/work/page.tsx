@@ -6,8 +6,6 @@ import { PageHero } from "@/components/page-hero";
 import { SectionHeading } from "@/components/section-heading";
 import { DetailSections } from "@/components/sections/detail-sections";
 import { workAreas } from "@/data/workAreas";
-import { whyNotAI } from "@/data/partnership";
-import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Our Work",
@@ -38,39 +36,6 @@ export default function WorkPage() {
         </div>
         <div className="mt-10">
           <DetailSections sections={workAreas} className="max-w-6xl" />
-        </div>
-      </section>
-
-      <section className="border-y border-border/60 bg-surface py-20">
-        <div className="mx-auto max-w-6xl px-6">
-          <SectionHeading title="Why Not Just Run It Through AI" tone="brown" />
-          <div className="mt-8 grid gap-6 sm:grid-cols-3">
-            {whyNotAI.map((item, i) => {
-              const isBlue = i % 2 === 0;
-              const Icon = item.icon;
-              return (
-                <div
-                  key={item.title}
-                  className="rounded-lg border border-border/60 bg-card p-5"
-                >
-                  <div
-                    className={cn(
-                      "flex size-10 items-center justify-center rounded-full",
-                      isBlue
-                        ? "bg-tufts-blue/10 text-tufts-blue"
-                        : "bg-tufts-brown/10 text-tufts-brown"
-                    )}
-                  >
-                    <Icon className="size-5" />
-                  </div>
-                  <h3 className="font-heading mt-4 font-bold">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    {item.description}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
         </div>
       </section>
 

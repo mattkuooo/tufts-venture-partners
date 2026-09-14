@@ -6,10 +6,11 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { PageHero } from "@/components/page-hero";
+import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { faqItems } from "@/data/faq";
 import { whyJoin } from "@/data/recruitment";
-import { academy, fallTimeline, gim, timelineNote } from "@/data/schedule";
+import { academy, fallTimeline, gim } from "@/data/schedule";
 import { site } from "@/data/site";
 import { cn } from "@/lib/utils";
 
@@ -53,100 +54,17 @@ export default function ApplyPage() {
         .
       </PageHero>
 
-      {/* The Academy schedule, in place of the GIM block that used to sit
-          here: the GIM has passed, so the cadence and the curriculum are what
-          a visitor can still act on. Display type on the slot, because
-          "Wednesdays at 7:30" is the one fact that decides whether someone
-          can come at all. */}
-      <section className="border-b border-border/60 py-16 sm:py-20">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="flex items-center gap-3">
-            <span className="h-px w-10 shrink-0 bg-tufts-blue" />
-            <p className="text-sm font-semibold uppercase tracking-wide text-tufts-blue">
-              {academy.title}
-            </p>
-          </div>
-
-          <p className="font-heading mt-6 text-4xl font-black leading-[1.05] tracking-tight text-foreground sm:text-6xl">
-            {academy.slot}
-          </p>
-
-          {/* Location is omitted on purpose: it is still TBD in the data, and
-              "TBD" set at 3xl reads as an unfinished page. Add it back as a
-              fourth column once the room is booked. */}
-          <dl className="mt-10 grid gap-x-10 gap-y-8 border-t border-border/60 pt-8 sm:grid-cols-3">
-            {[
-              ["Term", academy.term],
-              ["Each session", academy.sessionLength],
-              ["Open to", academy.openTo],
-            ].map(([label, value]) => (
-              <div key={label}>
-                <dt className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                  {label}
-                </dt>
-                <dd className="font-heading mt-2 text-2xl font-bold leading-snug text-foreground sm:text-3xl">
-                  <span className="whitespace-nowrap">{value}</span>
-                </dd>
-              </div>
-            ))}
-          </dl>
-
-          <p className="mt-10 max-w-2xl text-base leading-relaxed text-muted-foreground">
-            {academy.description}
-          </p>
-
-          {/* Week 1 is the GIM, which has already run, so the list starts at
-              the first session someone arriving now can actually attend. */}
-          <ol className="mt-10 divide-y divide-border border-t border-border/60">
-            {academy.stages.slice(1).map((stage) => (
-              <li
-                key={stage.title}
-                className="grid gap-1 py-5 sm:grid-cols-[150px_1fr] sm:gap-8"
-              >
-                <p className="text-sm font-semibold uppercase tracking-wide text-tufts-blue">
-                  {stage.when}
-                </p>
-                <div>
-                  <h3 className="font-heading text-lg font-bold leading-snug text-foreground">
-                    {stage.title}
-                  </h3>
-                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                    {stage.detail}
-                  </p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      <section className="py-20">
-        <div className="mx-auto max-w-6xl px-6">
-          <SectionHeading title="Why Join" />
-          <div className="mt-8 grid gap-6 sm:grid-cols-2">
-            {whyJoin.map((item) => (
-              <div
-                key={item.title}
-                className="rounded-lg border border-border/60 bg-card p-5"
-              >
-                <h3 className="font-heading font-bold">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {item.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Replaces the old five-step recruitment timeline. Reads left to right
           as one run so the shape of the term is legible before any of the
           words are: a stretch of speakers, a stretch of cases, then the two
           payoffs. The tail fades because the last milestone sits beyond the
-          term rather than inside it. */}
+          term rather than inside it. Leads the page because the dates are the
+          one thing a visitor cannot get anywhere else. */}
       <section className="border-b border-border/60 py-20">
         <div className="mx-auto max-w-6xl px-6">
-          <SectionHeading title="Fall 2026 Timeline" />
+          <Reveal>
+            <SectionHeading title="Fall 2026 Timeline" />
+          </Reveal>
 
           <div className="mt-10 rounded-2xl bg-tufts-blue/[0.05] px-6 py-12 sm:px-10">
             <ol className="grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
@@ -154,8 +72,10 @@ export default function ApplyPage() {
                 const isFirst = i === 0;
                 const isLast = i === fallTimeline.length - 1;
                 return (
-                  <li
+                  <Reveal
+                    as="li"
                     key={milestone.title}
+                    delay={i * 0.08}
                     className="flex flex-col items-center text-center"
                   >
                     <p className="text-[0.7rem] font-semibold uppercase tracking-[0.15em] text-tufts-blue/70">
@@ -201,15 +121,106 @@ export default function ApplyPage() {
                     <h3 className="font-heading mt-4 text-base font-bold leading-snug text-tufts-blue">
                       {milestone.title}
                     </h3>
-                  </li>
+                  </Reveal>
                 );
               })}
             </ol>
           </div>
+        </div>
+      </section>
 
-          <p className="mt-4 rounded-xl bg-tufts-blue/[0.05] px-6 py-4 text-center text-sm font-semibold text-tufts-blue">
-            {timelineNote}
-          </p>
+      {/* The Academy schedule, in place of the GIM block that used to sit
+          here: the GIM has passed, so the cadence and the curriculum are what
+          a visitor can still act on. Display type on the slot, because
+          "Wednesdays at 7:30" is the one fact that decides whether someone
+          can come at all. */}
+      <section className="border-b border-border/60 py-16 sm:py-20">
+        <div className="mx-auto max-w-6xl px-6">
+          <Reveal>
+            <div className="flex items-center gap-3">
+              <span className="h-px w-10 shrink-0 bg-tufts-blue" />
+              <p className="text-sm font-semibold uppercase tracking-wide text-tufts-blue">
+                {academy.title}
+              </p>
+            </div>
+
+            <p className="font-heading mt-6 text-4xl font-black leading-[1.05] tracking-tight text-foreground sm:text-6xl">
+              {academy.slot}
+            </p>
+          </Reveal>
+
+          {/* Location is omitted on purpose: it is still TBD in the data, and
+              "TBD" set at 3xl reads as an unfinished page. Add it back as a
+              fourth column once the room is booked. */}
+          <dl className="mt-10 grid gap-x-10 gap-y-8 border-t border-border/60 pt-8 sm:grid-cols-3">
+            {[
+              ["Term", academy.term],
+              ["Each session", academy.sessionLength],
+              ["Open to", academy.openTo],
+            ].map(([label, value]) => (
+              <div key={label}>
+                <dt className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                  {label}
+                </dt>
+                <dd className="font-heading mt-2 text-2xl font-bold leading-snug text-foreground sm:text-3xl">
+                  <span className="whitespace-nowrap">{value}</span>
+                </dd>
+              </div>
+            ))}
+          </dl>
+
+          <Reveal delay={0.1}>
+            <p className="mt-10 max-w-2xl text-base leading-relaxed text-muted-foreground">
+              {academy.description}
+            </p>
+          </Reveal>
+
+          {/* Week 1 is the GIM, which has already run, so the list starts at
+              the first session someone arriving now can actually attend.
+              Rows reveal in a single block — per-row stagger would make the
+              schedule read as loading rather than arriving. */}
+          <Reveal delay={0.15} as="ol" className="mt-10 divide-y divide-border border-t border-border/60">
+            {academy.stages.slice(1).map((stage) => (
+              <li
+                key={stage.title}
+                className="grid gap-1 py-5 sm:grid-cols-[150px_1fr] sm:gap-8"
+              >
+                <p className="text-sm font-semibold uppercase tracking-wide text-tufts-blue">
+                  {stage.when}
+                </p>
+                <div>
+                  <h3 className="font-heading text-lg font-bold leading-snug text-foreground">
+                    {stage.title}
+                  </h3>
+                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                    {stage.detail}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="py-20">
+        <div className="mx-auto max-w-6xl px-6">
+          <Reveal>
+            <SectionHeading title="Why Join" />
+          </Reveal>
+          <div className="mt-8 grid gap-6 sm:grid-cols-2">
+            {whyJoin.map((item, i) => (
+              <Reveal
+                key={item.title}
+                delay={0.08 + i * 0.08}
+                className="rounded-lg border border-border/60 bg-card p-5 transition-transform duration-300 hover:-translate-y-1"
+              >
+                <h3 className="font-heading font-bold">{item.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {item.description}
+                </p>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -218,8 +229,11 @@ export default function ApplyPage() {
         className="border-t border-border/60 bg-surface py-20"
       >
         <div className="mx-auto max-w-6xl px-6">
-          <SectionHeading title="FAQ" tone="brown" />
-          <Accordion className="mt-8 gap-8">
+          <Reveal>
+            <SectionHeading title="FAQ" tone="brown" />
+          </Reveal>
+          <Reveal delay={0.1}>
+            <Accordion className="mt-8 gap-8">
             {faqItems.map((item, i) => (
               <AccordionItem
                 key={item.question}
@@ -235,6 +249,7 @@ export default function ApplyPage() {
               </AccordionItem>
             ))}
           </Accordion>
+          </Reveal>
         </div>
       </section>
     </>

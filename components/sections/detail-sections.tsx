@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Reveal } from "@/components/reveal";
 import { cn } from "@/lib/utils";
 
 export type DetailSection = {
@@ -8,9 +9,11 @@ export type DetailSection = {
   image?: string;
 };
 
-/** Numbered, alternating blue/brown section list shared by the Work and
+/** Alternating blue/brown section list shared by the Work and
  *  Events pages. Copy sits on the left with the photo beside it on the right;
- *  sections without an image let the copy run the full width. */
+ *  sections without an image let the copy run the full width. Each section
+ *  reveals as one block — staggering within it would make the copy read as
+ *  loading — with photos getting a slow zoom on hover. */
 export function DetailSections({
   sections,
   rule = true,
@@ -30,7 +33,7 @@ export function DetailSections({
       {sections.map((section, i) => {
         const isBlue = i % 2 === 0;
         return (
-          <div
+          <Reveal
             key={section.title}
             className={cn(
               "grid gap-8 py-14 first:pt-0 last:pb-0",
@@ -51,15 +54,15 @@ export function DetailSections({
                 )}
                 <h2
                   className={cn(
-                    "text-sm font-semibold uppercase tracking-wide",
+                    // Tracking tightens as the size goes up: the wide letter
+                    // spacing that gives a small uppercase label its texture
+                    // reads as gappy once the type is this big.
+                    "font-heading text-lg font-bold uppercase tracking-wide sm:text-xl sm:tracking-normal",
                     isBlue ? "text-tufts-blue" : "text-tufts-brown"
                   )}
                 >
                   {section.title}
                 </h2>
-                <span className="font-heading ml-auto text-3xl font-black leading-none text-muted-foreground/20">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
               </div>
 
               <p className="mt-5 text-lg leading-relaxed text-foreground">
@@ -88,11 +91,11 @@ export function DetailSections({
                   alt={section.title}
                   fill
                   sizes="(min-width: 1024px) 24rem, 100vw"
-                  className="object-cover"
+                  className="object-cover transition-transform duration-700 ease-out hover:scale-105 motion-reduce:transform-none"
                 />
               </div>
             )}
-          </div>
+          </Reveal>
         );
       })}
     </div>

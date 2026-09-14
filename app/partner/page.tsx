@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/page-hero";
+import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { PartnerForm } from "@/components/sections/partner-form";
 import { site } from "@/data/site";
@@ -26,7 +27,10 @@ export default function PartnerPage() {
           spacing, not by colour. */}
       <section className="border-b border-border/60 py-20">
         <div className="mx-auto max-w-6xl px-6">
-          <SectionHeading title="Talent" rule={false} />
+          <Reveal>
+            <SectionHeading title="Talent" rule={false} />
+          </Reveal>
+          <Reveal delay={0.1}>
           <p className="mt-5 max-w-4xl text-lg leading-relaxed text-muted-foreground">
             Our board and its cohort go beyond the traditional finance
             background you would expect from a finance club. We recruit
@@ -39,6 +43,7 @@ export default function PartnerPage() {
             advantages of working with Tufts students: our bandwidth goes above
             and beyond the typical finance-heavy talent pool.
           </p>
+          </Reveal>
         </div>
       </section>
 
@@ -46,7 +51,7 @@ export default function PartnerPage() {
           still lifts off it. */}
       <section className="mx-auto max-w-6xl px-6 py-20">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
-          <div>
+          <Reveal as="div">
             <SectionHeading title="Who we work with" />
 
             <div className="mt-8 space-y-4 text-sm leading-relaxed text-muted-foreground">
@@ -81,13 +86,18 @@ export default function PartnerPage() {
               </a>
               .
             </p>
-          </div>
+          </Reveal>
 
           {/* White card rather than bare border, so the form reads as a panel
-              lifted off the warm page ground. */}
-          <div className="rounded-2xl border border-border/60 bg-card p-6 sm:p-8">
+              lifted off the warm page ground. Fade rather than blur: inputs
+              are interactive and a blur mid-focus would read as a glitch. */}
+          <Reveal
+            delay={0.15}
+            variant="fade"
+            className="rounded-2xl border border-border/60 bg-card p-6 sm:p-8"
+          >
             <PartnerForm />
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -95,8 +105,10 @@ export default function PartnerPage() {
           before they fill it in. */}
       <section className="border-t border-border/60 py-20">
         <div className="mx-auto max-w-6xl px-6">
-          <SectionHeading title="How The Partnership Runs" />
-          <dl className="mt-8 max-w-3xl divide-y divide-border">
+          <Reveal>
+            <SectionHeading title="How The Partnership Runs" />
+          </Reveal>
+          <Reveal as="dl" delay={0.1} className="mt-8 max-w-3xl divide-y divide-border">
             {partnershipTerms.map((term) => (
               <div
                 key={term.label}
@@ -112,7 +124,7 @@ export default function PartnerPage() {
                 </dd>
               </div>
             ))}
-          </dl>
+          </Reveal>
         </div>
       </section>
     </>
