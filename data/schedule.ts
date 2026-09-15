@@ -10,7 +10,11 @@ export const gim = {
   dayOfMonth: "September 9",
   time: "7:30 p.m.",
   location: "Cabot 206",
-  followUp: "Headshots and networking to follow.",
+  /** The GIM's own draw, and the reason it gets a callout of its own on the
+   *  Apply page: a free headshot is a concrete reason to turn up. */
+  perk: "Free professional headshots",
+  perkDetail:
+    "Taken on the night, with networking to follow. No application and nothing to sign up for. Just show up.",
 } as const;
 
 export const academy = {
@@ -23,7 +27,7 @@ export const academy = {
   /** There is no application and no prerequisite: anyone can walk in. */
   openTo: "All Tufts students",
   description:
-    "A guest speaker series where investors and founders walk you through how venture capital actually works, followed by real case studies and a closing Pitch Night. Open to all Tufts students.",
+    "A guest speaker series on how venture capital works, with case studies and a Pitch Night. Open to all Tufts students.",
   /** The term in order, matching the working schedule. Week numbers for the
    *  speaker block are implied by the sheet rather than locked — adjust here
    *  and the home page follows. */
@@ -55,3 +59,31 @@ export const academy = {
     },
   ],
 } as const;
+
+/** Milestones for the "Fall 2026 Timeline" band on the Apply page.
+ *
+ *  The kickoff/GIM milestone is deliberately absent: September 9 has passed,
+ *  and someone landing here now cannot attend it. Add it back only if a second
+ *  entry point gets scheduled.
+ *
+ *  `when` is the only thing here that needs touching as the calendar firms up.
+ *  These are week labels until the real dates land — replace each string with
+ *  its date (e.g. "Oct 21") and nothing else has to change.
+ *
+ *  `major` fills the marker, for the milestones that are the payoff rather
+ *  than a run of weeks.
+ */
+export type TimelineMilestone = {
+  /** Timing label above the marker. Week labels until the dates land. */
+  when: string;
+  title: string;
+  /** Fills the marker: a payoff, rather than a run of weeks. */
+  major?: boolean;
+};
+
+export const fallTimeline: TimelineMilestone[] = [
+  { when: "Weeks 3–6", title: "Guest speaker series", major: true },
+  { when: "Weeks 7–10", title: "Case studies" },
+  { when: "Final week", title: "Pitch night" },
+  { when: "After", title: "Spring analyst cohort" },
+];

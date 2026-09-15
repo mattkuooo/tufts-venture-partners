@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/page-hero";
+import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { PartnerForm } from "@/components/sections/partner-form";
 import { site } from "@/data/site";
@@ -26,16 +27,23 @@ export default function PartnerPage() {
           spacing, not by colour. */}
       <section className="border-b border-border/60 py-20">
         <div className="mx-auto max-w-6xl px-6">
-          <SectionHeading title="Talent" rule={false} />
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            Tufts has no business school, and that&apos;s the point. We recruit
-            across every major, so our analysts come out of engineering,
-            computer science, biology, economics, and the humanities, and most
-            of them are studying more than one of those at once. We staff a
-            project with the mix the work calls for rather than a room of
-            people trained to think the same way, which is how a technical read
-            and a clearly written argument end up in the same memo.
+          <Reveal>
+            <SectionHeading title="Talent" rule={false} />
+          </Reveal>
+          <Reveal delay={0.1}>
+          <p className="mt-5 max-w-4xl text-lg leading-relaxed text-muted-foreground">
+            Our board and its cohort go beyond the traditional finance
+            background you would expect from a finance club. We recruit
+            engineers, chemists, and even political scientists to cover
+            different industries, and the liberal arts curriculum does the
+            rest: students here take classes beyond their intended majors and
+            build interdisciplinary skills across fields. Every analyst ends
+            up with a different skill set, so each is tailored to a different
+            kind of technical diligence. That breadth is one of the biggest
+            advantages of working with Tufts students: our bandwidth goes above
+            and beyond the typical finance-heavy talent pool.
           </p>
+          </Reveal>
         </div>
       </section>
 
@@ -43,7 +51,7 @@ export default function PartnerPage() {
           still lifts off it. */}
       <section className="mx-auto max-w-6xl px-6 py-20">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
-          <div>
+          <Reveal as="div">
             <SectionHeading title="Who we work with" />
 
             <div className="mt-8 space-y-4 text-sm leading-relaxed text-muted-foreground">
@@ -51,21 +59,20 @@ export default function PartnerPage() {
                 <span className="font-semibold text-foreground">
                   For VCs &amp; investors:
                 </span>{" "}
-                share deal flow, speak at a member event, or host analysts for a
-                case study.
+                additional deal flow, technical validation, due diligence, and
+                market research.
               </p>
               <p>
                 <span className="font-semibold text-foreground">
                   For founders:
                 </span>{" "}
-                get feedback from our diligence teams or connect with our
-                investor network.
+                a connection to investors that opens the door for funding.
               </p>
               <p>
                 <span className="font-semibold text-foreground">
                   For alumni &amp; operators:
                 </span>{" "}
-                mentor current members or lead a workshop.
+                mentorship, workshop speaker events, and advisory seats.
               </p>
             </div>
 
@@ -79,13 +86,18 @@ export default function PartnerPage() {
               </a>
               .
             </p>
-          </div>
+          </Reveal>
 
           {/* White card rather than bare border, so the form reads as a panel
-              lifted off the warm page ground. */}
-          <div className="rounded-2xl border border-border/60 bg-card p-6 sm:p-8">
+              lifted off the warm page ground. Fade rather than blur: inputs
+              are interactive and a blur mid-focus would read as a glitch. */}
+          <Reveal
+            delay={0.15}
+            variant="fade"
+            className="rounded-2xl border border-border/60 bg-card p-6 sm:p-8"
+          >
             <PartnerForm />
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -93,8 +105,10 @@ export default function PartnerPage() {
           before they fill it in. */}
       <section className="border-t border-border/60 py-20">
         <div className="mx-auto max-w-6xl px-6">
-          <SectionHeading title="How The Partnership Runs" />
-          <dl className="mt-8 max-w-3xl divide-y divide-border">
+          <Reveal>
+            <SectionHeading title="How The Partnership Runs" />
+          </Reveal>
+          <Reveal as="dl" delay={0.1} className="mt-8 max-w-3xl divide-y divide-border">
             {partnershipTerms.map((term) => (
               <div
                 key={term.label}
@@ -110,7 +124,7 @@ export default function PartnerPage() {
                 </dd>
               </div>
             ))}
-          </dl>
+          </Reveal>
         </div>
       </section>
     </>

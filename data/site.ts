@@ -21,5 +21,5 @@ export const navLinks = [
   { href: "/work", label: "Our Work" },
   { href: "/events", label: "Events" },
   { href: "/partner", label: "Partner With Us" },
-  { href: "/apply", label: "Apply" },
+  { href: "/apply", label: "Get Involved" },
 ] as const;

@@ -14,7 +14,7 @@ export type OrgLogo = {
 /** Logos for the advisory-board credibility band on the home page.
  *
  *  The band derives its organisation names from the Advisory Board roles in
- *  data/team.ts, then looks each one up here. All seven currently have a mark.
+ *  data/team.ts, then looks each one up here. All nine currently have a mark.
  *  An org with no entry falls back to type in a matching weight, so adding an
  *  advisor without a logo to hand degrades gracefully rather than breaking.
  *
@@ -68,6 +68,16 @@ export const orgLogos: Record<string, OrgLogo> = {
     height: 77,
     // Also stacked, over a "VENTURE TOGETHER" tagline.
     scale: 1.9,
+  },
+  "Anzu Partners": {
+    src: "/images/logos/anzu-partners.png",
+    width: 1000,
+    height: 234,
+    // Griffin beside a wordmark stacked over two lines, so each line of type
+    // is only about a third of the box height. Needs less of a nudge than the
+    // other stacked marks: the lettering is widely tracked, so matched on cap
+    // height it is already the widest mark in the row.
+    scale: 1.55,
   },
   "1441 Collective": {
     src: "/images/logos/1441-collective.png",

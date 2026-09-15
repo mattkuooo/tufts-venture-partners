@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Reveal } from "@/components/reveal";
 import { site } from "@/data/site";
 import { academy } from "@/data/schedule";
 import { orgLogos } from "@/data/orgLogos";
@@ -22,9 +23,14 @@ const advisoryOrgs = Array.from(
 export default function Home() {
   return (
     <>
-      <section className="relative flex min-h-[calc(100vh-4rem)] items-center overflow-hidden bg-tufts-blue">
+      {/* Fills the fold exactly, so the photo runs to the bottom edge with no
+          off-white sliver under it. That leaves the chevron as the only signal
+          that the page continues, which is why it stays.
+          svh, not vh — on mobile vh ignores the address bar, and the overflow
+          would push the chevron off screen on the screens that need it most. */}
+      <section className="relative flex min-h-[calc(100svh-4rem)] items-center overflow-hidden bg-tufts-blue">
         <Image
-          src="/images/jumbo_banner.jpg"
+          src="/images/campus_spring.avif"
           alt=""
           fill
           priority
@@ -40,26 +46,39 @@ export default function Home() {
             {/* The name leads; the claim under it is the part worth reading
                 twice. One line from sm up: nowrap plus a clamped size that
                 always fits the container, wrapping on phones where it cannot
-                fit one line at a readable size. */}
-            <h1 className="font-heading text-4xl font-black leading-[1.05] tracking-tight text-white sm:whitespace-nowrap sm:text-[clamp(2.25rem,5.8vw,4.5rem)]">
+                fit one line at a readable size. The three lines rise in
+                sequence on load (hero-rise in globals.css); Wharton-style
+                but capped under 0.5s of total delay so repeat visits never
+                feel slow. */}
+            <h1 className="hero-rise font-heading text-4xl font-black leading-[1.05] tracking-tight text-white motion-safe:opacity-0 motion-safe:animate-[rise-in_0.7s_cubic-bezier(0.25,0.1,0.25,1)_0.05s_forwards] sm:whitespace-nowrap sm:text-[clamp(2.25rem,5.8vw,4.5rem)]">
               {site.name}
             </h1>
 
-            <p className="font-heading mt-4 text-xl font-bold leading-snug text-white sm:mt-5 sm:text-3xl">
+            <p className="hero-rise font-heading mt-4 text-xl font-bold leading-snug text-white motion-safe:opacity-0 motion-safe:animate-[rise-in_0.7s_cubic-bezier(0.25,0.1,0.25,1)_0.15s_forwards] sm:mt-5 sm:text-3xl">
               The first-ever VC community at Tufts
             </p>
 
-            <p className="mt-6 max-w-2xl text-lg font-light leading-relaxed text-white/85 sm:text-xl">
+            <p className="hero-rise mt-6 max-w-2xl text-lg font-light leading-relaxed text-white/85 motion-safe:opacity-0 motion-safe:animate-[rise-in_0.7s_cubic-bezier(0.25,0.1,0.25,1)_0.25s_forwards] sm:text-xl">
               A student investment team working alongside venture capital
-              firms, building relationships with funders and investors,
-              advised by industry professionals.
+              firms and founders with guidance from industry professionals
             </p>
           </div>
         </div>
+
+        {/* A real link rather than decoration, so the cue does the thing it
+            advertises. Bounce is motion-safe: a looping animation is exactly
+            what reduced-motion users turn off. */}
+        <Link
+          href="#mission"
+          aria-label="Skip to our mission"
+          className="absolute bottom-6 left-1/2 z-10 -translate-x-1/2 rounded-full p-3 text-white/70 transition-colors hover:text-white focus-visible:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60"
+        >
+          <ChevronDown className="size-6 motion-safe:animate-bounce" />
+        </Link>
       </section>
 
-      <section className="py-20">
-        <div className="mx-auto grid max-w-4xl gap-4 px-6 sm:grid-cols-[160px_1fr] sm:gap-10">
+      <section id="mission" className="scroll-mt-16 py-20">
+        <Reveal className="mx-auto grid max-w-4xl gap-4 px-6 sm:grid-cols-[160px_1fr] sm:gap-10">
           <div className="flex items-center gap-3 sm:block">
             <span className="h-px w-8 shrink-0 bg-tufts-blue sm:mb-3 sm:block sm:w-10" />
             <h2 className="text-sm font-semibold uppercase tracking-wide text-tufts-blue">
@@ -69,7 +88,7 @@ export default function Home() {
           <p className="text-lg leading-relaxed text-foreground">
             {site.mission}
           </p>
-        </div>
+        </Reveal>
       </section>
 
       {/* The fall's headline program. Its weight comes from the navy schedule
@@ -79,38 +98,42 @@ export default function Home() {
       <section id="academy" className="border-y border-border/60 bg-card py-24">
         <div className="mx-auto grid max-w-6xl gap-12 px-6 lg:grid-cols-[1fr_minmax(0,23rem)] lg:gap-16">
           <div>
-            <div className="flex items-center gap-3">
-              <span className="h-px w-10 shrink-0 bg-tufts-blue" />
-              <p className="text-sm font-semibold uppercase tracking-wide text-tufts-blue">
-                {academy.term}
+            <Reveal>
+              <div className="flex items-center gap-3">
+                <span className="h-px w-10 shrink-0 bg-tufts-blue" />
+                <p className="text-sm font-semibold uppercase tracking-wide text-tufts-blue">
+                  {academy.term}
+                </p>
+              </div>
+
+              <h2 className="font-heading mt-5 text-4xl font-black text-foreground sm:text-5xl">
+                {academy.title}
+              </h2>
+
+              <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">
+                {academy.description}
               </p>
-            </div>
-
-            <h2 className="font-heading mt-5 text-4xl font-black text-foreground sm:text-5xl">
-              {academy.title}
-            </h2>
-
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              {academy.description}
-            </p>
+            </Reveal>
 
             {/* A wrapping row rather than a 3-up grid: each stat keeps its own
                 line, so a narrow column can never orphan "p.m." */}
-            <dl className="mt-9 flex flex-wrap gap-x-10 gap-y-6 border-t border-border/60 pt-7">
-              {[
-                ["Meets", academy.slot],
-                ["Location", academy.location],
-              ].map(([label, value]) => (
-                <div key={label}>
-                  <dt className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                    {label}
-                  </dt>
-                  <dd className="font-heading mt-1.5 whitespace-nowrap text-base font-bold leading-snug text-foreground">
-                    {value}
-                  </dd>
-                </div>
-              ))}
-            </dl>
+            <Reveal delay={0.1}>
+              <dl className="mt-9 flex flex-wrap gap-x-10 gap-y-6 border-t border-border/60 pt-7">
+                {[
+                  ["Meets", academy.slot],
+                  ["Location", academy.location],
+                ].map(([label, value]) => (
+                  <div key={label}>
+                    <dt className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                      {label}
+                    </dt>
+                    <dd className="font-heading mt-1.5 whitespace-nowrap text-base font-bold leading-snug text-foreground">
+                      {value}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </Reveal>
 
             <div className="mt-8 flex flex-wrap gap-3">
               <Button
@@ -130,7 +153,10 @@ export default function Home() {
               steps, so the shape of the program is legible before anyone reads
               a word of it. Jumbo blue rather than tufts-blue so the card stays
               dark if a dark theme is ever switched on. */}
-          <div className="self-start rounded-2xl bg-tufts-jumbo-blue p-6 text-white sm:p-7">
+          <Reveal
+            delay={0.15}
+            className="self-start rounded-2xl bg-tufts-jumbo-blue p-6 text-white sm:p-7"
+          >
             <ol>
               {academy.stages.map((stage, i) => {
                 // Pitch Night is the payoff, so it gets the filled marker.
@@ -171,61 +197,83 @@ export default function Home() {
                 );
               })}
             </ol>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       <section className="py-20">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <p className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-            Our advisory board invests and operates at
-          </p>
-          <ul className="mt-8 flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
-            {advisoryOrgs.map((org) => {
-              const logo = orgLogos[org];
-              return (
-                <li key={org} className="flex h-16 items-center">
-                  {logo ? (
-                    // Matched on height rather than boxed, so wordmarks of
-                    // very different aspect ratios sit on one optical line.
-                    // Full colour — the marks are official brand assets, and
-                    // colour lets each fund's identity read at this size.
-                    <Image
-                      src={logo.src}
-                      alt={org}
-                      width={logo.width}
-                      height={logo.height}
-                      className="w-auto"
-                      style={{
-                        height: `calc(clamp(1.15rem, 2.6vw, 1.6rem) * ${
-                          logo.scale ?? 1
-                        })`,
-                      }}
-                    />
-                  ) : (
-                    // Same optical weight as the logos, so a partial set still
-                    // reads as one band rather than logos plus leftovers.
-                    <span className="text-base font-semibold uppercase tracking-wide text-foreground/60 sm:text-lg">
-                      {org}
-                    </span>
-                  )}
-                </li>
-              );
-            })}
-          </ul>
-          <Link
-            href="/about"
-            className="mt-8 inline-flex items-center gap-1 text-sm font-medium text-tufts-blue hover:underline"
-          >
-            Meet the board <ArrowRight className="size-4" />
-          </Link>
+          <Reveal>
+            <p className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+              Our advisory board invests and operates at
+            </p>
+          </Reveal>
+
+          {/* Marquee: one duplicated row on a translating track, so the loop
+              is seamless without JS. Overflow-x clipped with the padding
+              inside so logos never kiss the viewport edge. The animation is
+              applied via marquee-track/motion-safe in globals-land classes;
+              hover pauses it (a held marquee reads as courtesy, a frozen one
+              as a bug). */}
+          <Reveal delay={0.1} className="marquee-band mt-8">
+            <ul className="flex overflow-hidden">
+              <li className="marquee-track flex shrink-0 items-center gap-10 pr-10 motion-safe:animate-[marquee-left_40s_linear_infinite] motion-safe:hover:[animation-play-state:paused]">
+                {[...advisoryOrgs, ...advisoryOrgs].map((org, i) => {
+                  const logo = orgLogos[org];
+                  return (
+                    <div
+                      key={`${org}-${i}`}
+                      aria-hidden={i >= advisoryOrgs.length}
+                      className="flex h-16 shrink-0 items-center"
+                    >
+                      {logo ? (
+                        // Matched on height rather than boxed, so wordmarks of
+                        // very different aspect ratios sit on one optical line.
+                        // Full colour — the marks are official brand assets,
+                        // and colour lets each fund's identity read at this
+                        // size.
+                        <Image
+                          src={logo.src}
+                          alt={i < advisoryOrgs.length ? org : ""}
+                          width={logo.width}
+                          height={logo.height}
+                          className="w-auto"
+                          style={{
+                            height: `calc(clamp(1.15rem, 2.6vw, 1.6rem) * ${
+                              logo.scale ?? 1
+                            })`,
+                          }}
+                        />
+                      ) : (
+                        // Same optical weight as the logos, so a partial set
+                        // still reads as one band rather than logos plus
+                        // leftovers.
+                        <span className="text-base font-semibold uppercase tracking-wide text-foreground/60 sm:text-lg">
+                          {org}
+                        </span>
+                      )}
+                    </div>
+                  );
+                })}
+              </li>
+            </ul>
+          </Reveal>
+
+          <Reveal delay={0.15}>
+            <Link
+              href="/about"
+              className="mt-8 inline-flex items-center gap-1 text-sm font-medium text-tufts-blue hover:underline"
+            >
+              Meet the board <ArrowRight className="size-4" />
+            </Link>
+          </Reveal>
         </div>
       </section>
 
       {/* Closing CTA: the two ways to stay connected, so the page doesn't
           dead-end after the logo band. */}
       <section className="border-t border-border/60">
-        <div className="mx-auto max-w-4xl px-6 py-20 text-center">
+        <Reveal className="mx-auto max-w-4xl px-6 py-20 text-center">
           <h2 className="font-heading text-2xl font-bold text-foreground sm:text-3xl">
             Stay in the loop
           </h2>
@@ -254,7 +302,7 @@ export default function Home() {
               Join our Slack
             </Button>
           </div>
-        </div>
+        </Reveal>
       </section>
     </>
   );

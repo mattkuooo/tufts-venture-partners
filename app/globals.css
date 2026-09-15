@@ -140,3 +140,64 @@
     @apply font-sans;
   }
 }
+/* --- Entrance and ambient motion ------------------------------------------
+   Shared keyframes for the site's polish layer: hero entrances run once on
+   load, the marquee is ambient. All entrances are reached through
+   motion-safe: variants or the Reveal component, so reduced-motion users
+   get static content; the marquee is wrapped in motion-safe at the call
+   site because a looping animation is exactly what they turn off. */
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* One slow leftward pass for the advisory logo band. Pause rather than stop
+   on hover: a frozen marquee reads as a bug, a held one reads as courtesy. */
+@keyframes marquee-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Very slow drift for the decorative blur circle on the page heroes, so the
+   navy band is never quite frozen. Subtle enough that it reads as light
+   moving, not an element moving. */
+@keyframes drift {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(2.5rem, 1.75rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-rise,
+  .marquee-track,
+  .hero-drift {
+    animation: none;
+  }
+}
+
+/* The Reveal component hides content until its IntersectionObserver fires.
+   Without scripting there is no observer, so unhide it: a visitor with JS
+   off sees everything, static — the same deal reduced-motion users get. */
+@media (scripting: none) {
+  [data-reveal="hidden"] {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}

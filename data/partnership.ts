@@ -30,26 +30,26 @@ export const partnershipTerms = [
   {
     label: "Term",
     description:
-      "Each engagement runs one semester, September to December or January to May, with deliverables on a recurring cycle inside it. Terms renew by agreement.",
+      "Engagements run one semester, September to December or January to May, with deliverables on a recurring cycle. Terms renew by agreement.",
   },
   {
     label: "Team",
     description:
-      "Once the scope is set, the engagement is staffed as a pod: a Senior Associate leading, an Associate, and a team of analysts chosen for the work in front of them, with board oversight on anything that goes out.",
+      "Staffed as a pod once scope is set: a Senior Associate, an Associate, and analysts picked for the work, with board oversight.",
   },
   {
     label: "Cadence",
     description:
-      "We meet with you weekly or bi-weekly. Internally the team convenes every week, where analysts present their work to senior leadership before it reaches you.",
+      "We meet with you weekly or bi-weekly. Internally the team convenes weekly, where analysts present to senior leadership first.",
   },
   {
     label: "Scope",
     description:
-      "You define the verticals and the screening criteria. We calibrate against your standard in the opening weeks, so the first full cycle comes back in your format.",
+      "You define the verticals and the screening criteria. We calibrate in the opening weeks, so the first cycle comes back in your format.",
   },
   {
     label: "Overhead",
     description:
-      "The structure is built so the work does not land back on your team. Direction comes at the start of a cycle, questions route through the pod lead, and what reaches you has already been reviewed.",
+      "The work does not land back on your team: direction at the start of a cycle, questions through the pod lead, output already reviewed.",
   },
 ];

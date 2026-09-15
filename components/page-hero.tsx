@@ -54,15 +54,17 @@ export function PageHero({
         </>
       )}
 
-      {/* Keeps a flat navy slab from reading as dead fill. */}
+      {/* Keeps a flat navy slab from reading as dead fill. Drifts on an
+          alternate loop so the band is never quite frozen — slow enough to
+          read as light moving rather than an element moving. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -right-24 -top-40 size-[30rem] rounded-full bg-white/[0.07] blur-3xl"
+        className="hero-drift pointer-events-none absolute -right-24 -top-40 size-[30rem] rounded-full bg-white/[0.07] blur-3xl motion-safe:animate-[drift_18s_ease-in-out_infinite_alternate]"
       />
 
       <div className="relative mx-auto max-w-6xl px-6 py-16 sm:py-20">
         {eyebrow && (
-          <div className="flex items-center gap-3">
+          <div className="hero-rise flex items-center gap-3 motion-safe:opacity-0 motion-safe:animate-[rise-in_0.7s_cubic-bezier(0.25,0.1,0.25,1)_0.05s_forwards]">
             <span className="h-px w-10 shrink-0 bg-white/50" />
             <p className="text-sm font-semibold uppercase tracking-wide text-white/80">
               {eyebrow}
@@ -72,7 +74,8 @@ export function PageHero({
 
         <h1
           className={cn(
-            "font-heading text-4xl font-black tracking-tight text-white sm:text-5xl",
+            "hero-rise font-heading text-4xl font-black tracking-tight text-white sm:text-5xl",
+            "motion-safe:opacity-0 motion-safe:animate-[rise-in_0.7s_cubic-bezier(0.25,0.1,0.25,1)_0.15s_forwards]",
             eyebrow && "mt-5"
           )}
         >
@@ -80,7 +83,9 @@ export function PageHero({
         </h1>
 
         {children && (
-          <div className="mt-4 max-w-2xl text-lg leading-relaxed text-white/85">
+          <div
+            className="hero-rise mt-4 max-w-2xl text-lg leading-relaxed text-white/85 motion-safe:opacity-0 motion-safe:animate-[rise-in_0.7s_cubic-bezier(0.25,0.1,0.25,1)_0.25s_forwards]"
+          >
             {children}
           </div>
         )}

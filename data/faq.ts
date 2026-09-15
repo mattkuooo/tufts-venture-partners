@@ -12,7 +12,7 @@ export const faqItems: FaqItem[] = [
   {
     question: "What year should I be to apply?",
     answer:
-      "We primarily recruit first-years and sophomores so members have multiple semesters to grow into leadership roles, but we consider strong applicants from any year.",
+      "For Fall 2026, we are offering the Academy, which is open to Tufts students from any year. For Spring 2027 Analysts, we primarily recruit first-years and sophomores so members have multiple semesters to grow into leadership roles, but we consider strong applicants from any year.",
   },
   {
     question: "How much time does membership require?",
