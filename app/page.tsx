@@ -30,7 +30,7 @@ export default function Home() {
           would push the chevron off screen on the screens that need it most. */}
       <section className="relative flex min-h-[calc(100svh-4rem)] items-center overflow-hidden bg-tufts-blue">
         <Image
-          src="/images/jumbo_banner.jpg"
+          src="/images/campus_spring.avif"
           alt=""
           fill
           priority
