@@ -123,14 +123,22 @@ export default function AboutPage() {
                   </p>
                 </div>
               ) : (
-                <div className="mt-6 grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4">
+                /* Leadership row of four, then everyone else five across.
+                   Every card spans the same 4 of 20 columns so the rows
+                   match in size; the first row starts at column 3 to sit
+                   centered over the five below. */
+                <div className="mt-6 grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-20">
                   {members.map((member, i) => (
-                    <MemberCard
+                    <div
                       key={member.name}
-                      member={member}
-                      index={i}
-                      sizes="(min-width: 1024px) 260px, 50vw"
-                    />
+                      className={cn("lg:col-span-4", i === 0 && "lg:col-start-3")}
+                    >
+                      <MemberCard
+                        member={member}
+                        index={i}
+                        sizes="(min-width: 1024px) 210px, 50vw"
+                      />
+                    </div>
                   ))}
                 </div>
               )}

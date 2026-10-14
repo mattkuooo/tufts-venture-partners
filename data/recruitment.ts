@@ -9,7 +9,7 @@ export const recruitmentSteps: RecruitmentStep[] = [
     step: "01",
     title: "General Interest Meeting",
     description:
-      "Come to the GIM at the start of the semester to learn what the club does and what the Academy involves.",
+      "Come to the GIM at the start of the semester to learn what the club does and what analysts work on.",
   },
   {
     step: "02",
@@ -34,28 +34,5 @@ export const recruitmentSteps: RecruitmentStep[] = [
     title: "Decisions",
     description:
       "Offers go out shortly after final rounds. New analysts join the training program the following week.",
-  },
-];
-
-export const whyJoin = [
-  {
-    title: "Real deal experience",
-    description:
-      "Work on live diligence and sourcing for actual investment decisions, not just simulations.",
-  },
-  {
-    title: "Mentorship & network",
-    description:
-      "Learn directly from board members, alumni in venture and startups, and visiting speakers.",
-  },
-  {
-    title: "Structured training",
-    description:
-      "Follow a hands-on curriculum covering financial modeling, market analysis, and diligence frameworks.",
-  },
-  {
-    title: "A community of learners",
-    description:
-      "Join a tight-knit group of students who care about startups, technology, and investing.",
   },
 ];

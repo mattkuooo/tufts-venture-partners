@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
+import { ArrowDown, ArrowRight } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
 import { PageHero } from "@/components/page-hero";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { faqItems } from "@/data/faq";
-import { whyJoin } from "@/data/recruitment";
+import { recruitmentSteps } from "@/data/recruitment";
 import { academy, fallTimeline } from "@/data/schedule";
 import { site } from "@/data/site";
 import { cn } from "@/lib/utils";
@@ -17,7 +19,7 @@ import { cn } from "@/lib/utils";
 export const metadata: Metadata = {
   title: "Get Involved",
   description:
-    "How to join Tufts Venture Partners: recruitment timeline, why members join, and FAQ.",
+    "How to join Tufts Venture Partners: the TVP Academy schedule, how to become an analyst, and FAQ.",
 };
 
 /** Links in the hero sit on navy, so the blue link colour would vanish. */
@@ -51,6 +53,18 @@ export default function ApplyPage() {
           {site.email}
         </a>
         .
+        {/* The page is long and the steps to join sit near the bottom, so the
+            header points straight at them. */}
+        <div className="mt-7">
+          <Button
+            size="lg"
+            className="bg-white text-tufts-blue hover:bg-white/90"
+            nativeButton={false}
+            render={<a href="#join" />}
+          >
+            How to join <ArrowDown className="size-4" />
+          </Button>
+        </div>
       </PageHero>
 
       {/* Replaces the old five-step recruitment timeline. Reads left to right
@@ -131,7 +145,7 @@ export default function ApplyPage() {
       {/* The Academy schedule, in place of the GIM block that used to sit
           here: the GIM has passed, so the cadence and the curriculum are what
           a visitor can still act on. Display type on the slot, because
-          "Wednesdays at 7:30" is the one fact that decides whether someone
+          "Wednesdays at 7" is the one fact that decides whether someone
           can come at all. */}
       <section className="border-b border-border/60 py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-6">
@@ -148,14 +162,15 @@ export default function ApplyPage() {
             </p>
           </Reveal>
 
-          {/* Location is omitted on purpose: it is still TBD in the data, and
-              "TBD" set at 3xl reads as an unfinished page. Add it back as a
-              fourth column once the room is booked. */}
-          <dl className="mt-10 grid gap-x-10 gap-y-8 border-t border-border/60 pt-8 sm:grid-cols-3">
+          {/* Two by two rather than four across: the values are nowrap at
+              3xl, and four columns cannot fit "All Tufts students" at that
+              size. */}
+          <dl className="mt-10 grid gap-x-10 gap-y-8 border-t border-border/60 pt-8 sm:grid-cols-2">
             {[
               ["Term", academy.term],
               ["Each session", academy.sessionLength],
               ["Open to", academy.openTo],
+              ["Location", academy.location],
             ].map(([label, value]) => (
               <div key={label}>
                 <dt className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
@@ -174,52 +189,129 @@ export default function ApplyPage() {
             </p>
           </Reveal>
 
-          {/* Week 1 is the GIM, which has already run, so the list starts at
-              the first session someone arriving now can actually attend.
-              Rows reveal in a single block — per-row stagger would make the
-              schedule read as loading rather than arriving. */}
-          <Reveal delay={0.15} as="ol" className="mt-10 divide-y divide-border border-t border-border/60">
-            {academy.stages.slice(1).map((stage) => (
+          {/* The speaker lineup: date in the label column, topic as the
+              heading, speaker underneath. */}
+          <Reveal delay={0.15}>
+            <div className="mt-12 flex items-center gap-3">
+              <span className="h-px w-10 shrink-0 bg-tufts-blue" />
+              <p className="text-sm font-semibold uppercase tracking-wide text-tufts-blue">
+                Speaker series
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.2} as="ol" className="mt-6 divide-y divide-border border-t border-border/60">
+            {academy.speakers.map((s) => (
               <li
-                key={stage.title}
+                key={s.date}
                 className="grid gap-1 py-5 sm:grid-cols-[150px_1fr] sm:gap-8"
               >
                 <p className="text-sm font-semibold uppercase tracking-wide text-tufts-blue">
-                  {stage.when}
+                  {s.date}
+                  {"day" in s && (
+                    <span className="block text-xs font-medium normal-case tracking-normal text-muted-foreground">
+                      {s.day}
+                    </span>
+                  )}
                 </p>
                 <div>
                   <h3 className="font-heading text-lg font-bold leading-snug text-foreground">
-                    {stage.title}
+                    {s.topic}
                   </h3>
                   <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                    {stage.detail}
+                    {s.speaker ?? "To be announced"}
                   </p>
                 </div>
               </li>
             ))}
           </Reveal>
+          <Reveal delay={0.25}>
+            <a
+              href={site.luma}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-tufts-blue hover:underline"
+            >
+              RSVP for sessions on Luma <ArrowRight className="size-4" />
+            </a>
+          </Reveal>
         </div>
       </section>
 
-      <section className="py-20">
+      {/* The page's second half: everything above is the Academy, open to
+          anyone; this is the analyst track, which takes an application.
+          Replaces a separate Why Join card grid — its generic points
+          restated what the Academy section already shows with real dates and
+          names, so the one reason specific to analysts leads here instead.
+          There is no application link until spring, so the action is the
+          e-list rather than a dead "Apply" button. */}
+      <section id="join" className="py-20">
         <div className="mx-auto max-w-6xl px-6">
           <Reveal>
-            <SectionHeading title="Why Join" />
+            <SectionHeading title="Become an Analyst" />
+            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+              Analysts do the work behind our partnerships: live sourcing,
+              diligence, and market research for the funds we work with, with
+              mentorship from the board and our advisors. We recruit at the
+              start of each semester, and the next cohort begins in Spring
+              2027. No finance background needed.
+            </p>
           </Reveal>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2">
-            {whyJoin.map((item, i) => (
+
+          <ol className="mt-10 grid gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-5">
+            {recruitmentSteps.map((step, i) => (
               <Reveal
-                key={item.title}
-                delay={0.08 + i * 0.08}
-                className="rounded-lg border border-border/60 bg-card p-5 transition-transform duration-300 hover:-translate-y-1"
+                as="li"
+                key={step.step}
+                delay={i * 0.08}
+                className="border-t-2 border-tufts-blue/20 pt-5"
               >
-                <h3 className="font-heading font-bold">{item.title}</h3>
+                <p className="font-heading text-sm font-black text-tufts-blue">
+                  {step.step}
+                </p>
+                <h3 className="font-heading mt-2 font-bold leading-snug text-foreground">
+                  {step.title}
+                </h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {item.description}
+                  {step.description}
                 </p>
               </Reveal>
             ))}
-          </div>
+          </ol>
+
+          <Reveal
+            delay={0.1}
+            className="mt-12 flex flex-col gap-6 rounded-2xl bg-tufts-blue/[0.05] p-6 sm:p-8 lg:flex-row lg:items-center lg:justify-between"
+          >
+            <div>
+              <h3 className="font-heading text-xl font-bold text-foreground">
+                Applications open at the start of the spring semester
+              </h3>
+              <p className="mt-2 max-w-xl leading-relaxed text-muted-foreground">
+                Join the e-list to hear when they do, along with the date of
+                the spring GIM.
+              </p>
+            </div>
+            <div className="flex shrink-0 flex-wrap gap-3">
+              <Button
+                size="lg"
+                className="bg-tufts-blue text-white hover:bg-tufts-blue/90"
+                nativeButton={false}
+                render={
+                  <a href={site.elist} target="_blank" rel="noopener noreferrer" />
+                }
+              >
+                Join the e-list <ArrowRight className="size-4" />
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                nativeButton={false}
+                render={<a href={`mailto:${site.email}`} />}
+              >
+                Email us
+              </Button>
+            </div>
+          </Reveal>
         </div>
       </section>
 

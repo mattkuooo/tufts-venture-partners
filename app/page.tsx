@@ -7,7 +7,6 @@ import { site } from "@/data/site";
 import { academy } from "@/data/schedule";
 import { orgLogos } from "@/data/orgLogos";
 import { boardMembers } from "@/data/team";
-import { cn } from "@/lib/utils";
 
 /** Advisory roles read "Title, Organization" — take the part after the last
  *  comma so the credibility band stays in sync with the roster. */
@@ -30,7 +29,7 @@ export default function Home() {
           would push the chevron off screen on the screens that need it most. */}
       <section className="relative flex min-h-[calc(100svh-4rem)] items-center overflow-hidden bg-tufts-blue">
         <Image
-          src="/images/campus_spring.avif"
+          src="/images/campus_fall_aerial.png"
           alt=""
           fill
           priority
@@ -146,56 +145,51 @@ export default function Home() {
               >
                 Get session reminders <ArrowRight className="size-4" />
               </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                nativeButton={false}
+                render={
+                  <a href={site.luma} target="_blank" rel="noopener noreferrer" />
+                }
+              >
+                RSVP on Luma
+              </Button>
             </div>
           </div>
 
-          {/* The one deep-colour block below the fold: the term as a run of
-              steps, so the shape of the program is legible before anyone reads
-              a word of it. Jumbo blue rather than tufts-blue so the card stays
-              dark if a dark theme is ever switched on. */}
+          {/* The one deep-colour block below the fold: the speaker lineup,
+              so who is coming in is legible at a glance. Jumbo blue rather
+              than tufts-blue so the card stays dark if a dark theme is ever
+              switched on. */}
           <Reveal
             delay={0.15}
             className="self-start rounded-2xl bg-tufts-jumbo-blue p-6 text-white sm:p-7"
           >
-            <ol>
-              {academy.stages.map((stage, i) => {
-                // Pitch Night is the payoff, so it gets the filled marker.
-                const isLast = i === academy.stages.length - 1;
-                return (
-                  <li
-                    key={stage.title}
-                    className="relative flex gap-4 pb-6 last:pb-0"
-                  >
-                    {!isLast && (
-                      <span
-                        aria-hidden
-                        className="absolute bottom-0 left-4 top-9 w-px -translate-x-1/2 bg-white/25"
-                      />
+            <p className="text-xs font-semibold uppercase tracking-wide text-white/55">
+              Speaker series
+            </p>
+            <ol className="mt-4 divide-y divide-white/15">
+              {academy.speakers.map((s) => (
+                <li key={s.date} className="flex gap-4 py-3.5 first:pt-0 last:pb-0">
+                  <p className="w-14 shrink-0 pt-0.5 text-[0.7rem] font-semibold uppercase tracking-wide text-white/55">
+                    {s.date}
+                    {"day" in s && (
+                      <span className="block font-medium normal-case tracking-normal text-white/45">
+                        {s.day.slice(0, 3)}
+                      </span>
                     )}
-                    <span
-                      className={cn(
-                        "font-heading flex size-8 shrink-0 items-center justify-center rounded-full border text-[0.7rem] font-black",
-                        isLast
-                          ? "border-white bg-white text-tufts-jumbo-blue"
-                          : "border-white/35 bg-white/10 text-white"
-                      )}
-                    >
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <div className="pt-0.5">
-                      <p className="text-[0.7rem] font-semibold uppercase tracking-wide text-white/55">
-                        {stage.when}
-                      </p>
-                      <p className="font-heading mt-0.5 text-sm font-bold leading-snug text-white">
-                        {stage.title}
-                      </p>
-                      <p className="mt-1 text-sm leading-snug text-white/70">
-                        {stage.detail}
-                      </p>
-                    </div>
-                  </li>
-                );
-              })}
+                  </p>
+                  <div>
+                    <p className="font-heading text-sm font-bold leading-snug text-white">
+                      {s.speaker ?? "To be announced"}
+                    </p>
+                    <p className="mt-0.5 text-sm leading-snug text-white/70">
+                      {s.topic}
+                    </p>
+                  </div>
+                </li>
+              ))}
             </ol>
           </Reveal>
         </div>
@@ -268,41 +262,6 @@ export default function Home() {
             </Link>
           </Reveal>
         </div>
-      </section>
-
-      {/* Closing CTA: the two ways to stay connected, so the page doesn't
-          dead-end after the logo band. */}
-      <section className="border-t border-border/60">
-        <Reveal className="mx-auto max-w-4xl px-6 py-20 text-center">
-          <h2 className="font-heading text-2xl font-bold text-foreground sm:text-3xl">
-            Stay in the loop
-          </h2>
-          <p className="mx-auto mt-3 max-w-xl leading-relaxed text-muted-foreground">
-            Get session reminders by email, and important announcements on Slack.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Button
-              size="lg"
-              className="bg-tufts-blue text-white hover:bg-tufts-blue/90"
-              nativeButton={false}
-              render={
-                <a href={site.elist} target="_blank" rel="noopener noreferrer" />
-              }
-            >
-              Join the e-list <ArrowRight className="size-4" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              nativeButton={false}
-              render={
-                <a href={site.slack} target="_blank" rel="noopener noreferrer" />
-              }
-            >
-              Join our Slack
-            </Button>
-          </div>
-        </Reveal>
       </section>
     </>
   );

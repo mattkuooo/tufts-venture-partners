@@ -18,44 +18,35 @@ export const gim = {
 } as const;
 
 export const academy = {
-  title: "The Academy",
+  title: "TVP Academy",
   term: "Fall 2026",
-  slot: "Wednesdays at 7:30 p.m.",
-  location: "TBD",
+  slot: "Wednesdays at 7 p.m.",
+  location: "Fletcher M200",
   /** Deliberately short sessions — quoted on the home page. */
   sessionLength: "30–45 minutes",
   /** There is no application and no prerequisite: anyone can walk in. */
   openTo: "All Tufts students",
   description:
     "A guest speaker series on how venture capital works, with case studies and a Pitch Night. Open to all Tufts students.",
-  /** The term in order, matching the working schedule. Week numbers for the
-   *  speaker block are implied by the sheet rather than locked — adjust here
-   *  and the home page follows. */
-  stages: [
+  /** The guest speaker series, in date order. Most sessions are the usual
+   *  Wednesday; the two that are not say so, because the slot above would
+   *  otherwise send people on the wrong night. */
+  speakers: [
+    { date: "Oct 14", topic: "Business 101", speaker: "Jamie Goldstein" },
+    { date: "Oct 21", topic: "VC-backed startups", speaker: "Russ Fradin" },
+    { date: "Oct 28", topic: "Sourcing", speaker: "Jenna Abelli" },
+    { date: "Nov 3", day: "Tuesday", topic: "Due diligence", speaker: "Vivjan Myrto" },
     {
-      when: "Week 1",
-      title: "GIM",
-      detail: "Learn about TVP",
+      date: "Nov 11",
+      topic: "What makes startups succeed, and why most fail",
+      speaker: "Jack Derby",
     },
+    { date: "Nov 18", topic: "Investment documents", speaker: "Ross Leav" },
     {
-      when: "Week 2",
-      title: "VC intro",
-      detail: "Learn about the basics of venture capital",
-    },
-    {
-      when: "Weeks 3–6",
-      title: "Guest speakers",
-      detail: "A career fireside chat, sourcing and memos, diligence, and a startup founder.",
-    },
-    {
-      when: "Weeks 7–10",
-      title: "Case studies",
-      detail: "Four weeks evaluating real companies.",
-    },
-    {
-      when: "Finale",
-      title: "Pitch Night",
-      detail: "Teams pitch and the board gives feedback.",
+      date: "Dec 3",
+      day: "Thursday",
+      topic: "What happens after an investment",
+      speaker: "Rick Grinnell",
     },
   ],
 } as const;

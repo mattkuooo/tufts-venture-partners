@@ -5,7 +5,6 @@ import { cn } from "@/lib/utils";
 export type DetailSection = {
   title: string;
   description: string;
-  points: string[];
   image?: string;
 };
 
@@ -68,20 +67,6 @@ export function DetailSections({
               <p className="mt-5 text-lg leading-relaxed text-foreground">
                 {section.description}
               </p>
-
-              <ul className="mt-6 grid gap-x-8 gap-y-3 sm:grid-cols-2">
-                {section.points.map((point) => (
-                  <li
-                    key={point}
-                    className={cn(
-                      "flex items-center border-l-2 pl-3 text-sm leading-snug text-muted-foreground",
-                      isBlue ? "border-tufts-blue/40" : "border-tufts-brown/40"
-                    )}
-                  >
-                    {point}
-                  </li>
-                ))}
-              </ul>
             </div>
 
             {section.image && (
