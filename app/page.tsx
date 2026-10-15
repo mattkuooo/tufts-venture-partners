@@ -29,7 +29,7 @@ export default function Home() {
           would push the chevron off screen on the screens that need it most. */}
       <section className="relative flex min-h-[calc(100svh-4rem)] items-center overflow-hidden bg-tufts-blue">
         <Image
-          src="/images/campus_fall_aerial.png"
+          src="/images/campus_fall_aerial.jpg"
           alt=""
           fill
           priority
@@ -90,104 +90,75 @@ export default function Home() {
         </Reveal>
       </section>
 
-      {/* The fall's headline program. Its weight comes from the navy schedule
-          card and the type, not a full-bleed colour band — the photo hero is
-          the page's only saturated block, so a second one mid-page read as a
-          repeat rather than an accent. */}
+      {/* The fall's headline program, set like a printed syllabus: the
+          lineup is the content, so it gets the width and the type, and the
+          logistics fold into one sentence instead of a stat row. No card, no
+          eyebrow labels — the photo hero is the page's only saturated block. */}
       <section id="academy" className="border-y border-border/60 bg-card py-24">
-        <div className="mx-auto grid max-w-6xl gap-12 px-6 lg:grid-cols-[1fr_minmax(0,23rem)] lg:gap-16">
-          <div>
-            <Reveal>
-              <div className="flex items-center gap-3">
-                <span className="h-px w-10 shrink-0 bg-tufts-blue" />
-                <p className="text-sm font-semibold uppercase tracking-wide text-tufts-blue">
-                  {academy.term}
-                </p>
-              </div>
-
-              <h2 className="font-heading mt-5 text-4xl font-black text-foreground sm:text-5xl">
-                {academy.title}
-              </h2>
-
-              <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">
-                {academy.description}
+        <div className="mx-auto max-w-6xl px-6">
+          <Reveal className="grid gap-6 lg:grid-cols-2 lg:gap-16">
+            <h2 className="font-heading text-4xl font-black text-foreground sm:text-5xl">
+              {academy.title}
+            </h2>
+            <div>
+              <p className="text-lg leading-relaxed text-muted-foreground">
+                {academy.description} Sessions are{" "}
+                <span className="whitespace-nowrap text-foreground">
+                  {academy.slot}
+                </span>{" "}
+                in <span className="text-foreground">{academy.location}</span>.
               </p>
-            </Reveal>
-
-            {/* A wrapping row rather than a 3-up grid: each stat keeps its own
-                line, so a narrow column can never orphan "p.m." */}
-            <Reveal delay={0.1}>
-              <dl className="mt-9 flex flex-wrap gap-x-10 gap-y-6 border-t border-border/60 pt-7">
-                {[
-                  ["Meets", academy.slot],
-                  ["Location", academy.location],
-                ].map(([label, value]) => (
-                  <div key={label}>
-                    <dt className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                      {label}
-                    </dt>
-                    <dd className="font-heading mt-1.5 whitespace-nowrap text-base font-bold leading-snug text-foreground">
-                      {value}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-            </Reveal>
-
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button
-                size="lg"
-                className="bg-tufts-blue text-white hover:bg-tufts-blue/90"
-                nativeButton={false}
-                render={
-                  <a href={site.elist} target="_blank" rel="noopener noreferrer" />
-                }
-              >
-                Get session reminders <ArrowRight className="size-4" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                nativeButton={false}
-                render={
-                  <a href={site.luma} target="_blank" rel="noopener noreferrer" />
-                }
-              >
-                RSVP on Luma
-              </Button>
+              <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
+                <Button
+                  size="lg"
+                  className="bg-tufts-blue text-white hover:bg-tufts-blue/90"
+                  nativeButton={false}
+                  render={
+                    <a href={site.elist} target="_blank" rel="noopener noreferrer" />
+                  }
+                >
+                  Get session reminders <ArrowRight className="size-4" />
+                </Button>
+                <a
+                  href={site.luma}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-semibold text-tufts-blue underline decoration-tufts-blue/30 underline-offset-4 transition-colors hover:decoration-tufts-blue"
+                >
+                  RSVP on Luma
+                </a>
+              </div>
             </div>
-          </div>
+          </Reveal>
 
-          {/* The one deep-colour block below the fold: the speaker lineup,
-              so who is coming in is legible at a glance. Jumbo blue rather
-              than tufts-blue so the card stays dark if a dark theme is ever
-              switched on. */}
-          <Reveal
-            delay={0.15}
-            className="self-start rounded-2xl bg-tufts-jumbo-blue p-6 text-white sm:p-7"
-          >
-            <p className="text-xs font-semibold uppercase tracking-wide text-white/55">
-              Speaker series
-            </p>
-            <ol className="mt-4 divide-y divide-white/15">
+          {/* Date, speaker, topic across on desktop; on phones the date
+              holds the left column and the speaker and topic stack beside
+              it. Off-night sessions name their day under the date, because
+              the slot above would otherwise send people on the wrong night. */}
+          <Reveal delay={0.1} className="mt-16">
+            <h3 className="font-heading text-lg font-bold text-foreground">
+              {academy.term} speakers
+            </h3>
+            <ol className="mt-4 border-t-2 border-foreground">
               {academy.speakers.map((s) => (
-                <li key={s.date} className="flex gap-4 py-3.5 first:pt-0 last:pb-0">
-                  <p className="w-14 shrink-0 pt-0.5 text-[0.7rem] font-semibold uppercase tracking-wide text-white/55">
+                <li
+                  key={s.date}
+                  className="grid grid-cols-[5rem_1fr] gap-x-6 gap-y-1 border-b border-border py-5 sm:grid-cols-[7rem_16rem_1fr] sm:items-baseline"
+                >
+                  <p className="row-span-2 font-heading text-xl font-bold tabular-nums text-tufts-blue sm:row-span-1">
                     {s.date}
                     {"day" in s && (
-                      <span className="block font-medium normal-case tracking-normal text-white/45">
-                        {s.day.slice(0, 3)}
+                      <span className="block text-sm font-semibold text-tufts-brown">
+                        {s.day}
                       </span>
                     )}
                   </p>
-                  <div>
-                    <p className="font-heading text-sm font-bold leading-snug text-white">
-                      {s.speaker ?? "To be announced"}
-                    </p>
-                    <p className="mt-0.5 text-sm leading-snug text-white/70">
-                      {s.topic}
-                    </p>
-                  </div>
+                  <p className="font-heading text-lg font-bold leading-snug text-foreground">
+                    {s.speaker ?? "To be announced"}
+                  </p>
+                  <p className="col-start-2 leading-snug text-muted-foreground sm:col-start-auto">
+                    {s.topic}
+                  </p>
                 </li>
               ))}
             </ol>
