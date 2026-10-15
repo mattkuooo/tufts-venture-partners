@@ -144,49 +144,37 @@ export default function ApplyPage() {
 
       {/* The Academy schedule, in place of the GIM block that used to sit
           here: the GIM has passed, so the cadence and the curriculum are what
-          a visitor can still act on. Display type on the slot, because
-          "Wednesdays at 7" is the one fact that decides whether someone
-          can come at all. */}
-      <section className="border-b border-border/60 py-16 sm:py-20">
+          a visitor can still act on. Same heading scale as the sections
+          around it; the slot leads the facts row, because "Wednesdays at 7"
+          is the one fact that decides whether someone can come at all. */}
+      <section className="border-b border-border/60 py-20">
         <div className="mx-auto max-w-6xl px-6">
           <Reveal>
-            <div className="flex items-center gap-3">
-              <span className="h-px w-10 shrink-0 bg-tufts-blue" />
-              <p className="text-sm font-semibold uppercase tracking-wide text-tufts-blue">
-                {academy.title}
-              </p>
-            </div>
-
-            <p className="font-heading mt-6 text-4xl font-black leading-[1.05] tracking-tight text-foreground sm:text-6xl">
-              {academy.slot}
+            <SectionHeading title={academy.title} />
+            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+              {academy.description}
             </p>
           </Reveal>
 
-          {/* Two by two rather than four across: the values are nowrap at
-              3xl, and four columns cannot fit "All Tufts students" at that
-              size. */}
-          <dl className="mt-10 grid gap-x-10 gap-y-8 border-t border-border/60 pt-8 sm:grid-cols-2">
-            {[
-              ["Term", academy.term],
-              ["Each session", academy.sessionLength],
-              ["Open to", academy.openTo],
-              ["Location", academy.location],
-            ].map(([label, value]) => (
-              <div key={label}>
-                <dt className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                  {label}
-                </dt>
-                <dd className="font-heading mt-2 text-2xl font-bold leading-snug text-foreground sm:text-3xl">
-                  <span className="whitespace-nowrap">{value}</span>
-                </dd>
-              </div>
-            ))}
-          </dl>
-
           <Reveal delay={0.1}>
-            <p className="mt-10 max-w-2xl text-base leading-relaxed text-muted-foreground">
-              {academy.description}
-            </p>
+            <dl className="mt-10 grid grid-cols-2 gap-x-6 gap-y-6 border-t border-border/60 pt-6 sm:grid-cols-3 lg:grid-cols-5">
+              {[
+                ["When", academy.slot],
+                ["Term", academy.term],
+                ["Each session", academy.sessionLength],
+                ["Open to", academy.openTo],
+                ["Location", academy.location],
+              ].map(([label, value]) => (
+                <div key={label}>
+                  <dt className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                    {label}
+                  </dt>
+                  <dd className="font-heading mt-1.5 text-lg font-bold leading-snug text-foreground">
+                    {value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </Reveal>
 
           {/* The speaker lineup: date in the label column, topic as the
