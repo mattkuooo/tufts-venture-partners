@@ -16,6 +16,7 @@ export function PageHero({
   title,
   image = "/images/boston-aerial.jpg",
   focus = "50% 35%",
+  variant = "band",
   children,
 }: {
   eyebrow?: string;
@@ -34,11 +35,24 @@ export function PageHero({
    *  the band; bias it up or down if you override `image` with a frame whose
    *  subject sits elsewhere. */
   focus?: string;
+  /** `band` is the standard short header. `photo` is for a frame whose
+   *  subject has to stay legible — a group shot, where the band's ~5:1 crop
+   *  cuts the front row at the eyes and the full wash erases every face. It
+   *  runs taller (~2:1 on desktop), washes only from the bottom up, and sets
+   *  the type at the foot of the frame, below the faces. */
+  variant?: "band" | "photo";
   /** The lede. Passed as children so pages can include inline links. */
   children?: ReactNode;
 }) {
+  const isPhoto = variant === "photo" && !!image;
+
   return (
-    <section className="relative overflow-hidden bg-tufts-jumbo-blue">
+    <section
+      className={cn(
+        "relative overflow-hidden bg-tufts-jumbo-blue",
+        isPhoto && "flex h-[min(85vh,47vw)] min-h-[30rem] items-end"
+      )}
+    >
       {image && (
         <>
           <Image
@@ -50,19 +64,34 @@ export function PageHero({
             className="object-cover"
             style={{ objectPosition: focus }}
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-tufts-jumbo-blue/90 via-tufts-jumbo-blue/75 to-tufts-brown/75" />
+          <div
+            className={cn(
+              "absolute inset-0",
+              isPhoto
+                ? "bg-gradient-to-t from-tufts-jumbo-blue/95 via-tufts-jumbo-blue/40 via-45% to-transparent to-75%"
+                : "bg-gradient-to-br from-tufts-jumbo-blue/90 via-tufts-jumbo-blue/75 to-tufts-brown/75"
+            )}
+          />
         </>
       )}
 
       {/* Keeps a flat navy slab from reading as dead fill. Drifts on an
           alternate loop so the band is never quite frozen — slow enough to
-          read as light moving rather than an element moving. */}
-      <div
-        aria-hidden
-        className="hero-drift pointer-events-none absolute -right-24 -top-40 size-[30rem] rounded-full bg-white/[0.07] blur-3xl motion-safe:animate-[drift_18s_ease-in-out_infinite_alternate]"
-      />
+          read as light moving rather than an element moving. A photo hero
+          has no slab to enliven, and the glow would haze the faces. */}
+      {!isPhoto && (
+        <div
+          aria-hidden
+          className="hero-drift pointer-events-none absolute -right-24 -top-40 size-[30rem] rounded-full bg-white/[0.07] blur-3xl motion-safe:animate-[drift_18s_ease-in-out_infinite_alternate]"
+        />
+      )}
 
-      <div className="relative mx-auto max-w-6xl px-6 py-16 sm:py-20">
+      <div
+        className={cn(
+          "relative mx-auto max-w-6xl px-6",
+          isPhoto ? "w-full pb-12 pt-16 sm:pb-14" : "py-16 sm:py-20"
+        )}
+      >
         {eyebrow && (
           <div className="hero-rise flex items-center gap-3 motion-safe:opacity-0 motion-safe:animate-[rise-in_0.7s_cubic-bezier(0.25,0.1,0.25,1)_0.05s_forwards]">
             <span className="h-px w-10 shrink-0 bg-white/50" />

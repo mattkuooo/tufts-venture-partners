@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading } from "@/components/section-heading";
-import { site } from "@/data/site";
 import { boardGroups, boardMembers, type BoardMember } from "@/data/team";
 import { cn } from "@/lib/utils";
 
@@ -85,9 +84,13 @@ function MemberCard({
 export default function AboutPage() {
   return (
     <>
-      <PageHero eyebrow="Executive & Advisory Boards" title="Our Team">
-        {site.whoWeAre}
-      </PageHero>
+      <PageHero
+        eyebrow="Executive & Advisory Boards"
+        title="Our Team"
+        image="/images/team-group.jpg"
+        focus="50% 5%"
+        variant="photo"
+      />
 
       <section className="mx-auto max-w-6xl px-6 py-20">
         {boardGroups.map((group, groupIndex) => {
