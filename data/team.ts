@@ -12,7 +12,7 @@ export const boardMembers: BoardMember[] = [
     name: "Matt Kuo",
     role: "Founder & President",
     group: "Executive Board",
-    image: "/images/board-2026/matt_kuo.jpg",
+    image: "/images/board-2026/matt_kuo_021.jpg",
     href: "https://www.linkedin.com/in/mattmkuo/",
   },
   {
