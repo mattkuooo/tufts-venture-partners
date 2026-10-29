@@ -77,6 +77,13 @@ export const boardMembers: BoardMember[] = [
     imagePosition: "50% 50%",
   },
   {
+    name: "Jennifer Davis",
+    role: "Executive Director, BOOST (Suffolk Technologies)",
+    group: "Advisory Board",
+    image: "/images/jennifer_davis.jpg",
+    imagePosition: "50% 50%",
+  },
+  {
     name: "Andy Feinberg",
     role: "Co-Founder & Managing Partner, Argon Ventures",
     group: "Advisory Board",
@@ -116,13 +123,6 @@ export const boardMembers: BoardMember[] = [
     role: "Investor, Superior Studios",
     group: "Advisory Board",
     image: "/images/danny_goodman.jpg",
-    imagePosition: "50% 50%",
-  },
-  {
-    name: "Adhvith Reddy",
-    role: "ML, Wave Life Sciences",
-    group: "Advisory Board",
-    image: "/images/adhvith_reddy.jpg",
     imagePosition: "50% 50%",
   },
   {
