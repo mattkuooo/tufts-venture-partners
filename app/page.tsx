@@ -143,9 +143,9 @@ export default function Home() {
               {academy.speakers.map((s) => (
                 <li
                   key={s.date}
-                  className="grid grid-cols-[5rem_1fr] gap-x-6 gap-y-1 border-b border-border py-5 sm:grid-cols-[7rem_16rem_1fr] sm:items-baseline"
+                  className="grid grid-cols-[5rem_1fr] gap-x-6 gap-y-3 border-b border-border py-5 lg:grid-cols-[7rem_24rem_1fr] lg:items-center"
                 >
-                  <p className="row-span-2 font-heading text-xl font-bold tabular-nums text-tufts-blue sm:row-span-1">
+                  <p className="row-span-2 font-heading text-xl font-bold tabular-nums text-tufts-blue lg:row-span-1">
                     {s.date}
                     {"day" in s && (
                       <span className="block text-sm font-semibold text-tufts-brown">
@@ -153,10 +153,27 @@ export default function Home() {
                       </span>
                     )}
                   </p>
-                  <p className="font-heading text-lg font-bold leading-snug text-foreground">
-                    {s.speaker ?? "To be announced"}
-                  </p>
-                  <p className="col-start-2 leading-snug text-muted-foreground sm:col-start-auto">
+                  <div className="flex items-center gap-4">
+                    <div className="relative aspect-[4/5] w-14 shrink-0 overflow-hidden bg-secondary">
+                      <Image
+                        src={s.image}
+                        alt={s.speaker}
+                        fill
+                        sizes="56px"
+                        className="object-cover"
+                        style={{ objectPosition: "50% 25%" }}
+                      />
+                    </div>
+                    <div>
+                      <p className="font-heading text-lg font-bold leading-snug text-foreground">
+                        {s.speaker}
+                      </p>
+                      <p className="text-sm leading-snug text-muted-foreground">
+                        {s.role}
+                      </p>
+                    </div>
+                  </div>
+                  <p className="col-start-2 leading-snug text-muted-foreground lg:col-start-auto">
                     {s.topic}
                   </p>
                 </li>
