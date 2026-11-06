@@ -51,16 +51,18 @@ export const boardMembers: BoardMember[] = [
     href: "https://www.linkedin.com/in/sofia-alvazzi/",
   },
   {
-    name: "Cayden Minchen",
+    name: "Cayden/Minchan Kim",
     role: "VP, Client Relations",
     group: "Executive Board",
     image: "/images/board-2026/cayden_minchen.jpg",
+    href: "https://www.linkedin.com/in/minchancaydenkim/",
   },
   {
     name: "Christine Won",
     role: "VP, Marketing",
     group: "Executive Board",
     image: "/images/board-2026/christine_won.jpg",
+    href: "https://www.linkedin.com/in/christine-w-386345263/",
   },
   {
     name: "Michael Williamson",
