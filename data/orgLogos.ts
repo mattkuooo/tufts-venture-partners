@@ -87,4 +87,15 @@ export const orgLogos: Record<string, OrgLogo> = {
     // stacked marks this needs only a small nudge, or it dominates the row.
     scale: 1.4,
   },
+  // Keyed on Jennifer Davis's org exactly as her role names it. BOOST is a
+  // Suffolk Technologies program, so the band shows the Suffolk mark.
+  "BOOST (Suffolk Technologies)": {
+    src: "/images/logos/suffolk-technologies.png",
+    width: 600,
+    height: 173,
+    // A solid two-colour block, so it reads far heavier than a bare wordmark
+    // of the same height. The "TECHNOLOGIES" line shrinks the main lettering
+    // within the box, but only nudge it, or the block dominates the row.
+    scale: 1.45,
+  },
 };
