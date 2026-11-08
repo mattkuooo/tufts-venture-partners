@@ -62,7 +62,7 @@ export const academy = {
       image: "/images/vivjan_myrto.jpg",
     },
     {
-      date: "Nov 5",
+      date: "Nov 12",
       day: "Thursday",
       topic: "What makes startups succeed, and why most fail",
       speaker: "Alaina Hartnett",
