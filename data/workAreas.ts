@@ -10,13 +10,13 @@ export const workAreas: WorkArea[] = [
   {
     title: "On The Ground In Boston",
     description:
-      "As college students, we can get into the rooms investors cannot. We hold tickets and open access to events across Massachusetts, from funder meetups to campus competitions, including the inclusive early-stage ones that firms rarely reach. Founders are more open with us too: talking to a fellow student carries none of the pressure of pitching to an investor, so conversations start earlier and run deeper. And unlike a fund's deal team, we have the time to be in all of these rooms at once.",
+      "As students, we can get into rooms investors can't: founder meetups and campus pitch competitions across Massachusetts, including early-stage events that firms rarely attend. Founders also talk more openly with us. Talking to another student carries none of the pressure of a pitch, so conversations start earlier and go further. And unlike a fund's deal team, we have enough people to cover these events in parallel.",
     image: "/images/boston-team.jpg",
   },
   {
     title: "Technical Diligence",
     description:
-      "Take semiconductors. A chip passes through roughly twenty distinct steps before it ships, from EDA tooling and silicon IP to front-end equipment and advanced packaging, and a startup can sit anywhere in that chain. No VC deal team holds the technical expertise to evaluate every one of them. Rather than hire engineers or bring in outside consultants, our analysts conduct the primary research: validating the idea, questioning the claims, and contributing to your filtering process.",
+      "Take semiconductors. A chip passes through roughly twenty distinct steps before it ships, from EDA tooling and silicon IP to front-end equipment and advanced packaging, and a startup can sit anywhere in that chain. No VC deal team holds the technical expertise to evaluate every one of them. Rather than hire engineers or bring in outside consultants, our analysts do the primary research: they test whether the technology works as claimed and help you decide which companies to pursue.",
     image: "/images/diligence.jpg",
   },
   {

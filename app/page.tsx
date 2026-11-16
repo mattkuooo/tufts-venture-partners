@@ -102,11 +102,12 @@ export default function Home() {
             </h2>
             <div>
               <p className="text-lg leading-relaxed text-muted-foreground">
-                {academy.description} Sessions are{" "}
+                {academy.description} Sessions start at{" "}
                 <span className="whitespace-nowrap text-foreground">
                   {academy.slot}
                 </span>{" "}
-                in <span className="text-foreground">{academy.location}</span>.
+                in <span className="text-foreground">{academy.location}</span>;
+                dates are listed below.
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
                 <Button
@@ -133,8 +134,8 @@ export default function Home() {
 
           {/* Date, speaker, topic across on desktop; on phones the date
               holds the left column and the speaker and topic stack beside
-              it. Off-night sessions name their day under the date, because
-              the slot above would otherwise send people on the wrong night. */}
+              it. Every session names its weekday under the date, because
+              sessions fall on different nights. */}
           <Reveal delay={0.1} className="mt-16">
             <h3 className="font-heading text-lg font-bold text-foreground">
               {academy.term} speakers
@@ -147,11 +148,9 @@ export default function Home() {
                 >
                   <p className="row-span-2 font-heading text-xl font-bold tabular-nums text-tufts-blue lg:row-span-1">
                     {s.date}
-                    {"day" in s && (
-                      <span className="block text-sm font-semibold text-tufts-brown">
-                        {s.day}
-                      </span>
-                    )}
+                    <span className="block text-sm font-semibold text-tufts-brown">
+                      {s.day}
+                    </span>
                   </p>
                   <div className="flex items-center gap-4">
                     <div className="relative aspect-[4/5] w-14 shrink-0 overflow-hidden bg-secondary">

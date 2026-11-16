@@ -4,7 +4,6 @@ import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { PartnerForm } from "@/components/sections/partner-form";
 import { site } from "@/data/site";
-import { partnershipTerms } from "@/data/partnership";
 
 export const metadata: Metadata = {
   title: "Partner With Us",
@@ -16,10 +15,9 @@ export default function PartnerPage() {
   return (
     <>
       <PageHero eyebrow="VCs · Founders · Operators" title="Partner With Us">
-        We work closely with VCs, founders, and operators as guest speakers,
-        mentors, and sources of deal flow for our diligence teams. If
-        you&apos;re interested in engaging with {site.name}, we&apos;d love to
-        hear from you.
+        VCs, founders, and operators work with us as guest speakers, mentors,
+        and sources of deal flow for our diligence teams. If you&apos;d like
+        to work with {site.name}, get in touch below.
       </PageHero>
 
       {/* The case for the analysts, first. One ground for the whole page
@@ -32,16 +30,12 @@ export default function PartnerPage() {
           </Reveal>
           <Reveal delay={0.1}>
           <p className="mt-5 max-w-4xl text-lg leading-relaxed text-muted-foreground">
-            Our board and its cohort go beyond the traditional finance
-            background you would expect from a finance club. We recruit
-            engineers, chemists, and even political scientists to cover
-            different industries, and the liberal arts curriculum does the
-            rest: students here take classes beyond their intended majors and
-            build interdisciplinary skills across fields. Every analyst ends
-            up with a different skill set, so each is tailored to a different
-            kind of technical diligence. That breadth is one of the biggest
-            advantages of working with Tufts students: our bandwidth goes above
-            and beyond the typical finance-heavy talent pool.
+            Our board and analysts aren&apos;t only finance students. We
+            recruit engineers, chemists, and political scientists to cover
+            different industries, and Tufts&apos; liberal arts curriculum means
+            most of them have taken classes well outside their majors. Each
+            analyst brings a different mix of skills, so we can match analysts
+            to the technical diligence a deal needs.
           </p>
           </Reveal>
         </div>
@@ -97,33 +91,6 @@ export default function PartnerPage() {
             className="rounded-2xl border border-border/60 bg-card p-6 sm:p-8"
           >
             <PartnerForm />
-          </Reveal>
-        </div>
-      </section>
-
-      {/* The mechanics last, for anyone who read the form and wants the terms
-          before they fill it in. */}
-      <section className="border-t border-border/60 py-20">
-        <div className="mx-auto max-w-6xl px-6">
-          <Reveal>
-            <SectionHeading title="How The Partnership Runs" />
-          </Reveal>
-          <Reveal as="dl" delay={0.1} className="mt-8 max-w-3xl divide-y divide-border">
-            {partnershipTerms.map((term) => (
-              <div
-                key={term.label}
-                className="grid gap-2 py-6 first:pt-0 last:pb-0 sm:grid-cols-[140px_1fr] sm:gap-10"
-              >
-                {/* One label colour throughout: these terms are a single set,
-                    not alternating categories. */}
-                <dt className="text-sm font-semibold uppercase tracking-wide text-tufts-blue">
-                  {term.label}
-                </dt>
-                <dd className="text-base leading-relaxed text-foreground">
-                  {term.description}
-                </dd>
-              </div>
-            ))}
           </Reveal>
         </div>
       </section>
