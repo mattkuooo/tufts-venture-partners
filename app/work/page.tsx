@@ -20,14 +20,13 @@ export default function WorkPage() {
         eyebrow="Boston Coverage · Technical Diligence · Market Research"
         title="Our Work"
       >
-        Boston&apos;s universities are how we find founders at the
-        super-early stage. Campus events at Tufts, Harvard, MIT, BC, BU, and
-        Northeastern put us in the room while a team is still taking shape.
-        Boston is also the hub for biotech, robotics, physical AI, and more,
-        so we do more than increase deal flow for VCs: we are the bridge that
-        introduces these investment opportunities to firms not based in
-        Boston, and we fill the technical expertise those firms need to
-        evaluate them.
+        We find founders at the earliest stage through Boston&apos;s
+        universities. Campus events at Tufts, Harvard, MIT, BC, BU, and
+        Northeastern put us in the room while a team is still forming. Boston
+        is also a hub for biotech, robotics, and physical AI, so besides
+        sending deal flow, we introduce these companies to firms based outside
+        Boston and supply the technical expertise those firms need to evaluate
+        them.
       </PageHero>
 
       <section className="py-20">

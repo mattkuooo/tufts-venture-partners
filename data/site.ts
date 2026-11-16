@@ -3,7 +3,7 @@ export const site = {
   shortName: "TVP",
   tagline: "Tufts' student-run venture capital club.",
   mission:
-    "Tufts Venture Partners exists to give students hands-on experience in venture capital: sourcing deals, running diligence, and building relationships with founders and investors, all while building a community of students passionate about startups and technology.",
+    "Tufts Venture Partners gives students hands-on experience in venture capital: sourcing deals, running diligence, and working with founders and investors. Along the way we're building a community of Tufts students who care about startups and technology.",
   whoWeAre:
     "Our team brings together students from majors across finance and engineering. Feel free to reach out to any of us for coffee if you have any questions about venture capital or the recruitment process.",
   email: "info@tuftsventurepartners.org",

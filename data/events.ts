@@ -10,7 +10,7 @@ export const eventAreas: EventArea[] = [
   {
     title: "TVP Academy",
     description:
-      "Our training program for all Tufts students — no experience needed. We'll have guest speakers walk you through how venture capital works, go through several case studies, and close it off with a Pitch Night.",
+      "Our training program, open to all Tufts students with no experience needed. Guest speakers walk you through how venture capital works, then we work through case studies together and finish with a Pitch Night.",
     image: "/images/academy.jpg",
   },
   {
@@ -20,8 +20,7 @@ export const eventAreas: EventArea[] = [
     image: "/images/fireside-chat.jpg",
   },
   {
-    title: "Pitch Competitions",
-    description:
-      "We host and judge pitch competitions that bring student founders together with VC clubs from across Boston, giving Tufts entrepreneurs the chance to pitch to a real audience and giving our analysts practice evaluating companies under time pressure.",
+    title: "Pitch Competitions + Hackathons",
+    description: "Coming in 2027.",
   },
 ];

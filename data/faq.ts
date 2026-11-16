@@ -27,6 +27,6 @@ export const faqItems: FaqItem[] = [
   {
     question: "When do you recruit?",
     answer:
-      "We run recruitment cycles at the start of the fall and spring semesters. Follow our Instagram or LinkedIn for exact dates and info session details.",
+      "We usually recruit analysts at the start of each semester. This fall we're running TVP Academy instead, so the next analyst cohort starts in Spring 2027. Follow our Instagram or LinkedIn for exact dates and info session details.",
   },
 ];

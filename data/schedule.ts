@@ -20,7 +20,9 @@ export const gim = {
 export const academy = {
   title: "TVP Academy",
   term: "Fall 2026",
-  slot: "Wednesdays at 7 p.m.",
+  /** Start time only: sessions move between weeknights, so each speaker
+   *  carries its own `day` below. */
+  slot: "7 p.m.",
   location: "Fletcher M200",
   /** Deliberately short sessions — quoted on the home page. */
   sessionLength: "30–45 minutes",
@@ -28,12 +30,13 @@ export const academy = {
   openTo: "All Tufts students",
   description:
     "A guest speaker series on how venture capital works, with case studies and a Pitch Night. Open to all Tufts students.",
-  /** The guest speaker series, in date order. Most sessions are the usual
-   *  Wednesday; the two that are not say so, because the slot above would
-   *  otherwise send people on the wrong night. */
+  /** The guest speaker series, in date order. Every session names its
+   *  weekday, because sessions fall on different nights. Keep `day` in step
+   *  with `date`. */
   speakers: [
     {
       date: "Oct 14",
+      day: "Wednesday",
       topic: "Business 101",
       speaker: "Jamie Goldstein",
       role: "Founding Partner, Pillar VC",
@@ -41,6 +44,7 @@ export const academy = {
     },
     {
       date: "Oct 21",
+      day: "Wednesday",
       topic: "VC-backed startups",
       speaker: "Russ Fradin",
       role: "Co-founder & CEO, Larridin",
@@ -48,7 +52,8 @@ export const academy = {
     },
     {
       date: "Oct 28",
-      topic: "Sourcing",
+      day: "Wednesday",
+      topic: "Sourcing 101",
       speaker: "Jenna Abelli",
       role: "Principal, Anzu Partners",
       image: "/images/jenna_abelli.jpg",
@@ -56,7 +61,7 @@ export const academy = {
     {
       date: "Nov 3",
       day: "Tuesday",
-      topic: "Due diligence",
+      topic: "Deep Tech Due Diligence",
       speaker: "Vivjan Myrto",
       role: "Co-founder & Partner, Hyperplane",
       image: "/images/vivjan_myrto.jpg",
@@ -70,8 +75,9 @@ export const academy = {
       image: "/images/alaina_hartnett.jpg",
     },
     {
-      date: "Nov 18",
-      topic: "Investment documents",
+      date: "Nov 17",
+      day: "Tuesday",
+      topic: "Investment Document - Term Sheet",
       speaker: "Ross Leav",
       role: "Senior Vice President, Presidio Ventures",
       image: "/images/ross_leav.jpg",

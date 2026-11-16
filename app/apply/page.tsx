@@ -19,7 +19,7 @@ import { cn } from "@/lib/utils";
 export const metadata: Metadata = {
   title: "Get Involved",
   description:
-    "How to join Tufts Venture Partners: the TVP Academy schedule, how to become an analyst, and FAQ.",
+    "How to join Tufts Venture Partners: the fall timeline, how to become an analyst, and FAQ.",
 };
 
 /** Links in the hero sit on navy, so the blue link colour would vanish. */
@@ -142,96 +142,9 @@ export default function ApplyPage() {
         </div>
       </section>
 
-      {/* The Academy schedule, in place of the GIM block that used to sit
-          here: the GIM has passed, so the cadence and the curriculum are what
-          a visitor can still act on. Same heading scale as the sections
-          around it; the slot leads the facts row, because "Wednesdays at 7"
-          is the one fact that decides whether someone can come at all. */}
-      <section className="border-b border-border/60 py-20">
-        <div className="mx-auto max-w-6xl px-6">
-          <Reveal>
-            <SectionHeading title={academy.title} />
-            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-              {academy.description}
-            </p>
-          </Reveal>
-
-          <Reveal delay={0.1}>
-            <dl className="mt-10 grid grid-cols-2 gap-x-6 gap-y-6 border-t border-border/60 pt-6 sm:grid-cols-3 lg:grid-cols-5">
-              {[
-                ["When", academy.slot],
-                ["Term", academy.term],
-                ["Each session", academy.sessionLength],
-                ["Open to", academy.openTo],
-                ["Location", academy.location],
-              ].map(([label, value]) => (
-                <div key={label}>
-                  <dt className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                    {label}
-                  </dt>
-                  <dd className="font-heading mt-1.5 text-lg font-bold leading-snug text-foreground">
-                    {value}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </Reveal>
-
-          {/* The speaker lineup: date in the label column, topic as the
-              heading, speaker underneath. */}
-          <Reveal delay={0.15}>
-            <div className="mt-12 flex items-center gap-3">
-              <span className="h-px w-10 shrink-0 bg-tufts-blue" />
-              <p className="text-sm font-semibold uppercase tracking-wide text-tufts-blue">
-                Speaker series
-              </p>
-            </div>
-          </Reveal>
-          <Reveal delay={0.2} as="ol" className="mt-6 divide-y divide-border border-t border-border/60">
-            {academy.speakers.map((s) => (
-              <li
-                key={s.date}
-                className="grid gap-1 py-5 sm:grid-cols-[150px_1fr] sm:gap-8"
-              >
-                <p className="text-sm font-semibold uppercase tracking-wide text-tufts-blue">
-                  {s.date}
-                  {"day" in s && (
-                    <span className="block text-xs font-medium normal-case tracking-normal text-muted-foreground">
-                      {s.day}
-                    </span>
-                  )}
-                </p>
-                <div>
-                  <h3 className="font-heading text-lg font-bold leading-snug text-foreground">
-                    {s.topic}
-                  </h3>
-                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                    {s.speaker ?? "To be announced"}
-                  </p>
-                </div>
-              </li>
-            ))}
-          </Reveal>
-          <Reveal delay={0.25}>
-            <a
-              href={site.luma}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-tufts-blue hover:underline"
-            >
-              RSVP for sessions on Luma <ArrowRight className="size-4" />
-            </a>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* The page's second half: everything above is the Academy, open to
-          anyone; this is the analyst track, which takes an application.
-          Replaces a separate Why Join card grid — its generic points
-          restated what the Academy section already shows with real dates and
-          names, so the one reason specific to analysts leads here instead.
-          There is no application link until spring, so the action is the
-          e-list rather than a dead "Apply" button. */}
+      {/* The analyst track, which takes an application. There is no
+          application link until spring, so the action is the e-list rather
+          than a dead "Apply" button. */}
       <section id="join" className="py-20">
         <div className="mx-auto max-w-6xl px-6">
           <Reveal>
