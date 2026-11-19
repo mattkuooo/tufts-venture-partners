@@ -23,6 +23,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(site.url),
   title: {
     default: site.name,
     template: `%s | ${site.name}`,
@@ -32,6 +33,7 @@ export const metadata: Metadata = {
     title: site.name,
     description: site.tagline,
     type: "website",
+    siteName: site.name,
   },
 };
 

@@ -1,6 +1,7 @@
 export const site = {
   name: "Tufts Venture Partners",
   shortName: "TVP",
+  url: "https://www.tuftsventurepartners.org",
   tagline: "Tufts' student-run venture capital club.",
   mission:
     "Tufts Venture Partners gives students hands-on experience in venture capital: sourcing deals, running diligence, and working with founders and investors. Along the way we're building a community of Tufts students who care about startups and technology.",
